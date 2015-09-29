@@ -18,7 +18,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     }).
 
     when('/contract/:id', {
-      templateUrl: '/partials/single.html',
+      templateUrl: '/partials/contract.html',
       controller: 'ContractController'
     }).
 
@@ -26,7 +26,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       redirectTo: '/'
     });
 
-  //$locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 
 }]);
 
