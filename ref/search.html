@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/images/favicon.ico">
+
+    <title>PH-EITI : Resource Contracts</title>
+
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/css/metisMenu.min.css" rel="stylesheet">
+    <link href="/public/css/timeline.css" rel="stylesheet">
+    <link href="/public/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/public/css/style_old.css" rel="stylesheet">
+    <link href="/public/css/style.css" rel="stylesheet">
+    <link href="/public/css/morris.css" rel="stylesheet">
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/public/css/select2.min.css" rel="stylesheet">
+    <link href="/subsite.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/metisMenu.min.js"></script>
+    <script src="/public/js/raphael-min.js"></script>
+    <script src="/public/js/script.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/sb-admin-2.js"></script>
+
+    <script src="/subsite.js"></script>
+
+    <script>
+        $(function() {
+            $('.search-top-wrapper .panel-title span').text(getParam('q'));
+
+            $(function() {
+                $.ajax({
+                    url: 'http://rc-elasticsearch.elasticbeanstalk.com/api/contracts/search?q=' + getParam('q') + '&from=0&per_page=1000&group=metadata,annotations',
+                    data: {
+                        'per_page': 1000
+                    },
+                    success: function(data) {
+
+                        var data = JSON.parse(data);
+
+                        console.log(data);
+
+                        var html = '';
+                        $.each(data.results, function(i, v) {
+                            html += "<tr><td><a href='contract.html'>"+ v.contract_name +"</a></td></tr>"
+                        });
+
+                        $('.table-contract-list').append(html);
+
+                        $('.contract-search-number-wrap span').html(data.total);
+
+                    }
+                });
+            });
+
+        })
+
+    </script>
+
+</head>
+<body>
+<div id="wrapper">
+    <div id="page-wrapper" class="not-front sidebar-collapse-container">
+        <div class="row">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <span data-toggle="collapse-sidebar" data-target=".sidebar-collapse" data-target-2=".sidebar-collapse-container" class="pull-left trigger">trigger</span>
+                    <a class="navbar-brand" href="http://rc-site-stage.elasticbeanstalk.com/rc/public"><img src="/images/ph-eiti.png" style="width: 180px; display: inline-block;" /></a>
+
+                </div>
+                <div class="col-sm-12 col-md-9 col-lg-10 navbar-right">
+                </div>
+            </nav>
+        </div>
+
+        <div id="sidebar-wrapper" class="sidebar-collapse in">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public">Resource <span class="beta">Beta</span><span>Contracts</span></a>
+
+                </li>
+                <li class="contracts active">
+                    <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts">
+                        <span>All Contracts</span>
+
+                        <small class="label pull-right">344</small>
+                    </a>
+                </li>
+
+                <li class="resources">
+                    <label>Resources</label>
+                    <ul>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Aluminium">
+                                <span>Aluminium</span>
+                                <small class="label pull-right">26</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Base metals">
+                                <span>Base metals</span>
+                                <small class="label pull-right">2</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Bauxite">
+                                <span>Bauxite</span>
+                                <small class="label pull-right">39</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Coal">
+                                <span>Coal</span>
+                                <small class="label pull-right">2</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Cobalt">
+                                <span>Cobalt</span>
+                                <small class="label pull-right">2</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Contrat de Joint Venture relatif &agrave; l&#039;exploitation des gisements Cupro cobaltiferes.--wildCobalt">
+                                <span>Contrat de Joint Venture relatif &agrave; l&#039;exploitation des gisements Cupro cobaltiferes.--wildCobalt</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Convention de Joint Venture pour &eacute;tablir une soci&eacute;t&eacute; priv&eacute;e &agrave; responsabilit&eacute; limit&eacute;e ayant pour objet la prospection">
+                                <span>Convention de Joint Venture pour &eacute;tablir une soci&eacute;t&eacute; priv&eacute;e &agrave; responsabilit&eacute; limit&eacute;e ayant pour objet la prospection</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Copper">
+                                <span>Copper</span>
+                                <small class="label pull-right">7</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Crude oil (meaning crude mineral oil">
+                                <span>Crude oil (meaning crude mineral oil</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Diamonds">
+                                <span>Diamonds</span>
+                                <small class="label pull-right">13</small>
+                            </a>
+                        </li>
+                        <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resources">View all</a></li>
+                    </ul>
+                </li>
+                <li class="year">
+                    <label>Year</label>
+                    <ul>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2015">
+                                <span>2015</span>
+                                <small class="label pull-right">4</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2014">
+                                <span>2014</span>
+                                <small class="label pull-right">5</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2013">
+                                <span>2013</span>
+                                <small class="label pull-right">3</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2012">
+                                <span>2012</span>
+                                <small class="label pull-right">19</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2011">
+                                <span>2011</span>
+                                <small class="label pull-right">16</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2010">
+                                <span>2010</span>
+                                <small class="label pull-right">32</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2009">
+                                <span>2009</span>
+                                <small class="label pull-right">17</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2008">
+                                <span>2008</span>
+                                <small class="label pull-right">12</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2007">
+                                <span>2007</span>
+                                <small class="label pull-right">30</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2006">
+                                <span>2006</span>
+                                <small class="label pull-right">28</small>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul id="year-more" style="display: none">
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2005">
+                                <span>2005</span>
+                                <small class="label pull-right">26</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2004">
+                                <span>2004</span>
+                                <small class="label pull-right">12</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2003">
+                                <span>2003</span>
+                                <small class="label pull-right">11</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2002">
+                                <span>2002</span>
+                                <small class="label pull-right">7</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2001">
+                                <span>2001</span>
+                                <small class="label pull-right">7</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2000">
+                                <span>2000</span>
+                                <small class="label pull-right">14</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1999">
+                                <span>1999</span>
+                                <small class="label pull-right">7</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1998">
+                                <span>1998</span>
+                                <small class="label pull-right">9</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1997">
+                                <span>1997</span>
+                                <small class="label pull-right">9</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1996">
+                                <span>1996</span>
+                                <small class="label pull-right">5</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1995">
+                                <span>1995</span>
+                                <small class="label pull-right">8</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1994">
+                                <span>1994</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1993">
+                                <span>1993</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1992">
+                                <span>1992</span>
+                                <small class="label pull-right">4</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1991">
+                                <span>1991</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1990">
+                                <span>1990</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1986">
+                                <span>1986</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1973">
+                                <span>1973</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1964">
+                                <span>1964</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1963">
+                                <span>1963</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1958">
+                                <span>1958</span>
+                                <small class="label pull-right">1</small>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div><a href="#year-more" class="toggle-all">More</a></div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 panel-top-wrapper search-top-wrapper">
+                <div class="panel-top-content">
+                    <div class="pull-left">
+                        <div class="panel-title">
+                            Search results for <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!--
+            <div class="filter-wrapper">
+                <div class="col-lg-12">
+                    <div class="filter-country-wrap">
+                        <form action="http://rc-site-stage.elasticbeanstalk.com/rc/public/search" method="get" class="search-form  search-page-form "
+                              id="search-form">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-navbar-search pull-left"></button>
+                                <input type="text" autocomplete="off" value="test" name="q"
+                                       class="form-control pull-left" placeholder="Search for contracts...">
+                            </div>
+                            <div class="search-input-wrapper  search-page-input-wrapper ">
+                                <div class="col-lg-12">
+                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+                                        <label for="">Year signed</label>
+                                        <select name="year[]" id="year" multiple="multiple">
+                                            <option      value="2015">2015</option>
+                                            <option      value="2014">2014</option>
+                                            <option      value="2013">2013</option>
+                                            <option      value="2012">2012</option>
+                                            <option      value="2011">2011</option>
+                                            <option      value="2010">2010</option>
+                                            <option      value="2009">2009</option>
+                                            <option      value="2008">2008</option>
+                                            <option      value="2007">2007</option>
+                                            <option      value="2006">2006</option>
+                                            <option      value="2005">2005</option>
+                                            <option      value="2004">2004</option>
+                                            <option      value="2003">2003</option>
+                                            <option      value="2002">2002</option>
+                                            <option      value="2001">2001</option>
+                                            <option      value="2000">2000</option>
+                                            <option      value="1999">1999</option>
+                                            <option      value="1998">1998</option>
+                                            <option      value="1997">1997</option>
+                                            <option      value="1996">1996</option>
+                                            <option      value="1995">1995</option>
+                                            <option      value="1994">1994</option>
+                                            <option      value="1993">1993</option>
+                                            <option      value="1992">1992</option>
+                                            <option      value="1991">1991</option>
+                                            <option      value="1990">1990</option>
+                                            <option      value="1986">1986</option>
+                                            <option      value="1973">1973</option>
+                                            <option      value="1964">1964</option>
+                                            <option      value="1963">1963</option>
+                                            <option      value="1958">1958</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+                                        <label for="">Country</label>
+                                        <select name="country[]" id="" multiple="multiple">
+                                            <option  value="af">Afghanistan</option>
+                                            <option  value="ao">Angola</option>
+                                            <option  value="az">Azerbaijan</option>
+                                            <option  value="bf">Burkina Faso</option>
+                                            <option  value="bi">Burundi</option>
+                                            <option  value="bj">Benin</option>
+                                            <option  value="bn">Brunei Darussalam</option>
+                                            <option  value="bo">Bolivia, Plurinational State of</option>
+                                            <option  value="bz">Belize</option>
+                                            <option  value="cd">Democratic Republic of the Congo</option>
+                                            <option  value="cg">Congo</option>
+                                            <option  value="cl">Chile</option>
+                                            <option  value="cm">Cameroon</option>
+                                            <option  value="cn">China</option>
+                                            <option  value="co">Colombia</option>
+                                            <option  value="dz">Algeria</option>
+                                            <option  value="ec">Ecuador</option>
+                                            <option  value="eg">Egypt</option>
+                                            <option  value="ga">Gabon</option>
+                                            <option  value="ge">Georgia</option>
+                                            <option  value="gm">Gambia</option>
+                                            <option  value="gn">Guinea</option>
+                                            <option  value="gq">Equatorial Guinea</option>
+                                            <option  value="id">Indonesia</option>
+                                            <option  value="in">India</option>
+                                            <option  value="iq">Iraq</option>
+                                            <option  value="ke">Kenya</option>
+                                            <option  value="kz">Kazakhstan</option>
+                                            <option  value="lr">Liberia</option>
+                                            <option  value="ly">Libyan Arab Jamahiriya</option>
+                                            <option  value="ma">Morocco</option>
+                                            <option  value="mg">Madagascar</option>
+                                            <option  value="mm">Myanmar</option>
+                                            <option  value="mn">Mongolia</option>
+                                            <option  value="mr">Mauritania</option>
+                                            <option  value="mx">Mexico</option>
+                                            <option  value="ne">Niger</option>
+                                            <option  value="ng">Nigeria</option>
+                                            <option  value="pe">Peru</option>
+                                            <option  value="pt">Portugal</option>
+                                            <option  value="py">Paraguay</option>
+                                            <option  value="sl">Sierra Leone</option>
+                                            <option  value="so">Somalia</option>
+                                            <option  value="sy">Syrian Arab Republic</option>
+                                            <option  value="td">Chad</option>
+                                            <option  value="tj">Tajikistan</option>
+                                            <option  value="tl">Timor - Leste</option>
+                                            <option  value="tn">Tunisia</option>
+                                            <option  value="tz">Tanzania, United Republic of</option>
+                                            <option  value="ug">Uganda</option>
+                                            <option  value="ye">Yemen</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+                                        <label for="">Resource</label>
+                                        <select name="resource[]" id="" multiple="multiple">
+                                            <option  value="Aluminium">Aluminium</option>
+                                            <option  value="Base metals">Base metals</option>
+                                            <option  value="Bauxite">Bauxite</option>
+                                            <option  value="Coal">Coal</option>
+                                            <option  value="Cobalt">Cobalt</option>
+                                            <option  value="Contrat de Joint Venture relatif &agrave; l&#039;exploitation des gisements Cupro cobaltiferes.--wildCobalt">Contrat de Joint Venture relatif &agrave; l&#039;exploitation des gisements Cupro cobaltiferes.--wildCobalt</option>
+                                            <option  value="Convention de Joint Venture pour &eacute;tablir une soci&eacute;t&eacute; priv&eacute;e &agrave; responsabilit&eacute; limit&eacute;e ayant pour objet la prospection">Convention de Joint Venture pour &eacute;tablir une soci&eacute;t&eacute; priv&eacute;e &agrave; responsabilit&eacute; limit&eacute;e ayant pour objet la prospection</option>
+                                            <option  value="Copper">Copper</option>
+                                            <option  value="Crude oil (meaning crude mineral oil">Crude oil (meaning crude mineral oil</option>
+                                            <option  value="Diamonds">Diamonds</option>
+                                            <option  value="Gold">Gold</option>
+                                            <option  value="Hydrocarbons">Hydrocarbons</option>
+                                            <option  value="Ilmenite">Ilmenite</option>
+                                            <option  value="Iron ore">Iron ore</option>
+                                            <option  value="KIMIN--wildCobalt">KIMIN--wildCobalt</option>
+                                            <option  value="Lithium">Lithium</option>
+                                            <option  value="Manganese">Manganese</option>
+                                            <option  value="Molybdenum">Molybdenum</option>
+                                            <option  value="Other Minerals">Other Minerals</option>
+                                            <option  value="Other minerals">Other minerals</option>
+                                            <option  value="Silver">Silver</option>
+                                            <option  value="Tin">Tin</option>
+                                            <option  value="Titanium">Titanium</option>
+                                            <option  value="Uranium">Uranium</option>
+                                            <option  value="and all kinds of hydrocarbons and bitumen
+regardless of gravity">and all kinds of hydrocarbons and bitumen
+                                                regardless of gravity</option>
+                                            <option  value="and natural gas (meaning all hydrocarbons that are in gaseous phase at STP">and natural gas (meaning all hydrocarbons that are in gaseous phase at STP</option>
+                                            <option  value="asphalt">asphalt</option>
+                                            <option  value="but except for condensed or extracted liquid hydrocarbons)--wildGas">but except for condensed or extracted liquid hydrocarbons)--wildGas</option>
+                                            <option  value="but except for condensed or extracted liquid hydrocarbons)--wildHydrocarbons">but except for condensed or extracted liquid hydrocarbons)--wildHydrocarbons</option>
+                                            <option  value="condensate">condensate</option>
+                                            <option  value="d&eacute;tient le permis d&#039;exploitation et le certificat d&#039;exploitation couvrant le gisement">d&eacute;tient le permis d&#039;exploitation et le certificat d&#039;exploitation couvrant le gisement</option>
+                                            <option  value="either solid or liquid">either solid or liquid</option>
+                                            <option  value="et signera un contract de cession de ces titres avec la soci&eacute;t&eacute; de joint venture">et signera un contract de cession de ces titres avec la soci&eacute;t&eacute; de joint venture</option>
+                                            <option  value="in their natural condition or obtained from Natural Gas by condensation
+or extraction">in their natural condition or obtained from Natural Gas by condensation
+                                                or extraction</option>
+                                            <option  value="including natural gas liquids)">including natural gas liquids)</option>
+                                            <option  value="l&#039;entreprise publique qui est l&#039;associ&eacute; de Somika dans le Joint Venture">l&#039;entreprise publique qui est l&#039;associ&eacute; de Somika dans le Joint Venture</option>
+                                            <option  value="ozocerite">ozocerite</option>
+                                            <option  value="recherche et commercialisation de cuivre High Grade et de Cobalt Cathodique. GECAMINES">recherche et commercialisation de cuivre High Grade et de Cobalt Cathodique. GECAMINES</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+                                        <label for="">Company Name</label>
+                                        <select name="company_name[]" id="" multiple="multiple">
+                                            <option  value="A&amp;T Petroleum Company Ltd">A&amp;T Petroleum Company Ltd</option>
+                                            <option  value="AGIP Recherches Congo">AGIP Recherches Congo</option>
+                                            <option  value="AMOCO CASPIAN SEA PETROLEUM LIMITED">AMOCO CASPIAN SEA PETROLEUM LIMITED</option>
+                                            <option  value="Afghan Krystal Natural Resources Company">Afghan Krystal Natural Resources Company</option>
+                                            <option  value="African Aura Resources Limited">African Aura Resources Limited</option>
+                                            <option  value="African Minerals Limited">African Minerals Limited</option>
+                                            <option  value="Agip Recherches Congo">Agip Recherches Congo</option>
+                                            <option  value="Agip Recherches Congo S.A">Agip Recherches Congo S.A</option>
+                                            <option  value="Alliance Mining Commoditites Guin&eacute;e SARL">Alliance Mining Commoditites Guin&eacute;e SARL</option>
+                                            <option  value="Anatoly Patchenko">Anatoly Patchenko</option>
+                                            <option  value="Ansan Wikfs (Haudramaut) Ltd">Ansan Wikfs (Haudramaut) Ltd</option>
+                                            <option  value="Areva NC">Areva NC</option>
+                                            <option  value="Aria Popal Company">Aria Popal Company</option>
+                                            <option  value="Atlantic Energy Drilling Concepts Nigeria Limited">Atlantic Energy Drilling Concepts Nigeria Limited</option>
+                                            <option  value="BP EXPLORATION (CASPIAN SEA) LIMITED">BP EXPLORATION (CASPIAN SEA) LIMITED</option>
+                                            <option  value="BP Exploration Angola (Kwanza Benguela) Limited">BP Exploration Angola (Kwanza Benguela) Limited</option>
+                                            <option  value="BSG Resource (Guinea) Limited SARL">BSG Resource (Guinea) Limited SARL</option>
+                                            <option  value="Bharat PetroResources JPDA Limited">Bharat PetroResources JPDA Limited</option>
+                                            <option  value="Blue Chip energy S.A.">Blue Chip energy S.A.</option>
+                                            <option  value="Borgakim Mining SPRL">Borgakim Mining SPRL</option>
+                                            <option  value="Boss Mining (BM) Sprl">Boss Mining (BM) Sprl</option>
+                                            <option  value="Broadway Consolidated PLC">Broadway Consolidated PLC</option>
+                                            <option  value="Burundi Mining Metallurgy International">Burundi Mining Metallurgy International</option>
+                                            <option  value="CAMAC Energy Kenya Limited">CAMAC Energy Kenya Limited</option>
+                                            <option  value="CHINA NATIONAL PETROLEUM CORPORATION">CHINA NATIONAL PETROLEUM CORPORATION</option>
+                                            <option  value="CHINA UNITED COALBED METHANE CORPORATION LTD">CHINA UNITED COALBED METHANE CORPORATION LTD</option>
+                                            <option  value="CIE Angola Block 20 LTD">CIE Angola Block 20 LTD</option>
+                                            <option  value="CNPC International Limited">CNPC International Limited</option>
+                                            <option  value="CNPCI Watan Oil and Gas Afghanistan Ltd.">CNPCI Watan Oil and Gas Afghanistan Ltd.</option>
+                                            <option  value="Cameroon and Korea Mining Incorporation">Cameroon and Korea Mining Incorporation</option>
+                                            <option  value="Canadian Energy Enterprises C.E.E. Bolivia S.R.L.">Canadian Energy Enterprises C.E.E. Bolivia S.R.L.</option>
+                                            <option  value="Canamens Energy Morocco SARL">Canamens Energy Morocco SARL</option>
+                                            <option  value="Canmex Holdings (Bermuda) II Ltd">Canmex Holdings (Bermuda) II Ltd</option>
+                                            <option  value="Caspi Neft TME  SJSC">Caspi Neft TME  SJSC</option>
+                                            <option  value="Central African Mining and Exploration Company Plc">Central African Mining and Exploration Company Plc</option>
+                                            <option  value="Chevaning Mining Company Limited">Chevaning Mining Company Limited</option>
+                                            <option  value="China Sonangol International Holding Limited">China Sonangol International Holding Limited</option>
+                                            <option  value="China-Union (Hong Kong) Mining Co.">China-Union (Hong Kong) Mining Co.</option>
+                                            <option  value="China-Union Investment (Liberia) Bong Mines Co. Ltd.">China-Union Investment (Liberia) Bong Mines Co. Ltd.</option>
+                                            <option  value="Cluff Mining (West Africa) Ltd. Soci&eacute;t&eacute;">Cluff Mining (West Africa) Ltd. Soci&eacute;t&eacute;</option>
+                                            <option  value="Colwyn Investments Limited">Colwyn Investments Limited</option>
+                                            <option  value="Compa&ntilde;&iacute;a Petrolera de Altamira S.A.P.I. De C.V.">Compa&ntilde;&iacute;a Petrolera de Altamira S.A.P.I. De C.V.</option>
+                                            <option  value="ConocoPhillips (91-12) Pty Ltd">ConocoPhillips (91-12) Pty Ltd</option>
+                                            <option  value="ConocoPhillips (91-13) Pty Ltd">ConocoPhillips (91-13) Pty Ltd</option>
+                                            <option  value="ConocoPhillips JPDA Pty Ltd">ConocoPhillips JPDA Pty Ltd</option>
+                                            <option  value="DBB Ressources Corporation">DBB Ressources Corporation</option>
+                                            <option  value="DELTA NIMIR KHAZAR LIMITED">DELTA NIMIR KHAZAR LIMITED</option>
+                                            <option  value="DEN NORSKE STATS OLJESELSKAP">DEN NORSKE STATS OLJESELSKAP</option>
+                                            <option  value="DNO ASA">DNO ASA</option>
+                                            <option  value="DNO Iraq AS">DNO Iraq AS</option>
+                                            <option  value="Dans l&#039;&eacute;ventualit&eacute; ou les r&eacute;sultats du premier programme de travail d&eacute;fini par ce contrat sont satisfaisants pour la soci&eacute;t&eacute; Sentinelle International Group">Dans l&#039;&eacute;ventualit&eacute; ou les r&eacute;sultats du premier programme de travail d&eacute;fini par ce contrat sont satisfaisants pour la soci&eacute;t&eacute; Sentinelle International Group</option>
+                                            <option  value="Dino Steel International Sprl">Dino Steel International Sprl</option>
+                                            <option  value="Domingo Felipe Drago Salcedo">Domingo Felipe Drago Salcedo</option>
+                                            <option  value="EMK-MN et Cluff vont cr&eacute;er dans les 6 mois suivant la ratification de la convention">EMK-MN et Cluff vont cr&eacute;er dans les 6 mois suivant la ratification de la convention</option>
+                                            <option  value="ERHC AGC Profond LTD.">ERHC AGC Profond LTD.</option>
+                                            <option  value="Ecuacorriente S.A.">Ecuacorriente S.A.</option>
+                                            <option  value="Elenilto Minerals &amp; Mining LLC">Elenilto Minerals &amp; Mining LLC</option>
+                                            <option  value="Elf Congo">Elf Congo</option>
+                                            <option  value="Emet Pty Ltd">Emet Pty Ltd</option>
+                                            <option  value="Energy Africa Uganda Limited">Energy Africa Uganda Limited</option>
+                                            <option  value="Eni JPDA 03-13 Limited">Eni JPDA 03-13 Limited</option>
+                                            <option  value="Eni Timor Leste S.p.A">Eni Timor Leste S.p.A</option>
+                                            <option  value="Entreprise Mini&egrave;re de Kisenge Manganese">Entreprise Mini&egrave;re de Kisenge Manganese</option>
+                                            <option  value="Entreprise Mini&egrave;re de Kisenge Manganese et Cluff Mining Limited">Entreprise Mini&egrave;re de Kisenge Manganese et Cluff Mining Limited</option>
+                                            <option  value="Entreprise Mini&egrave;re de Kisenge Mangan&egrave;se">Entreprise Mini&egrave;re de Kisenge Mangan&egrave;se</option>
+                                            <option  value="Epsilon Gold Mines Ltd">Epsilon Gold Mines Ltd</option>
+                                            <option  value="Falcon Oil and Gas Limited">Falcon Oil and Gas Limited</option>
+                                            <option  value="G-10 Exploration Inc.">G-10 Exploration Inc.</option>
+                                            <option  value="GSPC (JPDA)">GSPC (JPDA)</option>
+                                            <option  value="General Exploration Partners, Inc.">General Exploration Partners, Inc.</option>
+                                            <option  value="Global Energy Inc">Global Energy Inc</option>
+                                            <option  value="Golden Shamrock Mines Limited">Golden Shamrock Mines Limited</option>
+                                            <option  value="Golden Ventures Inc.">Golden Ventures Inc.</option>
+                                            <option  value="Griffiths Energy (Chad) Ltd (Griffiths)">Griffiths Energy (Chad) Ltd (Griffiths)</option>
+                                            <option  value="Griffiths Energy (DOH) Ltd (Griffiths)">Griffiths Energy (DOH) Ltd (Griffiths)</option>
+                                            <option  value="Guinea Alumina Corporation">Guinea Alumina Corporation</option>
+                                            <option  value="Hawler Energy Ltd,">Hawler Energy Ltd,</option>
+                                            <option  value="Heritage Oil and Gas Limited">Heritage Oil and Gas Limited</option>
+                                            <option  value="Hunt Oil Company for the Kurdistan Region">Hunt Oil Company for the Kurdistan Region</option>
+                                            <option  value="Hydrocarbon Exploration Plc Sucursal del Per&uacute;">Hydrocarbon Exploration Plc Sucursal del Per&uacute;</option>
+                                            <option  value="IMAR-B">IMAR-B</option>
+                                            <option  value="INC.">INC.</option>
+                                            <option  value="INPEX Sahul Ltd">INPEX Sahul Ltd</option>
+                                            <option  value="INPEX TIMOR SEA LTD">INPEX TIMOR SEA LTD</option>
+                                            <option  value="Impulse Energy Corporation">Impulse Energy Corporation</option>
+                                            <option  value="International Mining Development">International Mining Development</option>
+                                            <option  value="KCC">KCC</option>
+                                            <option  value="KFL limited">KFL limited</option>
+                                            <option  value="Kalegran LTD">Kalegran LTD</option>
+                                            <option  value="Khoshak Brothers Company">Khoshak Brothers Company</option>
+                                            <option  value="Kilo-Moto">Kilo-Moto</option>
+                                            <option  value="Kisanfu Mining Sprl">Kisanfu Mining Sprl</option>
+                                            <option  value="Komet Group SA.">Komet Group SA.</option>
+                                            <option  value="Kosmos Energy Deepwater Morocco">Kosmos Energy Deepwater Morocco</option>
+                                            <option  value="Kosmos Energy Offshore Morocco">Kosmos Energy Offshore Morocco</option>
+                                            <option  value="Kozhan LLP">Kozhan LLP</option>
+                                            <option  value="LION ENERGY PUNTLAND (DHAROOR) N.V">LION ENERGY PUNTLAND (DHAROOR) N.V</option>
+                                            <option  value="LTD.">LTD.</option>
+                                            <option  value="LUKOIL JOINT STOCK COMPANY">LUKOIL JOINT STOCK COMPANY</option>
+                                            <option  value="La Congolaise d&#039;Exploitation Mini&egrave;re">La Congolaise d&#039;Exploitation Mini&egrave;re</option>
+                                            <option  value="La Soci&eacute;t&eacute; Mini&egrave;re du Katanga">La Soci&eacute;t&eacute; Mini&egrave;re du Katanga</option>
+                                            <option  value="La Soci&eacute;t&eacute; d&#039;exploitation de Chabara Sprl">La Soci&eacute;t&eacute; d&#039;exploitation de Chabara Sprl</option>
+                                            <option  value="La g&eacute;n&eacute;rale des carri&egrave;res des mines">La g&eacute;n&eacute;rale des carri&egrave;res des mines</option>
+                                            <option  value="Les parties conviennent de cr&eacute;er une Joint Venture en cas de d&eacute;couverte de gisement exploitable. La soci&eacute;t&eacute; commune aura pour objet d&#039;exploiter ce gisement. Un contrat d&#039;association sera signe et organisera la soci&eacute;t&eacute; selon les principes figurant en Annexe C">Les parties conviennent de cr&eacute;er une Joint Venture en cas de d&eacute;couverte de gisement exploitable. La soci&eacute;t&eacute; commune aura pour objet d&#039;exploiter ce gisement. Un contrat d&#039;association sera signe et organisera la soci&eacute;t&eacute; selon les principes figurant en Annexe C</option>
+                                            <option  value="Liberty Gold and Diamond Mining Inc.">Liberty Gold and Diamond Mining Inc.</option>
+                                            <option  value="Lion Petroleum Inc.">Lion Petroleum Inc.</option>
+                                            <option  value="London Mining Company Limited">London Mining Company Limited</option>
+                                            <option  value="Ltd.">Ltd.</option>
+                                            <option  value="MCDERMOTT AZERBAIJAN">MCDERMOTT AZERBAIJAN</option>
+                                            <option  value="Majd Industrial Pishgaman Company">Majd Industrial Pishgaman Company</option>
+                                            <option  value="Manono Minerals">Manono Minerals</option>
+                                            <option  value="Marsel Petroleum LLP">Marsel Petroleum LLP</option>
+                                            <option  value="Minza Oil &amp; Gas Limited">Minza Oil &amp; Gas Limited</option>
+                                            <option  value="Mittal Steel Liberia Limited">Mittal Steel Liberia Limited</option>
+                                            <option  value="Monelco S.R.L.">Monelco S.R.L.</option>
+                                            <option  value="Moto Goldmines Limited">Moto Goldmines Limited</option>
+                                            <option  value="Murphy Central Dohuk Oil Co.">Murphy Central Dohuk Oil Co.</option>
+                                            <option  value="Nantou Mining Burkina Faso SA">Nantou Mining Burkina Faso SA</option>
+                                            <option  value="ONHYM">ONHYM</option>
+                                            <option  value="Oilex (JPDA 06-103) Ltd">Oilex (JPDA 06-103) Ltd</option>
+                                            <option  value="PAN-CHINA RESOURCES LTD.">PAN-CHINA RESOURCES LTD.</option>
+                                            <option  value="PC.">PC.</option>
+                                            <option  value="PENNZOIL CASPIAN CORPORATION">PENNZOIL CASPIAN CORPORATION</option>
+                                            <option  value="PHILLIPS CHINA INC.">PHILLIPS CHINA INC.</option>
+                                            <option  value="Pan African Energy Tanzania Limited">Pan African Energy Tanzania Limited</option>
+                                            <option  value="Pathfinder Hydrocarbons Ventures Limited">Pathfinder Hydrocarbons Ventures Limited</option>
+                                            <option  value="Petro-SPM-Integrated Services S.A. De C.V.">Petro-SPM-Integrated Services S.A. De C.V.</option>
+                                            <option  value="Petrochad">Petrochad</option>
+                                            <option  value="Petroquest Petrol Ve Enerji Sanayi Ticaret Limited Sirketi">Petroquest Petrol Ve Enerji Sanayi Ticaret Limited Sirketi</option>
+                                            <option  value="Petroz (Timor Sea) Pty Ltd">Petroz (Timor Sea) Pty Ltd</option>
+                                            <option  value="Phillips Petroleum Timor Sea Pty Ltd">Phillips Petroleum Timor Sea Pty Ltd</option>
+                                            <option  value="Pirity Hidrocarburos S.R.L">Pirity Hidrocarburos S.R.L</option>
+                                            <option  value="President Energy Paraguay S.A.">President Energy Paraguay S.A.</option>
+                                            <option  value="Putu Iron Ore Mining">Putu Iron Ore Mining</option>
+                                            <option  value="R.V. Investment Group Services LLC">R.V. Investment Group Services LLC</option>
+                                            <option  value="RAMCO HAZAR ENERGY LIMITED">RAMCO HAZAR ENERGY LIMITED</option>
+                                            <option  value="Range Resources Limited">Range Resources Limited</option>
+                                            <option  value="Range Resources Limited">Range Resources Limited</option>
+                                            <option  value="Reliance Industries Limited">Reliance Industries Limited</option>
+                                            <option  value="Repsol YPF Oriente Media S. A">Repsol YPF Oriente Media S. A</option>
+                                            <option  value="Restructuration d&rsquo;Aurif&egrave;re de Guin&eacute;e S.A.">Restructuration d&rsquo;Aurif&egrave;re de Guin&eacute;e S.A.</option>
+                                            <option  value="Rousski Alumini">Rousski Alumini</option>
+                                            <option  value="S.A.">S.A.</option>
+                                            <option  value="Santos (JPDA 91-12) Pty Ltd">Santos (JPDA 91-12) Pty Ltd</option>
+                                            <option  value="Schlumberger Production M&eacute;xico S.A. De C.V.">Schlumberger Production M&eacute;xico S.A. De C.V.</option>
+                                            <option  value="Semafo Burkina Faso S.A">Semafo Burkina Faso S.A</option>
+                                            <option  value="Septa Energy Nigeria Limited">Septa Energy Nigeria Limited</option>
+                                            <option  value="Sesa Goa Limited
+Bloom Fountain Limited">Sesa Goa Limited
+                                                Bloom Fountain Limited</option>
+                                            <option  value="Sierra Rutile Limited">Sierra Rutile Limited</option>
+                                            <option  value="Societe Essakane">Societe Essakane</option>
+                                            <option  value="Societe des Mines de Belahouro S.A">Societe des Mines de Belahouro S.A</option>
+                                            <option  value="Soci&eacute;t&eacute; Anonyme d&rsquo;Exploitation des Gisements de Bauxite de Dabola-Tougu&eacute;">Soci&eacute;t&eacute; Anonyme d&rsquo;Exploitation des Gisements de Bauxite de Dabola-Tougu&eacute;</option>
+                                            <option  value="Soci&eacute;t&eacute; Delta Gold Mining">Soci&eacute;t&eacute; Delta Gold Mining</option>
+                                            <option  value="Soci&eacute;t&eacute; Ferro (Swiss) AG">Soci&eacute;t&eacute; Ferro (Swiss) AG</option>
+                                            <option  value="Soci&eacute;t&eacute; Mineral Invest International AB Congo SPRL">Soci&eacute;t&eacute; Mineral Invest International AB Congo SPRL</option>
+                                            <option  value="Soci&eacute;t&eacute; Mini&egrave;re de Dinguiraye">Soci&eacute;t&eacute; Mini&egrave;re de Dinguiraye</option>
+                                            <option  value="Soci&eacute;t&eacute; Mini&egrave;re du Katanga">Soci&eacute;t&eacute; Mini&egrave;re du Katanga</option>
+                                            <option  value="Soci&eacute;t&eacute; Nantou Mining">Soci&eacute;t&eacute; Nantou Mining</option>
+                                            <option  value="Soci&eacute;t&eacute; Semafo Burkina Faso S.A.">Soci&eacute;t&eacute; Semafo Burkina Faso S.A.</option>
+                                            <option  value="Soci&eacute;t&eacute; Sentinelle International Group Ltd">Soci&eacute;t&eacute; Sentinelle International Group Ltd</option>
+                                            <option  value="Soci&eacute;t&eacute; des Mines d&#039;or de Kilo-Moto">Soci&eacute;t&eacute; des Mines d&#039;or de Kilo-Moto</option>
+                                            <option  value="T-REX Resources Inc.">T-REX Resources Inc.</option>
+                                            <option  value="TF Holding Limited">TF Holding Limited</option>
+                                            <option  value="TG Holdings Yemen Inc.">TG Holdings Yemen Inc.</option>
+                                            <option  value="TURKIYE PETROLLERI A.O.">TURKIYE PETROLLERI A.O.</option>
+                                            <option  value="Tae Joo Steel">Tae Joo Steel</option>
+                                            <option  value="Talisman (Block K 39) B.V.">Talisman (Block K 39) B.V.</option>
+                                            <option  value="Talisman (Block K9) B.V.">Talisman (Block K9) B.V.</option>
+                                            <option  value="Talisman Resources (JPDA 03-01) Pty Ltd">Talisman Resources (JPDA 03-01) Pty Ltd</option>
+                                            <option  value="TecPEtrol SAC">TecPEtrol SAC</option>
+                                            <option  value="Tenke Fungurume Mining">Tenke Fungurume Mining</option>
+                                            <option  value="The Yemen Company">The Yemen Company</option>
+                                            <option  value="Total E&amp;P Bolivie Sucursal Bolivia">Total E&amp;P Bolivie Sucursal Bolivia</option>
+                                            <option  value="Total E&amp;P Congo">Total E&amp;P Congo</option>
+                                            <option  value="Total Gabon">Total Gabon</option>
+                                            <option  value="UNOCAL KHAZAR">UNOCAL KHAZAR</option>
+                                            <option  value="United Company RUSAL - Trading House">United Company RUSAL - Trading House</option>
+                                            <option  value="Western Cluster Limited">Western Cluster Limited</option>
+                                            <option  value="Woodside Petroleum (Timor Sea 1) Pty Ltd">Woodside Petroleum (Timor Sea 1) Pty Ltd</option>
+                                            <option  value="Woodside West Africa Pty Ltd">Woodside West Africa Pty Ltd</option>
+                                            <option  value="ZETAH OIL COMPANY LIMITED">ZETAH OIL COMPANY LIMITED</option>
+                                            <option  value="Zetah">Zetah</option>
+                                            <option  value="￼">￼</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+                                        <label for="">Corporate Group</label>
+                                        <select name="corporate_group[]" id="" multiple="multiple">
+                                            <option  value="Africa Oil Corp">Africa Oil Corp</option>
+                                            <option  value="Canmex Minerals Corporation">Canmex Minerals Corporation</option>
+                                            <option  value="ConocoPhillips ">ConocoPhillips </option>
+                                            <option  value="ERHC Energy Inc.">ERHC Energy Inc.</option>
+                                            <option  value="Petoil Petroleum and Petroleum Products International Exploration and Production  Inc.">Petoil Petroleum and Petroleum Products International Exploration and Production  Inc.</option>
+                                            <option  value="Prime Natural Resources">Prime Natural Resources</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+                                        <label for="">Contract Type</label>
+                                        <select name="contract_type[]" id="" multiple="multiple">
+                                            <option  value="-">-</option>
+                                            <option  value="Avenant a la Proc&eacute;dure comptable pour contrat de partage de production">Avenant a la Proc&eacute;dure comptable pour contrat de partage de production</option>
+                                            <option  value="Certificats officiels d&eacute;livr&eacute;s par le Cadastre Minier conformement au Code Minier et constatant les droits miniers du Projet">Certificats officiels d&eacute;livr&eacute;s par le Cadastre Minier conformement au Code Minier et constatant les droits miniers du Projet</option>
+                                            <option  value="Concession">Concession</option>
+                                            <option  value="Contrat d&#039;amodiation">Contrat d&#039;amodiation</option>
+                                            <option  value="Contrat d&#039;association">Contrat d&#039;association</option>
+                                            <option  value="Contrat d&#039;option">Contrat d&#039;option</option>
+                                            <option  value="Contrat d&eacute;finissant les droits et obligations de SODIMICO et Tao Joo dans la constitution d&#039;une soci&eacute;t&eacute; commune EMM pour l&#039;exploitation commune de la mine de Musoshi">Contrat d&eacute;finissant les droits et obligations de SODIMICO et Tao Joo dans la constitution d&#039;une soci&eacute;t&eacute; commune EMM pour l&#039;exploitation commune de la mine de Musoshi</option>
+                                            <option  value="Convention">Convention</option>
+                                            <option  value="Cr&eacute;ation d&#039;une soci&eacute;t&eacute;">Cr&eacute;ation d&#039;une soci&eacute;t&eacute;</option>
+                                            <option  value="Exploitation">Exploitation</option>
+                                            <option  value="Exploitation Permit/License">Exploitation Permit/License</option>
+                                            <option  value="Exploration Permit/License">Exploration Permit/License</option>
+                                            <option  value="Exploration Permit/License,Exploitation Permit/License">Exploration Permit/License,Exploitation Permit/License</option>
+                                            <option  value="Exploration Permit/License,Production Sharing Contract">Exploration Permit/License,Production Sharing Contract</option>
+                                            <option  value="Investment Promotion">Investment Promotion</option>
+                                            <option  value="Joint Venture Agreement">Joint Venture Agreement</option>
+                                            <option  value="Joint Venture Contract">Joint Venture Contract</option>
+                                            <option  value="Mining Lease Agreement">Mining Lease Agreement</option>
+                                            <option  value="Operating Agreement between Private Companies">Operating Agreement between Private Companies</option>
+                                            <option  value="Operation">Operation</option>
+                                            <option  value="Permis de recherche">Permis de recherche</option>
+                                            <option  value="Production Sharing Contract">Production Sharing Contract</option>
+                                            <option  value="Production or Profit Sharing Agreement">Production or Profit Sharing Agreement</option>
+                                            <option  value="Profit Sharing Contract">Profit Sharing Contract</option>
+                                            <option  value="Service Contract">Service Contract</option>
+                                            <option  value="Strategic Alliance Agreement">Strategic Alliance Agreement</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+                                        <label for="">Annotations Category</label>
+                                        <select name="annotation_category[]" id="" multiple="multiple">
+                                            <option  value="Annexes missing from copy//Annexes Manquantes de la copie">Annexes missing from copy//Annexes Manquantes de la copie</option>
+                                            <option  value="Arbitration and dispute resolution//Arbitrage et r&egrave;glement des diff&eacute;rends">Arbitration and dispute resolution//Arbitrage et r&egrave;glement des diff&eacute;rends</option>
+                                            <option  value="Assignment or transfer//Cession ou transfert">Assignment or transfer//Cession ou transfert</option>
+                                            <option  value="Audit mechanisms - financial obligations//Modes d&#039;audit">Audit mechanisms - financial obligations//Modes d&#039;audit</option>
+                                            <option  value="Bonuses//Primes">Bonuses//Primes</option>
+                                            <option  value="Cancellation or termination//Annulation ou R&eacute;siliation">Cancellation or termination//Annulation ou R&eacute;siliation</option>
+                                            <option  value="Capital gains tax//Imp&ocirc;t sur les Revenus des Valeurs Mobili&egrave;res (IRVM)">Capital gains tax//Imp&ocirc;t sur les Revenus des Valeurs Mobili&egrave;res (IRVM)</option>
+                                            <option  value="Closest community//Lieu-dit habit&eacute; le plus proche">Closest community//Lieu-dit habit&eacute; le plus proche</option>
+                                            <option  value="Community consultation //Consultations communautaires">Community consultation //Consultations communautaires</option>
+                                            <option  value="Confidentiality//Confidentialit&eacute;">Confidentiality//Confidentialit&eacute;</option>
+                                            <option  value="Country//Pays">Country//Pays</option>
+                                            <option  value="Custom duties//Droits de douane">Custom duties//Droits de douane</option>
+                                            <option  value="Date - contract signature//Date de la signature du contrat">Date - contract signature//Date de la signature du contrat</option>
+                                            <option  value="Date of issue of title/permit//Date de l&#039;octroi du droit ou du permis">Date of issue of title/permit//Date de l&#039;octroi du droit ou du permis</option>
+                                            <option  value="Date of ratification//Date de ratification">Date of ratification//Date de ratification</option>
+                                            <option  value="Environmental impact assessment and management plan//Etude sur l&#039;impact environnemental et plan de gestion">Environmental impact assessment and management plan//Etude sur l&#039;impact environnemental et plan de gestion</option>
+                                            <option  value="Environmental monitoring//Suivi environnemental">Environmental monitoring//Suivi environnemental</option>
+                                            <option  value="Environmental protections//Protection de l&#039;environnement">Environmental protections//Protection de l&#039;environnement</option>
+                                            <option  value="Expropriation or nationalization//Expropriation">Expropriation or nationalization//Expropriation</option>
+                                            <option  value="Financial obligations - community or commodity funds//Obligations financi&egrave;res - fonds communautaires ou de mati&egrave;res premi&egrave;res">Financial obligations - community or commodity funds//Obligations financi&egrave;res - fonds communautaires ou de mati&egrave;res premi&egrave;res</option>
+                                            <option  value="Governing law//Loi applicable">Governing law//Loi applicable</option>
+                                            <option  value="Grievance mechanisms//M&eacute;canismes de r&eacute;clamation">Grievance mechanisms//M&eacute;canismes de r&eacute;clamation</option>
+                                            <option  value="Hardship clause or force majeure//Clause de hardship ou force majeure">Hardship clause or force majeure//Clause de hardship ou force majeure</option>
+                                            <option  value="I. General information//I. Information g&eacute;n&eacute;rale sur le projet">I. General information//I. Information g&eacute;n&eacute;rale sur le projet</option>
+                                            <option  value="Income tax: exemptions//Imp&ocirc;t sur les b&eacute;n&eacute;fices: exon&eacute;ration">Income tax: exemptions//Imp&ocirc;t sur les b&eacute;n&eacute;fices: exon&eacute;ration</option>
+                                            <option  value="Income tax: other//Imp&ocirc;t sur le b&eacute;n&eacute;fice: autre">Income tax: other//Imp&ocirc;t sur le b&eacute;n&eacute;fice: autre</option>
+                                            <option  value="Income tax: rate//Imp&ocirc;t sur les b&eacute;n&eacute;fices: taux">Income tax: rate//Imp&ocirc;t sur les b&eacute;n&eacute;fices: taux</option>
+                                            <option  value="Infrastructure - third party use//Infrastructure - utilisation par des tiers">Infrastructure - third party use//Infrastructure - utilisation par des tiers</option>
+                                            <option  value="Infrastructure//L&#039;infrastructure">Infrastructure//L&#039;infrastructure</option>
+                                            <option  value="Investment credit//Cr&eacute;dit d&#039;investissement">Investment credit//Cr&eacute;dit d&#039;investissement</option>
+                                            <option  value="Land use outside of concession area//Utilisation des terres (publique ou priv&eacute;es) &agrave; l&#039;ext&eacute;rieur de la zone de concession">Land use outside of concession area//Utilisation des terres (publique ou priv&eacute;es) &agrave; l&#039;ext&eacute;rieur de la zone de concession</option>
+                                            <option  value="Language//Langue">Language//Langue</option>
+                                            <option  value="Local development agreement//Convention de d&eacute;veloppement local">Local development agreement//Convention de d&eacute;veloppement local</option>
+                                            <option  value="Local employment//Emploi du personnel local">Local employment//Emploi du personnel local</option>
+                                            <option  value="Local procurement//Approvisionnement en biens et services locaux">Local procurement//Approvisionnement en biens et services locaux</option>
+                                            <option  value="Location//Emplacement">Location//Emplacement</option>
+                                            <option  value="Name and/or composition of the company created//Nom et/ou composition de la soci&eacute;t&eacute; du projet cr&eacute;e">Name and/or composition of the company created//Nom et/ou composition de la soci&eacute;t&eacute; du projet cr&eacute;e</option>
+                                            <option  value="Name of company executing document//Nom de la soci&eacute;t&eacute; signataire">Name of company executing document//Nom de la soci&eacute;t&eacute; signataire</option>
+                                            <option  value="Name of field, block, deposit or site//Nom du terrain, quartier, gisement ou lieu">Name of field, block, deposit or site//Nom du terrain, quartier, gisement ou lieu</option>
+                                            <option  value="Other - financial/fiscal//Autre - financi&egrave;re/budg&eacute;taire">Other - financial/fiscal//Autre - financi&egrave;re/budg&eacute;taire</option>
+                                            <option  value="Other - general//Autre - g&eacute;n&eacute;ral">Other - general//Autre - g&eacute;n&eacute;ral</option>
+                                            <option  value="Other - miscellaneous//Autre - divers">Other - miscellaneous//Autre - divers</option>
+                                            <option  value="Other - operational//Autre - op&eacute;rationnel">Other - operational//Autre - op&eacute;rationnel</option>
+                                            <option  value="Outgrowers Program//Programme de sous-traitance  avec les petits planteurs">Outgrowers Program//Programme de sous-traitance  avec les petits planteurs</option>
+                                            <option  value="Pages missing from  copy//Pages Manquantes de la copie">Pages missing from  copy//Pages Manquantes de la copie</option>
+                                            <option  value="Parent company or affiliates outside of country//Soci&eacute;t&eacute;(s) m&egrave;re(s) ou affili&eacute;e(s) hors du pays">Parent company or affiliates outside of country//Soci&eacute;t&eacute;(s) m&egrave;re(s) ou affili&eacute;e(s) hors du pays</option>
+                                            <option  value="Physical security or protection of property//La s&eacute;curit&eacute; physique ou la protection de la propri&eacute;t&eacute;">Physical security or protection of property//La s&eacute;curit&eacute; physique ou la protection de la propri&eacute;t&eacute;</option>
+                                            <option  value="Production Share - &quot;Profit Oil features(
+    triggers for variations in split - IRR, factor, production, etc .)//Partage de production - El&eacute;ments de &quot;Profit Oil&quot; (crit&egrave;res pour la modification du partage, - TRI, facteur &quot;r&quot;, niveau de production, etc.)">Production Share - &quot;Profit Oil features(
+                                                triggers for variations in split - IRR, factor, production, etc .)//Partage de production - El&eacute;ments de &quot;Profit Oil&quot; (crit&egrave;res pour la modification du partage, - TRI, facteur &quot;r&quot;, niveau de production, etc.)</option>
+                                            <option  value="Production Share - Cost Oil features  (basis of calculation, limits on cost recovery - e.g. as % of revenue or production, capex uplift, etc.)//Partage de production - El&eacute;ments de &quot;Cost Oil&quot; (base de calcul, limites sur le recouvrement des co&ucirc;ts, e.g. comme % des revenues ou de la production, cr&eacute;dit d&#039;investissement, etc.)">Production Share - Cost Oil features  (basis of calculation, limits on cost recovery - e.g. as % of revenue or production, capex uplift, etc.)//Partage de production - El&eacute;ments de &quot;Cost Oil&quot; (base de calcul, limites sur le recouvrement des co&ucirc;ts, e.g. comme % des revenues ou de la production, cr&eacute;dit d&#039;investissement, etc.)</option>
+                                            <option  value="Project title//Nom du projet">Project title//Nom du projet</option>
+                                            <option  value="Protections or benefits for employees, dependents, or others//Protections ou avantages pour les employ&eacute;s, les personnes &agrave; charge ou pour des tiers">Protections or benefits for employees, dependents, or others//Protections ou avantages pour les employ&eacute;s, les personnes &agrave; charge ou pour des tiers</option>
+                                            <option  value="Renewal or extension of term//Renouvellement ou prolongation de la dur&eacute;e de la concession">Renewal or extension of term//Renouvellement ou prolongation de la dur&eacute;e de la concession</option>
+                                            <option  value="Reporting requirements//Exigences de d&eacute;claration">Reporting requirements//Exigences de d&eacute;claration</option>
+                                            <option  value="Resettlement//R&eacute;installation des habitants">Resettlement//R&eacute;installation des habitants</option>
+                                            <option  value="Resource(s)//Ressource(s)">Resource(s)//Ressource(s)</option>
+                                            <option  value="Restrictions on transactions with affiliated parties//Restrictions sur les transactions avec les parties li&eacute;es">Restrictions on transactions with affiliated parties//Restrictions sur les transactions avec les parties li&eacute;es</option>
+                                            <option  value="Royalties//Redevances">Royalties//Redevances</option>
+                                            <option  value="Sacred, cultural, or historical sites//Sites sacr&eacute;s, culturels ou historiques">Sacred, cultural, or historical sites//Sites sacr&eacute;s, culturels ou historiques</option>
+                                            <option  value="Service Agreement - Fee to developer or contractor//Contrat de Service - Frais du d&eacute;tenteur du titre d&eacute;fray&eacute;s">Service Agreement - Fee to developer or contractor//Contrat de Service - Frais du d&eacute;tenteur du titre d&eacute;fray&eacute;s</option>
+                                            <option  value="Signatories, State//Signataire(s), Etat">Signatories, State//Signataire(s), Etat</option>
+                                            <option  value="Signatories, company//Signataire(s), soci&eacute;t&eacute;">Signatories, company//Signataire(s), soci&eacute;t&eacute;</option>
+                                            <option  value="Size of concession area//Superficie de la concession">Size of concession area//Superficie de la concession</option>
+                                            <option  value="Social/human rights monitoring//Suivi social et surveillance du respect des droits de l&#039;homme">Social/human rights monitoring//Suivi social et surveillance du respect des droits de l&#039;homme</option>
+                                            <option  value="Stabilization clause//Clause de stabilisation">Stabilization clause//Clause de stabilisation</option>
+                                            <option  value="State agency, national company or ministry executing the document//Agence de l&#039;Etat, soci&eacute;t&eacute; nationale ou minist&egrave;re signataire du contrat">State agency, national company or ministry executing the document//Agence de l&#039;Etat, soci&eacute;t&eacute; nationale ou minist&egrave;re signataire du contrat</option>
+                                            <option  value="State participation//Participation de l&#039;Etat">State participation//Participation de l&#039;Etat</option>
+                                            <option  value="Surface fees or rent//Redevances superficiaires">Surface fees or rent//Redevances superficiaires</option>
+                                            <option  value="Term//Dur&eacute;e">Term//Dur&eacute;e</option>
+                                            <option  value="Training//Formation">Training//Formation</option>
+                                            <option  value="Type of contract//Type de contrat">Type of contract//Type de contrat</option>
+                                            <option  value="Value addition or downstream activities//Activit&eacute; de beneficiation ou valeur ajout&eacute;e">Value addition or downstream activities//Activit&eacute; de beneficiation ou valeur ajout&eacute;e</option>
+                                            <option  value="Water use//Utilisation de l&#039;eau">Water use//Utilisation de l&#039;eau</option>
+                                            <option  value="Withholding tax//Retenue &agrave; la source">Withholding tax//Retenue &agrave; la source</option>
+                                            <option  value="Work and investment commitments//Obligations de travaux, d&#039;investissements">Work and investment commitments//Obligations de travaux, d&#039;investissements</option>
+                                            <option  value="Year of contract signature//Ann&eacute;e de signature du contrat">Year of contract signature//Ann&eacute;e de signature du contrat</option>
+                                            <option  value="Year of issue of title/permit//Ann&eacute;e d&#039;octroi du permis d&#039;exploitation ou concession">Year of issue of title/permit//Ann&eacute;e d&#039;octroi du permis d&#039;exploitation ou concession</option>
+                                            <option  value="audit">audit</option>
+                                            <option  value="construction-and-maintenance-of-infrastructure">construction-and-maintenance-of-infrastructure</option>
+                                            <option  value="date-issue-of-title-or-permit">date-issue-of-title-or-permit</option>
+                                            <option  value="general-information">general-information</option>
+                                            <option  value="local-company-name">local-company-name</option>
+                                            <option  value="local-employment-requirements">local-employment-requirements</option>
+                                            <option  value="local-procurement-requirements">local-procurement-requirements</option>
+                                            <option  value="location-longitude-and-latitude-onshore-vs-offshore-shallow-vs-deep">location-longitude-and-latitude-onshore-vs-offshore-shallow-vs-deep</option>
+                                            <option  value="mining-tax-royalty-tax">mining-tax-royalty-tax</option>
+                                            <option  value="name-andor-composition-of-company-created">name-andor-composition-of-company-created</option>
+                                            <option  value="name-of-company-executing-the-document-and-composition-of-the-shareholders">name-of-company-executing-the-document-and-composition-of-the-shareholders</option>
+                                            <option  value="other-exemptions">other-exemptions</option>
+                                            <option  value="other-financial-fiscal">other-financial-fiscal</option>
+                                            <option  value="other-requirements-regarding-protection-of-the-environment-including-prevention-of-pollution-and-watercourse-protection">other-requirements-regarding-protection-of-the-environment-including-prevention-of-pollution-and-watercourse-protection</option>
+                                            <option  value="parent-companies-or-affilates-outside-of-the-country-if-different-from-the-above-mentioned-and-their-corporate-headquarters">parent-companies-or-affilates-outside-of-the-country-if-different-from-the-above-mentioned-and-their-corporate-headquarters</option>
+                                            <option  value="physical-security-protection-of-property-andor-use-of-guards">physical-security-protection-of-property-andor-use-of-guards</option>
+                                            <option  value="production-share-cost-oil-features">production-share-cost-oil-features</option>
+                                            <option  value="production-share-profit-oil-features">production-share-profit-oil-features</option>
+                                            <option  value="reporting-requirements-and-other-methods-of-monitoring-compliance">reporting-requirements-and-other-methods-of-monitoring-compliance</option>
+                                            <option  value="requirements-for-community-consultation">requirements-for-community-consultation</option>
+                                            <option  value="right-to-access-concession-areanon-contracting-parties">right-to-access-concession-areanon-contracting-parties</option>
+                                            <option  value="right-to-take-andor-use-water-withinnear-contract-concession-area-including-fees-licenses-and-permits-required">right-to-take-andor-use-water-withinnear-contract-concession-area-including-fees-licenses-and-permits-required</option>
+                                            <option  value="social-environmental-andor-human-rights-impact-assessments-as-well-as-related-management-plans">social-environmental-andor-human-rights-impact-assessments-as-well-as-related-management-plans</option>
+                                            <option  value="social-human-rights-impact-assessment-and-management-plan">social-human-rights-impact-assessment-and-management-plan</option>
+                                            <option  value="social-human-rights-monitoring">social-human-rights-monitoring</option>
+                                            <option  value="state-agency-national-company-ministry-executing-the-document">state-agency-national-company-ministry-executing-the-document</option>
+                                            <option  value="state-agency-national-company-or-ministry-executing-document">state-agency-national-company-or-ministry-executing-document</option>
+                                            <option  value="third-party-use-of-infrastructure">third-party-use-of-infrastructure</option>
+                                            <option  value="type-of-document-right-concession-lease-production-sharing-agreement-service-agreement-etc">type-of-document-right-concession-lease-production-sharing-agreement-service-agreement-etc</option>
+                                            <option  value="type-of-resources-mineral-type-crude-oil-gas-timber-etc-or-specific-crops-planned-ex-food-crops-oil-palm-etc">type-of-resources-mineral-type-crude-oil-gas-timber-etc-or-specific-crops-planned-ex-food-crops-oil-palm-etc</option>
+                                            <option  value="water-user">water-user</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <button type="submit" class="btn btn-form-search">Search</button>
+
+                                </div>
+                            </div>
+                        </form>              </div>
+                </div>
+            </div>
+            -->
+            <div class="contract-number-wrap contract-search-number-wrap">
+                <span></span> contracts         </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 country-list-wrapper search-list-wrapper">
+                <div class="panel panel-default panel-wrap country-list-wrap">
+                    <div class="panel-body">
+                        <!--
+                        <div id="compare-block">
+                            <h2>Compare</h2>
+                            <ul>
+                            </ul>
+                            <button class="btn btn-compare">Compare</button>
+                        </div>
+
+                        -->
+
+                        <table class="table table-responsive table-contract table-contract-list">
+                            <tbody>
+
+                            <!--
+                                <tr>
+                                <td>
+                                    <a class="title-1061" href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contract/1061/view">
+                                        Kazakhstan Falcon O&amp;G Zhakarmy West I Block Exploration Contract
+                                    </a>
+
+                                    <div class="annotate-text"> Annotated </div>
+
+                                    <div class="search-text">
+                                        period during <strong>test</strong> production should be delivered to
+                                        Kazakhstani oil refineries
+                                        <strong>test</strong>
+
+                                    </div>
+                                    <div class="contract-info-section">
+                                        <div class="download-main-wrap">
+                                            <div class="download-wrap">
+                                                <span>Download</span>
+                                            </div>
+
+                                            <ul class="dropdown-menu">
+                                                <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contract/1061/downloadpdf" >Pdf</a></li>
+                                                <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contract/1061/download" >Word File</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="contract-group">
+                                            <label for="">Found in: </label>
+                                            <a>Text</a>
+                                            <a>Annotation</a>
+                                        </div>
+                                    </div>
+                                    <div class="resource-contract-list">
+                                        <div class="resource-type">
+                                            <label for="">Resource: </label>
+                                        </div>
+                                        <div class="contract-type">
+                                            <label for="">Contract Type:</label>Exploration Permit/License
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>2007</td>
+                                <td>
+                                    Kazakhstan
+                                </td>
+
+                            </tr>
+                            -->
+
+                            </tbody>
+                        </table>
+
+                        <!--
+                        <div class="text-center">
+                            <div class="pagination-wrapper">
+                                <ul>
+
+
+
+                                    <li class="active"><a href="javascript:void()">1</a></li>
+
+                                    <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=2">2</a></li>
+                                    <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=3">3</a></li>
+                                    <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=4">4</a></li>
+                                    <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=5">5</a></li>
+
+
+                                    <li class="num-text next">
+                                        <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=2">Next</a>
+                                    </li>
+                                    <li class="num-text"><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=5">Last</a></li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-3 footer-left-wrap">
+                    <ul>
+                        <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/about">About</a></li>
+                        <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/faqs">FAQs</a></li>
+                        <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/page/resources">Resources</a></li>
+                        <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/glossary">Glossary</a></li>
+                        <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-9 footer-right-wrap">
+                    <ul>
+                        <li><a href="http://www.resourcecontracts.org/" target="_blank"><img src="http://rc-site-stage.elasticbeanstalk.com/rc/public/images/ic-nrgi.png" /></a></li>
+
+                        <li><a href="http://ccsi.columbia.edu/" target="_blank"><img src="http://rc-site-stage.elasticbeanstalk.com/rc/public/images/ic-cc.png" /></a></li>
+                        <li><a href="http://www.worldbank.org/en/topic/governance" target="_blank"><img src="http://rc-site-stage.elasticbeanstalk.com/rc/public/images/ic-worldbank.png" /></a></li>
+                        <li><a href="http://www.dfid.gov.uk" target="_blank"><img src="http://rc-site-stage.elasticbeanstalk.com/rc/public/images/ic-dfid.png" /></a></li>
+                        <li><a href="http://www.afdb.org/en/topics-and-sectors/initiatives-partnerships/african-legal-support-facility/" target="_blank"><img src="http://rc-site-stage.elasticbeanstalk.com/rc/public/images/ic-alsf.png" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+
+</body>
+</html>

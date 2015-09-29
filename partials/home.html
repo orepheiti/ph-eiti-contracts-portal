@@ -1,0 +1,35 @@
+<div class="row row-top-wrap front-row-top-wrap">
+    <div  class="col-lg-7 col-md-9" >
+        <div class="row row-top-content">
+            <div class="tagline">
+                A directory of <span>Petroleum &amp; Mineral Contracts</span>
+            </div>
+            <form action="search" method="GET" class="contract-search-form">
+                <div class="form-group">
+                    <input type="text" name="q" class="form-control pull-left" placeholder="Type here to search for contracts...">
+                    <button type="submit" class="btn btn-search">Search Contracts</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="row row-content">
+    <div class="col-sm-6 col-md-6 col-lg-6 country-wrapper">
+        <div class="country-wrap">
+            <div class="country-inner-wrap contract-count-home">
+                {{data.total}} Contracts
+            </div>
+            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/countries" class="btn btn-view">View all contracts</a>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6 resource-wrapper">
+        <div class="resource-wrap">
+            <div class="resource-inner-wrap">
+                <span>38</span> Resources
+            </div>
+            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resources" class="btn btn-view">View all resources</a>
+        </div>
+    </div>
+</div>
