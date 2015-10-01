@@ -16,7 +16,7 @@ myControllers.controller('IndexController', ['$scope', '$http', function ($scope
 myControllers.controller('SearchController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
   var q = getParam('q');
   $scope.searchTerm = q;
-  $http.get(api + 'contracts/search?q=' + q + '&from=0&per_page=1000&group=metadata' + options, { cache: true }).success(function(data) {
+  $http.get(api + 'contracts/search?q=' + q + '&from=0&per_page=1000&group=metadata&country=ph', { cache: true }).success(function(data) {
     $scope.data = data;
   });
 }]);
