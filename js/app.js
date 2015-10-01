@@ -17,6 +17,11 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       controller: 'SearchController'
     }).
 
+    when('/contracts', {
+      templateUrl: '/partials/contracts.html',
+      controller: 'ContractsController'
+    }).
+
     when('/contract/:id', {
       templateUrl: '/partials/contract.html',
       controller: 'ContractController'
