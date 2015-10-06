@@ -79,6 +79,16 @@ footer a:hover {
 .resources-mining:hover {
   cursor: pointer;
 }
-.resources {
+.resources,
+select[name="resource"] {
   text-transform: capitalize;
+}
+.search-input-wrapper .col-lg-2 {
+  margin-bottom: 0;
+}
+.search-page-input-wrapper {
+  padding-top: 2em !important;
+}
+.search-list-wrapper td ul {
+  margin-top: 0;
 }

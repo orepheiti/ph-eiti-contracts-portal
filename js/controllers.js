@@ -21,13 +21,13 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
   var resource = getParam('resource');
   var company = getParam('company_name');
 
+  var query = '';
+
   if (q) {
 
-    $scope.searchTerm = "Search results for " + q;
+    $scope.searchTerm = "Search results for " + decodeURIComponent(q);
 
-    $http.get(api + 'contracts/search?q=' + q + '&from=0&per_page=1000&group=metadata&country=ph', { cache: true }).success(function(data) {
-      $scope.data = data;
-    });
+    query += 'q=' + q + '&'
 
   }
 
@@ -35,9 +35,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 
     $scope.searchTerm = 'Contracts from ' + year;
 
-    $http.get(api + 'contracts/search?year=' + year + '&from=0&per_page=1000&group=metadata&country=ph', { cache: true }).success(function(data) {
-      $scope.data = data;
-    });
+    query += 'year=' + year + '&'
 
   }
 
@@ -45,9 +43,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 
     $scope.searchTerm = 'Contracts from ' + decodeURIComponent(company);
 
-    $http.get(api + 'contracts/search?company_name=' + company + '&from=0&per_page=1000&group=metadata&country=ph', { cache: true }).success(function(data) {
-      $scope.data = data;
-    });
+    query += 'company_name=' + company + '&'
 
   }
 
@@ -56,11 +52,14 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 
     $scope.searchTerm = 'Contracts with resource: ' + resource;
 
-    $http.get(api + 'contracts/search?resource=' + resource + '&from=0&per_page=1000&group=metadata&country=ph', { cache: true }).success(function(data) {
-      $scope.data = data;
-    });
+    query += 'resource=' + resource + '&'
 
   }
+
+  $http.get(api + 'contracts/search?from=0&per_page=1000&group=metadata&country=ph&' + query, { cache: true }).success(function(data) {
+    $scope.data = data;
+    $(window).trigger('rootData.loaded')
+  });
 
 }]);
 
