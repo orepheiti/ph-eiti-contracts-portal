@@ -1,3 +1,84 @@
 .navbar-header .trigger {
-  margin-top: 22px;
+  background-color: none;
+  height: auto;
+  width: auto;
+  margin: 18px 0 0 16px;
+  background: none;
+}
+.navbar-header .trigger > span {
+  display: block;
+  background-color: #000;
+  width: 30px;
+  height: 4px;
+  border-radius: 3px;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+.sidebar-nav > .sidebar-brand a,
+.sidebar-nav > .sidebar-brand a:hover {
+  background-image: url("/images/ic-title-bg.png");
+}
+a {
+  color: #eeb301;
+}
+a:hover {
+  color: #fabc01;
+}
+footer {
+  color: rgba(255,255,255,0.5);
+  padding: 3em 0;
+  font-size: 12px;
+  line-height: 20px;
+}
+footer a {
+  color: rgba(250,188,1,0.8);
+}
+footer a:hover {
+  color: #fabc01;
+}
+.link-no-style {
+  color: rgba(255,255,255,0.5);
+}
+.navbar-right {
+  border-left: 0;
+  padding-right: 1em;
+}
+.navbar-right li {
+  margin-top: 2px;
+}
+.navbar-right li:hover {
+  background: none;
+}
+.navbar-right a {
+  color: rgba(0,0,0,0.75);
+}
+.tagline:hover {
+  cursor: pointer;
+}
+.btn-cta {
+  background-color: #f37356;
+  color: #fff;
+  padding: 1em 2em;
+  border-radius: 100px;
+  margin-bottom: 2em;
+  font-size: 1.25em;
+}
+.contract-search-form .form-control,
+.btn-search,
+.btn-search:hover,
+.btn-search:focus {
+  height: 46px;
+  font-size: 18px;
+}
+.contract-search-form .form-control {
+  background: rgba(255,255,255,0.2);
+}
+.row-content > div[class*=col-lg] > div {
+  padding-top: 100px;
+}
+.resources-mining:hover {
+  cursor: pointer;
+}
+.resources {
+  text-transform: capitalize;
 }

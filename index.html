@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/images/favicon.ico">
 
-    <title>PH-EITI : Resource Contracts</title>
+    <title>PH-EITI : Resource Contracts Portal</title>
 
     <link href="/public/css/bootstrap.min.css" rel="stylesheet">
     <link href="/public/css/metisMenu.min.css" rel="stylesheet">
@@ -56,12 +56,23 @@
         <div class="row">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                    <span data-toggle="collapse-sidebar" data-target=".sidebar-collapse" data-target-2=".sidebar-collapse-container" class="pull-left trigger">trigger</span>
+                    <span data-toggle="collapse-sidebar" data-target=".sidebar-collapse" data-target-2=".sidebar-collapse-container" class="pull-left trigger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
                     <a class="navbar-brand" href="/"><img src="/images/ph-eiti.png" style="height: 25px; display: inline-block; margin-left: 1em;" /></a>
 
                 </div>
-                <div class="col-sm-12 col-md-9 col-lg-10 navbar-right">
-                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+                    <li>
+                        <a href="/contact">Contact Us</a>
+                    </li>
+                </ul>
             </nav>
         </div>
 
@@ -70,283 +81,61 @@
             <ul class="sidebar-nav">
 
                 <li class="sidebar-brand">
-                    <a href="/">Resource <span class="beta">Beta</span><span>Contracts</span></a>
+                    <a href="/">PH-EITI <span>Contracts Portal</span></a>
                 </li>
 
                 <li class="contracts active">
-                    <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts">
+                    <a href="/contracts">
                         <span>All Contracts</span>
-
-                        <small class="label pull-right"></small>
-
                     </a>
                 </li>
 
-                <!--
                 <li class="resources">
                     <label>Resources</label>
                     <ul>
+
                         <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Aluminium">
-                                <span>Aluminium</span>
-                                <small class="label pull-right">26</small>
+                            <a class="resources-mining" onclick="$(this).next().slideToggle();">Mining</a>
+                            <ul style="display: none;">
+                                <li ng-repeat="(i, v) in rootData.resource">
+                                    <a href="/search?resource={{v}}">
+                                        <span>{{v}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/search?resource=Oil,Gas">
+                                <span>Oil and Gas</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Base metals">
-                                <span>Base metals</span>
-                                <small class="label pull-right">2</small>
+
+                    </ul>
+                    <br/>
+                </li>
+
+                <li class="resources">
+                    <label>Company</label>
+                    <ul>
+                        <li ng-repeat="(i, v) in rootData.company_name">
+                            <a href="/search?company_name={{v}}">
+                                <span>{{v}}</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Bauxite">
-                                <span>Bauxite</span>
-                                <small class="label pull-right">39</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Coal">
-                                <span>Coal</span>
-                                <small class="label pull-right">2</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Cobalt">
-                                <span>Cobalt</span>
-                                <small class="label pull-right">2</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Contrat de Joint Venture relatif &agrave; l&#039;exploitation des gisements Cupro cobaltiferes.--wildCobalt">
-                                <span>Contrat de Joint Venture relatif &agrave; l&#039;exploitation des gisements Cupro cobaltiferes.--wildCobalt</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Convention de Joint Venture pour &eacute;tablir une soci&eacute;t&eacute; priv&eacute;e &agrave; responsabilit&eacute; limit&eacute;e ayant pour objet la prospection">
-                                <span>Convention de Joint Venture pour &eacute;tablir une soci&eacute;t&eacute; priv&eacute;e &agrave; responsabilit&eacute; limit&eacute;e ayant pour objet la prospection</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Copper">
-                                <span>Copper</span>
-                                <small class="label pull-right">7</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Crude oil (meaning crude mineral oil">
-                                <span>Crude oil (meaning crude mineral oil</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resource/Diamonds">
-                                <span>Diamonds</span>
-                                <small class="label pull-right">13</small>
-                            </a>
-                        </li>
-                        <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/resources">View all</a></li>
                     </ul>
                 </li>
+
                 <li class="year">
                     <label>Year</label>
                     <ul>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2015">
-                                <span>2015</span>
-                                <small class="label pull-right">4</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2014">
-                                <span>2014</span>
-                                <small class="label pull-right">5</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2013">
-                                <span>2013</span>
-                                <small class="label pull-right">3</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2012">
-                                <span>2012</span>
-                                <small class="label pull-right">19</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2011">
-                                <span>2011</span>
-                                <small class="label pull-right">16</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2010">
-                                <span>2010</span>
-                                <small class="label pull-right">32</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2009">
-                                <span>2009</span>
-                                <small class="label pull-right">17</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2008">
-                                <span>2008</span>
-                                <small class="label pull-right">12</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2007">
-                                <span>2007</span>
-                                <small class="label pull-right">30</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2006">
-                                <span>2006</span>
-                                <small class="label pull-right">28</small>
+                        <li ng-repeat="(i, v) in rootData.year">
+                            <a href="/search?year={{v}}">
+                                <span>{{v}}</span>
                             </a>
                         </li>
                     </ul>
-
-                    <ul id="year-more" style="display: none">
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2005">
-                                <span>2005</span>
-                                <small class="label pull-right">26</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2004">
-                                <span>2004</span>
-                                <small class="label pull-right">12</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2003">
-                                <span>2003</span>
-                                <small class="label pull-right">11</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2002">
-                                <span>2002</span>
-                                <small class="label pull-right">7</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2001">
-                                <span>2001</span>
-                                <small class="label pull-right">7</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=2000">
-                                <span>2000</span>
-                                <small class="label pull-right">14</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1999">
-                                <span>1999</span>
-                                <small class="label pull-right">7</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1998">
-                                <span>1998</span>
-                                <small class="label pull-right">9</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1997">
-                                <span>1997</span>
-                                <small class="label pull-right">9</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1996">
-                                <span>1996</span>
-                                <small class="label pull-right">5</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1995">
-                                <span>1995</span>
-                                <small class="label pull-right">8</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1994">
-                                <span>1994</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1993">
-                                <span>1993</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1992">
-                                <span>1992</span>
-                                <small class="label pull-right">4</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1991">
-                                <span>1991</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1990">
-                                <span>1990</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1986">
-                                <span>1986</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1973">
-                                <span>1973</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1964">
-                                <span>1964</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1963">
-                                <span>1963</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contracts?year=1958">
-                                <span>1958</span>
-                                <small class="label pull-right">1</small>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <div><a href="#year-more" class="toggle-all">More</a></div>
                 </li>
-
-                -->
 
             </ul>
         </div>
@@ -355,23 +144,22 @@
 
         <footer>
             <div class="row">
-                <div class="col-lg-4 footer-left-wrap">
-                    <ul>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
-                    </ul>
-                </div>
-                <!--
-                <div class="col-lg-8 footer-right-wrap">
-                    <ul>
-                        <li><a href="http://www.resourcecontracts.org/" target="_blank"><img src="http://rc-site-stage.elasticbeanstalk.com/rc/public/images/ic-nrgi.png" /></a></li>
+                <div class="col-md-6">
 
-                        <li><a href="http://ccsi.columbia.edu/" target="_blank"><img src="http://rc-site-stage.elasticbeanstalk.com/rc/public/images/ic-cc.png" /></a></li>
-                        <li><a href="http://www.worldbank.org/en/topic/governance" target="_blank"><img src="http://rc-site-stage.elasticbeanstalk.com/rc/public/images/ic-worldbank.png" /></a></li>
-                        <li><a href="http://www.dfid.gov.uk" target="_blank"><img src="http://rc-site-stage.elasticbeanstalk.com/rc/public/images/ic-dfid.png" /></a></li>
-                    </ul>
+                    <a href="http://ph-eiti.org/#/Secretariat">PH-EITI Secretariat</a><br>
+                    Philippine Extractive Industries Transparency Initiative<br>
+                    4/F DOF building, Roxas Blvd. Corner Pablo Ocampo St.,<br>
+                    Manila 1004, Philippines
+
                 </div>
-                -->
+                <div class="col-md-6" style="text-align: right;">
+                    <a href="http://ph-eiti.org">www.ph-eiti.org</a><br>
+                    <a href="mailto:info@ph-eiti.com" class="link-no-style">info@ph-eiti.com</a><br>
+                    <a href="tel:+6325250487" class="link-no-style">02-525-0487</a><br>
+                    <a href="https://www.facebook.com/PhilippineEITI" class="link-no-style">Facebook</a> / <a href="https://twitter.com/ph_eiti" class="link-no-style">Twitter</a>
+
+                </div>
+
             </div>
         </footer>
     </div>

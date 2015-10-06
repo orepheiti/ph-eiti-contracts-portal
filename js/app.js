@@ -12,13 +12,22 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       controller: 'IndexController'
     }).
 
+    when('/about', {
+      templateUrl: '/partials/about.html',
+    }).
+
+
+    when('/contact', {
+      templateUrl: '/partials/contact.html',
+    }).
+
     when('/search', {
       templateUrl: '/partials/search.html',
       controller: 'SearchController'
     }).
 
     when('/contracts', {
-      templateUrl: '/partials/contracts.html',
+      templateUrl: '/partials/search.html',
       controller: 'ContractsController'
     }).
 
@@ -132,3 +141,12 @@ function getParam(param) {
   });
   return found;
 }
+
+function deleteByValue(val, obj) {
+  for(var f in obj) {
+    if(obj[f] == val) {
+      delete obj[f];
+    }
+  }
+}
+
