@@ -7,10 +7,10 @@ if (isset($_POST['message']) && isset($_POST['email'])) {
 		$_POST[$k] = htmlspecialchars(stripslashes($v));
 	}
 
-	$to = "jerico@gmail.com";
+	$to = "pheiticontactsportal@gmail.com";
 	$subject = "PH-EITI Contracts Portal - Feedback";
 	$message = $_POST['message'];
-	$headers = 'From: '. $_POST['email'] . "\r\n";
+	$headers = 'From: '. $_POST['name'] . " <" . $_POST['email'] . ">\r\n";
 
 	$sent = mail($to, $subject, $message, $headers);
 
