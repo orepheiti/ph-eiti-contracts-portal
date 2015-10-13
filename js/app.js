@@ -28,7 +28,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
 
     when('/contracts', {
       templateUrl: '/partials/search.html',
-      controller: 'ContractsController'
+      controller: 'SearchController'
     }).
 
     when('/contract/:id', {
@@ -42,6 +42,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
 
     $locationProvider.html5Mode(true);
 
+
 }]);
 
 
@@ -51,23 +52,15 @@ myApp.filter('rawHtml', ['$sce', function($sce){
   };
 }]);
 
-myApp.filter('skillItem', [ '$sce', function($sce) {
+myApp.filter('trueFalse', [ function($sce) {
   return function(input) {
-    var replaceWith = new String();
-    var currentText = input;
-    var pattern = /\d\/\d/g;
-    var value = currentText.match(pattern)[0];
-    var loop = parseInt(value.slice(-1));
-    var count = parseInt(value.slice(0));
-
-    for (var x = 0; loop > x; x++) {
-      if (x == count) {
-        replaceWith += "</b>";
-      }
-      replaceWith += "&bullet;";
+    if (input == 1) {
+      return 'True'
+    }
+    else {
+      return 'False'
     }
 
-    return $sce.trustAsHtml(currentText.replace(/\d\/\d/g, "<span><b>" + replaceWith + "</span>"));
   }
 }]);
 
@@ -150,3 +143,60 @@ function deleteByValue(val, obj) {
   }
 }
 
+function download(filename, url) {
+  var element = document.createElement('a');
+  $.ajax({
+    url: '/proxy.php',
+    data: {
+      csurl: url
+    },
+    success: function(data) {
+
+      var data = '<meta http-equiv="Content-type" content="text/html; charset=utf-8" />' + data;
+
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
+      element.setAttribute('download', filename);
+
+      element.style.display = 'none';
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+
+      console.log('fdsfs');
+
+      console.log(data);
+
+    }
+  });
+
+}
+
+function closeSidebar() {
+  if ($('.sidebar-collapse-container.out').length) {
+    $('.navbar-header .trigger').click();
+  }
+}
+
+function contactFormSubmit(e) {
+  console.log( $(e).serialize() );
+
+  $.ajax({
+    url: '/mailer.php',
+    data: $(e).serialize(),
+    type: 'POST',
+    success: function(data) {
+      if (data == "Success") {
+        $('.form-message').html("Your message has been sent!");
+        $(e)[0].reset();
+      } else {
+        $('.form-message').html("Something went wrong, please try again");
+      }
+    },
+    error: function() {
+      $('.form-message').html("Something went wrong, please try again");
+    }
+  })
+
+}

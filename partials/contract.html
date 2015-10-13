@@ -6,17 +6,18 @@
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/contracts">Contracts</a></li>
-                        <li>{{data.contract_name}}</li>
+                        <li>{{data.contract_name || '-'}}</li>
                     </ul>
                 </div>
 
                 <div class="panel-title">
-                    {{data.contract_name}}
+                    {{data.contract_name || '-'}}
                 </div>
             </div>
             <div class="action-links">
                 <ul>
-                    <li class="pull-left"><a target="_self" href="/contract-view.html?contractId={{data.contract_id}}&contractTitle={{data.contract_name}}&totalPages={{data.total_pages}}">View Document</a></li>                </ul>
+                    <li class="pull-left"><a target="_self" href="/contract-view.html?contractId={{data.contract_id}}&contractTitle={{data.contract_name}}&totalPages={{data.total_pages}}">View Document</a></li>
+                </ul>
             </div>
         </div>
         <div class="filter-wrapper actions-wrapper">
@@ -28,7 +29,7 @@
 
                     <ul class="dropdown-menu" style="display: none;">
                         <li><a href="{{data.file_url}}" target="_blank">PDF</a></li>
-                        <li><a href="{{data.word_file}}" target="_blank">Word File</a></li>
+                        <li><a target="_blank" class="download-word">Word File</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,45 +45,45 @@
                     <ul>
                         <li class="col-lg-12 open-contracting-id">
                             <label for="">Open Contracting ID :</label>
-                            <span>{{data.open_contracting_id}}</span>
+                            <span>{{data.open_contracting_id || '-'}}</span>
                         </li>
                     </ul>
                     <ul>
                         <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <label for="">Language</label>
-                            <span style="text-transform: uppercase">{{data.language}}</span>
+                            <span style="text-transform: uppercase">{{data.language || '-'}}</span>
                         </li>
                         <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <label for="">Country</label>
-                            <span>{{data.country.name}}</span>
+                            <span>{{data.country.name || '-'}}</span>
                         </li>
                     </ul>
                     <ul class="government-entity-wrap">
                         <li class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <label for="">Government Entity</label>
-                            <span>{{data.government_entity[0].entity}}</span>
+                            <span>{{data.government_entity[0].entity || '-'}}</span>
                         </li>
 
                     </ul>
                     <ul>
                         <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <label for="">Signature Date</label>
-                            <span>{{data.signature_date}}</span>
+                            <span>{{data.signature_date || '-'}}</span>
                         </li>
                         <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <label for="">Document Type</label>
-                            <span>{{data.document_type}}</span>
+                            <span>{{data.document_type || '-'}}</span>
                         </li>
                     </ul>
                     <ul>
                         <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <label for="">Type of Contract</label>
-                            <span>{{data.type_of_contract}}</span>
+                            <span>{{data.type_of_contract || '-'}}</span>
                         </li>
                         <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <label for="">Resource</label>
                             <span class="resource-list">
-                                <p ng-repeat="(i, v) in data.resource">{{v}}</p>
+                                <p ng-repeat="(i, v) in data.resource">{{v || '-'}}</p>
                             </span>
                         </li>
                     </ul>
@@ -119,43 +120,43 @@
                 <ul>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Company Name</label>
-                        <span>{{data.company[0].name}}</span>
+                        <span>{{data.company[0].name || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Jurisdiction of Incorporation</label>
-                        <span>{{data.company[0].jurisdiction_of_incorporation}}</span>
+                        <span>{{data.company[0].jurisdiction_of_incorporation || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Registration Agency</label>
-                        <span>{{data.company[0].registration_agency}}</span>
+                        <span>{{data.company[0].registration_agency || '-'}}</span>
                     </li>
                 </ul>
                 <ul>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Company Address</label>
-                        <span>{{data.company[0].company_address}}</span>
+                        <span>{{data.company[0].company_address || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Company Number</label>
-                        <span>{{data.company[0].company_number}}</span>
+                        <span>{{data.company[0].company_number || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Corporate Grouping</label>
-                        <span>{{data.company[0].parent_company}}</span>
+                        <span>{{data.company[0].parent_company || '-'}}</span>
                     </li>
                 </ul>
                 <ul>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Open Corporate ID</label>
-                        <span>{{data.company[0].open_corporate_id}}</span>
+                        <span>{{data.company[0].open_corporate_id || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Participation Share</label>
-                        <span>{{data.company[0].participation_share}}</span>
+                        <span>{{data.company[0].participation_share || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Operator</label>
-                        <span>{{data.company[0].operator}}</span>
+                        <span>{{(data.company[0].operator | trueFalse ) || '-'}}</span>
                     </li>
                 </ul>
             </div>
@@ -172,7 +173,7 @@
                     <tbody>
                     <tr>
                         <td ng-repeat="(i,v) in data.supporting_contracts">
-                            <a href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.contract_name}}&contractParentId={{data.contract_id}}" target="_self">{{v.contract_name}}</a>
+                            <a href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.contract_name}}&contractParentId={{data.contract_id}}" target="_self">{{v.contract_name || '-'}}</a>
                         </td>
                     </tr>
                     <!--
@@ -198,21 +199,21 @@
                 <ul>
                     <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <label for="">Project Title</label>
-                        <span>{{data.project_title}}</span>
+                        <span>{{data.project_title || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <label for="">Project Identifier</label>
-                        <span>{{data.project_identifier}}</span>
+                        <span>{{data.project_identifier || '-'}}</span>
                     </li>
                 </ul>
                 <ul>
                     <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <label for="">License Name</label>
-                        <span>{{data.license_name}}</span>
+                        <span>{{data.license_name || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <label for="">License Identifier</label>
-                        <span>{{data.license_identifier}}</span>
+                        <span>{{data.license_identifier || '-'}}</span>
                     </li>
                 </ul>
             </div>
@@ -227,7 +228,7 @@
                 <ul>
                     <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <label for="">Source URL</label>
-                        <span><a href="{{data.source_url}}" target="_blank">{{data.source_url}}</a></span>
+                        <span><a href="{{data.source_url}}" target="_blank">{{data.source_url || '-'}}</a></span>
                     </li>
                     <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <label for="">Disclosure Mode</label>

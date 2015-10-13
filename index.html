@@ -118,12 +118,40 @@
                 <li class="resources">
                     <label>Company</label>
                     <ul>
-                        <li ng-repeat="(i, v) in rootData.company_name">
-                            <a href="/search?company_name={{v}}">
-                                <span>{{v}}</span>
-                            </a>
+                        <li>
+                            <a class="resources-mining" onclick="$(this).next().slideToggle();">Mining</a>
+                            <ul style="display: none;">
+                                <li ng-repeat="(i, v) in rootData.company_name">
+                                    <a href="/search?company_name={{v}}">
+                                        <span>{{v}}</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
+
+                        <li>
+                            <a class="resources-mining" onclick="$(this).next().slideToggle();">Oil and Gas</a>
+                            <ul style="display: none;">
+                                <li>
+                                    <a href="/search?company_name=Forum Energy Plc">
+                                        <span>Forum Energy Plc</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/search?company_name=The Philodrill Corporation">
+                                        <span>The Philodrill Corporation</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/search?company_name=Shell Philippines Exploration B. V.%20">
+                                        <span>Shell Philippines Exploration B. V. </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                     </ul>
+                    <br/>
                 </li>
 
                 <li class="year">
