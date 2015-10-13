@@ -21,6 +21,10 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/partials/contact.html',
     }).
 
+    when('/related-links', {
+      templateUrl: '/partials/related-links.html',
+    }).
+
     when('/search', {
       templateUrl: '/partials/search.html',
       controller: 'SearchController'
