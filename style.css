@@ -26,9 +26,10 @@ a:hover {
 }
 footer {
   color: rgba(255,255,255,0.5);
-  padding: 3em 0;
-  font-size: 12px;
-  line-height: 20px;
+  padding: 3em 1em;
+  font-size: 14px;
+  line-height: 1.75em;
+  font-family: Open-Sans-Light, sans-serif;
 }
 footer a {
   color: rgba(250,188,1,0.8);

@@ -1,6 +1,6 @@
 var myControllers = angular.module('myControllers', ['ngAnimate']);
 
-var api = 'http://rc-elasticsearch.elasticbeanstalk.com/api/';
+var api = 'http://54.173.9.19/api/';
 var options = "&country_code=ph"
 
 myControllers.controller('MainController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
@@ -15,10 +15,13 @@ myControllers.controller('MainController', ['$scope', '$rootScope', '$http', fun
     deleteByValue('The Philodrill Corporation', data.company_name);
     deleteByValue('Shell Philippines Exploration B. V. ', data.company_name);
 
+    var data = filterData(data);
+
     $rootScope.rootData = data;
 
-  }).error(function(a) {
-    console.log(a);
+  }).error(function() {
+    console.log('error!');
+    window.location.reload();
   });
 }]);
 
@@ -74,6 +77,9 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
   }
 
   $http.get(api + 'contracts/search?from=0&per_page=1000&group=metadata&country=ph&' + query, { cache: true }).success(function(data) {
+
+    var data = filterData(data);
+
     $scope.data = data;
 
     $('.search-loading').hide();
@@ -83,7 +89,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
     }
 
     else {
-      $('.search-result-wrapper').css('max-height', $(window).height() - $('.filter-wrapper').height() - $('.search-top-wrapper').height() - $('.navbar').height() );
+      //$('.search-result-wrapper').css('max-height', $(window).height() - $('.filter-wrapper').height() - $('.search-top-wrapper').height() - $('.navbar').height() );
     }
 
 

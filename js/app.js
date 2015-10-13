@@ -204,3 +204,28 @@ function contactFormSubmit(e) {
   })
 
 }
+
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
+
+function filterData(data) {
+
+  var data = data;
+
+  var newResults = [];
+
+  $.each(data.results, function(i, v) {
+    if (!/Annex/.test(v['contract_name'])) {
+      newResults.push(v);
+    }
+  });
+
+  data.results = newResults;
+  data.total = newResults.length;
+
+  return data;
+
+}
