@@ -19,7 +19,7 @@
 
 <script>
     $(window).on('rootData.loaded', function() {
-        setTimeout(function() {
+        setTimeout(function () {
             $('select, input').each(function (i, v) {
                 var key = $(v).attr('name');
                 var value = decodeURIComponent(getParam(key));
@@ -32,10 +32,8 @@
             $('select').select2();
 
         }, 1000);
-
-    })
+    });
 </script>
-
 
 <div class="filter-wrapper">
     <div class="col-lg-12">
@@ -96,12 +94,18 @@
                 <table ng-show="data.results.length > 0" class="table table-responsive table-contract table-contract-list">
                     <tbody>
                         <tr>
-                            <th>Document</th>
-                            <th>Year</th>
+                            <th>
+                                <a ng-click="order('contract_name')">Document</a>
+                                <span class="sortorder" ng-show="predicate === 'contract_name'" ng-class="{reverse:reverse}"></span>
+                            </th>
+                            <th>
+                                <a ng-click="order('signature_year')">Year</a>
+                                <span class="sortorder" ng-show="predicate === 'signature_year'" ng-class="{reverse:reverse}"></span>
+                            </th>
                             <th>Resource</th>
                             <th>Contract Type</th>
                         </tr>
-                        <tr ng-repeat="(i, v) in data.results">
+                        <tr ng-repeat="(i, v) in data.results | orderBy:predicate:reverse">
                             <td>
                                 <a href='contract/{{v.contract_id}}' onclick="closeSidebar()">{{v.contract_name}}</a>
                             </td>

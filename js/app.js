@@ -218,7 +218,7 @@ function filterData(data) {
   var newResults = [];
 
   $.each(data.results, function(i, v) {
-    if (!/Annex/.test(v['contract_name'])) {
+    if (!/Annex/.test(v['contract_name']) || !/Agreement/.test(v['contract_name'])) {
       newResults.push(v);
     }
   });
@@ -229,3 +229,13 @@ function filterData(data) {
   return data;
 
 }
+
+$(window).on('mainData.loaded', function() {
+  setTimeout(function() {
+    $('select').select2();
+    $('.sidebar-select').on('change', function() {
+      window.location.href = '/search?' + $(this).attr('name') + '=' + $(this).val();
+    });
+  }, 1000);
+
+})

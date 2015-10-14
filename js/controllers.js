@@ -19,6 +19,8 @@ myControllers.controller('MainController', ['$scope', '$rootScope', '$http', fun
 
     $rootScope.rootData = data;
 
+    $(window).trigger('mainData.loaded')
+
   }).error(function() {
     console.log('error!');
     window.location.reload();
@@ -81,6 +83,13 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
     var data = filterData(data);
 
     $scope.data = data;
+
+    $scope.predicate = 'contract_name';
+    $scope.reverse = true;
+    $scope.order = function(predicate) {
+      $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse: false;
+      $scope.predicate = predicate;
+    };
 
     $('.search-loading').hide();
 

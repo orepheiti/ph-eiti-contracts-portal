@@ -81,6 +81,7 @@
 
         <div id="sidebar-wrapper" class="sidebar-collapse in">
 
+
             <ul class="sidebar-nav">
 
                 <li class="sidebar-brand">
@@ -99,6 +100,13 @@
 
                         <li>
                             <a class="resources-mining" onclick="$(this).next().slideToggle();">Mining</a>
+                            <div style="display: none; position: relative; width: 70%; margin-left: 11%;">
+                                <select name="resource" class="sidebar-select" placeholder="Select Resource">
+                                    <option value="" selected>Select Resource</option>
+                                    <option value="{{v}}" ng-repeat="(i, v) in rootData.resource">{{v}}</option>
+                                </select>
+                            </div>
+                            <!--
                             <ul style="display: none;">
                                 <li ng-repeat="(i, v) in rootData.resource">
                                     <a href="/search?resource={{v}}">
@@ -106,10 +114,12 @@
                                     </a>
                                 </li>
                             </ul>
+                            -->
+
                         </li>
 
                         <li>
-                            <a href="/search?resource=Oil,Gas">
+                            <a href="/search?resource=Oil,Gas" target="_self">
                                 <span>Oil and Gas</span>
                             </a>
                         </li>
@@ -123,6 +133,13 @@
                     <ul>
                         <li>
                             <a class="resources-mining" onclick="$(this).next().slideToggle();">Mining</a>
+                            <div style="display: none; position: relative; width: 70%; margin-left: 11%;">
+                                <select name="company_name" class="sidebar-select" placeholder="Select Company">
+                                    <option value="" selected>Select Company</option>
+                                    <option value="{{v}}" ng-repeat="(i, v) in rootData.company_name">{{v}}</option>
+                                </select>
+                            </div>
+                            <!--
                             <ul style="display: none;">
                                 <li ng-repeat="(i, v) in rootData.company_name">
                                     <a href="/search?company_name={{v}}">
@@ -130,10 +147,20 @@
                                     </a>
                                 </li>
                             </ul>
+                            -->
                         </li>
 
                         <li>
                             <a class="resources-mining" onclick="$(this).next().slideToggle();">Oil and Gas</a>
+                            <div style="display: none; position: relative; width: 70%; margin-left: 11%;">
+                                <select name="company_name" class="sidebar-select" placeholder="Select Company">
+                                    <option value="" selected>Select Company</option>
+                                    <option value="Forum Energy Plc">Forum Energy Plc</option>
+                                    <option value="The Philodrill Corporation">The Philodrill Corporation</option>
+                                    <option value="Shell Philippines Exploration B. V. ">Shell Philippines Exploration B. V.</option>
+                                </select>
+                            </div>
+                            <!--
                             <ul style="display: none;">
                                 <li>
                                     <a href="/search?company_name=Forum Energy Plc">
@@ -151,6 +178,7 @@
                                     </a>
                                 </li>
                             </ul>
+                            -->
                         </li>
 
                     </ul>
@@ -159,6 +187,15 @@
 
                 <li class="year">
                     <label>Year</label>
+
+                    <div style="position: relative; width: 70%; margin-left: 11%;">
+                        <select name="year" class="sidebar-select" placeholder="Select Year">
+                            <option value="" selected>Select Year</option>
+                            <option value="{{v}}" ng-repeat="(i, v) in rootData.year">{{v}}</option>
+                        </select>
+                    </div>
+                    <br>
+                    <!--
                     <ul>
                         <li ng-repeat="(i, v) in rootData.year">
                             <a href="/search?year={{v}}">
@@ -166,6 +203,7 @@
                             </a>
                         </li>
                     </ul>
+                    -->
                 </li>
 
             </ul>
