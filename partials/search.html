@@ -105,7 +105,7 @@
                             <th>Resource</th>
                             <th>Contract Type</th>
                         </tr>
-                        <tr ng-repeat="(i, v) in data.results | orderBy:predicate:reverse">
+                        <tr ng-repeat="(i, v) in data.results | orderBy:predicate">
                             <td>
                                 <a href='contract/{{v.contract_id}}' onclick="closeSidebar()">{{v.contract_name}}</a>
                             </td>

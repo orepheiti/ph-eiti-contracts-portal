@@ -218,7 +218,7 @@ function filterData(data) {
   var newResults = [];
 
   $.each(data.results, function(i, v) {
-    if (!/Annex/.test(v['contract_name']) || !/Agreement/.test(v['contract_name'])) {
+    if (!/Annex/.test(v['contract_name'])) {
       newResults.push(v);
     }
   });
