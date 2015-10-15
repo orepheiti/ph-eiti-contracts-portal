@@ -6,10 +6,7 @@ var options = "&country_code=ph"
 myControllers.controller('MainController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
   $http.get(api + 'contracts/search?q=&from=0&per_page=10000&group=metadata&country=ph', { cache: true }).success(function(data) {
 
-    console.log(data);
-
-    deleteByValue('Oil', data.resource);
-    deleteByValue('Gas', data.resource);
+    //console.log(data);
 
     deleteByValue('Forum Energy Plc', data.company_name);
     deleteByValue('The Philodrill Corporation', data.company_name);
@@ -59,7 +56,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 
     $scope.searchTerm = 'Contracts from <span>' + decodeURIComponent(company) + '</span>';
 
-    query += 'company_name=' + company + '&'
+    query += 'q=' + company + '&'
 
   }
 
@@ -85,7 +82,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
     $scope.data = data;
 
     $scope.predicate = 'contract_name';
-    $scope.reverse = true;
+    $scope.reverse = false;
     $scope.order = function(predicate) {
       $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse: false;
       $scope.predicate = predicate;

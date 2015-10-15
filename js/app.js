@@ -59,14 +59,16 @@ myApp.filter('rawHtml', ['$sce', function($sce){
 myApp.filter('trueFalse', [ function($sce) {
   return function(input) {
     if (input == 1) {
-      return 'True'
+      return 'Yes'
     }
     else {
-      return 'False'
+      return 'No'
     }
 
   }
+
 }]);
+
 
 
 myApp.directive('bindHtmlCompile', ['$compile', function ($compile) {
@@ -149,6 +151,7 @@ function deleteByValue(val, obj) {
 
 function download(filename, url) {
   var element = document.createElement('a');
+  /*
   $.ajax({
     url: '/proxy.php',
     data: {
@@ -169,6 +172,26 @@ function download(filename, url) {
       document.body.removeChild(element);
 
       console.log('fdsfs');
+
+      console.log(data);
+
+    }
+    */
+  $.ajax({
+    url: url,
+    success: function(data) {
+
+      var data = '<meta http-equiv="Content-type" content="text/html; charset=utf-8" />' + data;
+
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
+      element.setAttribute('download', filename);
+
+      element.style.display = 'none';
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
 
       console.log(data);
 
@@ -220,11 +243,25 @@ function filterData(data) {
   $.each(data.results, function(i, v) {
     if (!/Annex/.test(v['contract_name'])) {
       newResults.push(v);
+
     }
   });
 
   data.results = newResults;
   data.total = newResults.length;
+
+  var resource = [];
+
+  $.each(data.resource, function(i, v) {
+    var v = v.toLowerCase();
+    if (resource.indexOf(v) < 0)
+      resource.push(v);
+  });
+
+  remove(resource, 'oil');
+  remove(resource, 'gas');
+
+  data.resource = resource.sort();
 
   return data;
 
@@ -238,4 +275,13 @@ $(window).on('mainData.loaded', function() {
     });
   }, 1000);
 
-})
+});
+
+
+function remove(arr, item) {
+  for(var i = arr.length; i--;) {
+    if(arr[i] === item) {
+      arr.splice(i, 1);
+    }
+  }
+}

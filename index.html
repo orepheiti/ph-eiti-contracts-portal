@@ -89,7 +89,7 @@
                 </li>
 
                 <li class="contracts active">
-                    <a href="/contracts">
+                    <a href="/contracts" target="_self">
                         <span>All Contracts</span>
                     </a>
                 </li>
@@ -136,7 +136,7 @@
                             <div style="display: none; position: relative; width: 70%; margin-left: 11%;">
                                 <select name="company_name" class="sidebar-select" placeholder="Select Company">
                                     <option value="" selected>Select Company</option>
-                                    <option value="{{v}}" ng-repeat="(i, v) in rootData.company_name">{{v}}</option>
+                                    <option value='"{{v.contract_name}}"' ng-repeat="(i, v) in rootData.results | orderBy:'contract_name'">{{v.contract_name}}</option>
                                 </select>
                             </div>
                             <!--
@@ -225,17 +225,21 @@
                     <a href="http://ph-eiti.org">www.ph-eiti.org</a><br>
                     <a href="mailto:info@ph-eiti.com" class="link-no-style">info@ph-eiti.com</a><br>
                     <a href="tel:+6325250487" class="link-no-style">02-525-0487</a><br>
-                    <a href="https://www.facebook.com/PhilippineEITI" class="link-no-style" style="font-size: 30px;"><i class="fa fa-facebook-square"></i></a> <a href="https://twitter.com/ph_eiti" class="link-no-style" style="font-size: 30px;"><i class="fa fa-twitter-square"></i></a>
+                    <a href="https://www.facebook.com/PhilippineEITI" class="link-no-style" target="_blank" style="font-size: 30px;"><i class="fa fa-facebook-square"></i></a> <a href="https://twitter.com/ph_eiti" target="_blank" class="link-no-style" style="font-size: 30px;"><i class="fa fa-twitter-square"></i></a>
 
                 </div>
 
             </div>
             <br>
             <div class="row">
+
                 <div class="col-md-12">
+                    <p>In partnership with</p>
                     <ul style="position: relative; left: -14px;">
                         <li><a href="http://www.resourcecontracts.org/" target="_blank"><img src="/images/ic-nrgi.png" /></a></li>
-                        <li><a href="http://www.worldbank.org/en/topic/governance" target="_blank"><img src="/images/ic-worldbank.png" /></a></li>
+                        <li><a href="http://www.worldbank.org/en/topic/governance" target="_blank"><img src="/images/world-bank-logo.jpg" style="height: 60px; margin: 0 1em;" /></a></li>
+                        <li><a href="http://ccsi.columbia.edu/" target="_blank"><img src="/images/ic-cc.png" width="194" height="49" /></a></li>
+
                     </ul>
                 </div>
             </div>

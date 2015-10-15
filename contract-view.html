@@ -120,7 +120,8 @@
     var contractApp = new ContractApp({
         contract_id: getParam('contractId'),
         total_pages: getParam('totalPages') || 0,
-        esapi: 'http://rc-elasticsearch.elasticbeanstalk.com/api/'
+        //esapi: 'http://anstalk.com/api/'
+        esapi: 'http://54.173.9.19/api/'
     });
 
     debug("initializing contract ", contractTitle, contractApp.get("contract_id"));

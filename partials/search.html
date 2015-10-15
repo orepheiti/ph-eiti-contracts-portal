@@ -64,7 +64,7 @@
                             <label for="">Company Name</label>
                             <select name="company_name">
                                 <option value="">All</option>
-                                <option value={{v}} ng-repeat="(i, v) in rootData.company_name">{{v}}</option>
+                                <option value='"{{v.contract_name}}"' ng-repeat="(i, v) in rootData.results | orderBy:'contract_name'">{{v.contract_name}}</option>
                             </select>
                         </div>
 
@@ -99,13 +99,13 @@
                                 <span class="sortorder" ng-show="predicate === 'contract_name'" ng-class="{reverse:reverse}"></span>
                             </th>
                             <th>
-                                <a ng-click="order('signature_year')">Year</a>
+                                <a ng-click="order('signature_year')">Signature Year</a>
                                 <span class="sortorder" ng-show="predicate === 'signature_year'" ng-class="{reverse:reverse}"></span>
                             </th>
                             <th>Resource</th>
                             <th>Contract Type</th>
                         </tr>
-                        <tr ng-repeat="(i, v) in data.results | orderBy:predicate">
+                        <tr ng-repeat="(i, v) in data.results | orderBy:predicate:reverse">
                             <td>
                                 <a href='contract/{{v.contract_id}}' onclick="closeSidebar()">{{v.contract_name}}</a>
                             </td>

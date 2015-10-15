@@ -20,7 +20,7 @@ var Pdf = React.createClass({
       this.setState({
         page: "",
         content: "",
-        message: <div className="no-contract-error">We're sorry, there is a problem loading the contract. Please contact <a href="mailto:info@openlandcontracts.org">info@openlandcontracts.org</a> to let us know, or check back later</div> //'
+        message: <div className="no-contract-error">We're sorry, there is a problem loading the contract. Please contact <a href="mailto:pheiticontractsportal@gmail.com">pheiticontractsportal@gmail.com</a> to let us know, or check back later</div> //'
       });
     } else {
       if(content !== "-"){

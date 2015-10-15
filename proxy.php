@@ -1,7 +1,5 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-
 /**
  * AJAX Cross Domain (PHP) Proxy 0.8
  *    by Iacovos Constantinou (http://www.iacons.net)
@@ -25,14 +23,15 @@ define( 'CSAJAX_FILTER_DOMAIN', true );
 /**
  * Set debugging to true to receive additional messages - really helpful on development
  */
-define( 'CSAJAX_DEBUG', false );
+define( 'CSAJAX_DEBUG', true );
 
 /**
  * A set of valid cross domain requests
  */
 $valid_requests = array(
 	'rc-stage.s3-us-west-2.amazonaws.com',
-	'rc-elasticsearch.elasticbeanstalk.com'
+	'rc-elasticsearch.elasticbeanstalk.com',
+	'54.173.9.19'
 );
 
 /* * * STOP EDITING HERE UNLESS YOU KNOW WHAT YOU ARE DOING * * */

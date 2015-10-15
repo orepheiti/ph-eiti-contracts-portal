@@ -203,7 +203,7 @@ var TextViewer = React.createClass({
             self.message = "";
             if (self.props.pagesCollection.models.length === 0) {
                 self.message = <div className="no-contract-error">We're sorry, there is a problem loading the contract. Please contact
-                    <a mailto="info@openlandcontracts.org">info@openlandcontracts.org</a>
+                    <a href="mailto:pheiticontractsportal@gmail.com">pheiticontractsportal@gmail.com</a>
                     to let us know, or check back later.</div>;//'
             }
             self.forceUpdate();
@@ -221,7 +221,6 @@ var TextViewer = React.createClass({
         var warningText = (this.message) ? "" : (<div className="text-viewer-warning">
             <span className="pull-right link close" onClick={this.handleClickWarning}>x</span>
             The text below was created automatically and may contain errors and differences from the contract`s original PDF file.&nbsp;
-            <a href={app_url + "/faqs"}>Learn more</a>
         </div>);
 
         var pagesView = (this.message) ? this.message : "Please wait while loading ...";
