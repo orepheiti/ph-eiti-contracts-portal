@@ -171,9 +171,9 @@
             <div class="panel-body panel-table">
                 <table class="table table-responsive table-contract table-associated-contract">
                     <tbody>
-                    <tr>
-                        <td ng-repeat="(i,v) in data.supporting_contracts">
-                            <a href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.contract_name}}&contractParentId={{data.contract_id}}" target="_self">{{v.contract_name || '-'}}</a>
+                    <tr ng-repeat="(i,v) in data.supporting_contracts" ng-show="v.status == 'published'">
+                        <td style="padding: 0.5em 48px 1em;">
+                            <a style="font-size: 14px !important;" href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.contract_name}}&contractParentId={{data.contract_id}}" target="_self">{{v.contract_name || '-'}}</a>
                         </td>
                     </tr>
                     <!--

@@ -151,39 +151,15 @@ function deleteByValue(val, obj) {
 
 function download(filename, url) {
   var element = document.createElement('a');
-  /*
-  $.ajax({
-    url: '/proxy.php',
-    data: {
-      csurl: url
-    },
-    success: function(data) {
-
-      var data = '<meta http-equiv="Content-type" content="text/html; charset=utf-8" />' + data;
-
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
-      element.setAttribute('download', filename);
-
-      element.style.display = 'none';
-      document.body.appendChild(element);
-
-      element.click();
-
-      document.body.removeChild(element);
-
-      console.log('fdsfs');
-
-      console.log(data);
-
-    }
-    */
   $.ajax({
     url: url,
     success: function(data) {
-
       var data = '<meta http-equiv="Content-type" content="text/html; charset=utf-8" />' + data;
+      var converted = htmlDocx.asBlob(data);
+      saveAs(converted, filename);
 
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
+      //element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
+      /*
       element.setAttribute('download', filename);
 
       element.style.display = 'none';
@@ -194,6 +170,7 @@ function download(filename, url) {
       document.body.removeChild(element);
 
       console.log(data);
+      */
 
     }
   });

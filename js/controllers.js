@@ -46,7 +46,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 
   if (year) {
 
-    $scope.searchTerm = 'Contracts from ' + year;
+    $scope.searchTerm = 'Contracts signed on ' + year;
 
     query += 'year=' + year + '&'
 
@@ -115,7 +115,7 @@ myControllers.controller('ContractController', ['$scope', '$http', '$routeParams
     $scope.data = data;
 
     $('.download-word').on('click', function() {
-      download(data.contract_name + '.html', data.word_file);
+      download(data.contract_name + '.docx', data.word_file);
     });
 
     console.log(data);
