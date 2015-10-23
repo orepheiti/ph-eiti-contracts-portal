@@ -152,7 +152,7 @@
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Participation Share</label>
-                        <span>{{data.company[0].participation_share || '-'}}</span>
+                        <span>{{(data.company[0].participation_share | percent) || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Operator</label>
@@ -173,7 +173,7 @@
                     <tbody>
                     <tr ng-repeat="(i,v) in data.supporting_contracts" ng-show="v.status == 'published'">
                         <td style="padding: 0.5em 48px 1em;">
-                            <a style="font-size: 14px !important;" href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.contract_name}}&contractParentId={{data.contract_id}}" target="_self">{{v.contract_name || '-'}}</a>
+                            <a style="font-size: 14px !important;" href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.contract_name}}&contractParentId={{data.contract_id}}&totalPages={{v.total_pages}}" target="_self">{{v.contract_name || '-'}}</a>
                         </td>
                     </tr>
                     <!--

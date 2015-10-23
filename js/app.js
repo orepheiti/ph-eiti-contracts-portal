@@ -69,6 +69,13 @@ myApp.filter('trueFalse', [ function($sce) {
 
 }]);
 
+myApp.filter('percent', [ function($sce) {
+  return function(input) {
+    return parseFloat(input) * 100 + '%';
+
+  }
+
+}]);
 
 
 myApp.directive('bindHtmlCompile', ['$compile', function ($compile) {
@@ -215,30 +222,54 @@ function filterData(data) {
 
   var data = data;
 
+  // Remove annexes
+
   var newResults = [];
 
   $.each(data.results, function(i, v) {
-    if (!/Annex/.test(v['contract_name'])) {
+    if (!(v['contract_name'].indexOf('Annex') > -1) && !(v['contract_name'].indexOf('Basic Agreement') > -1) && !(v['contract_name'].indexOf('Joint Determination of Commerciality') > -1)) {
       newResults.push(v);
-
     }
   });
 
   data.results = newResults;
   data.total = newResults.length;
 
+  // Make resource array to sort
   var resource = [];
 
   $.each(data.resource, function(i, v) {
-    var v = v.toLowerCase();
     if (resource.indexOf(v) < 0)
       resource.push(v);
   });
 
-  remove(resource, 'oil');
-  remove(resource, 'gas');
+  remove(resource, 'Oil');
+  remove(resource, 'Gas');
 
   data.resource = resource.sort();
+
+  // Make company_name array
+
+  var company_name = [];
+
+  $.each(data.company_name, function(i, v) {
+    if (company_name.indexOf(v) < 0)
+      company_name.push(v);
+  });
+
+  data.company_name = company_name.sort();
+
+  /*
+  var company_name_complete = [];
+
+  $.each(data.company_name_complete, function(i, v) {
+    if (company_name_complete.indexOf(v) < 0)
+      company_name_complete.push(v);
+  });
+
+  data.company_name_complete = company_name_complete.sort();
+  */
+
 
   return data;
 
@@ -248,7 +279,7 @@ $(window).on('mainData.loaded', function() {
   setTimeout(function() {
     $('select').select2();
     $('.sidebar-select').on('change', function() {
-      window.location.href = '/search?' + $(this).attr('name') + '=' + $(this).val();
+      window.location.href = '/search?' + $(this).attr('name') + '=' + encodeURIComponent($(this).val());
     });
   }, 1000);
 
@@ -262,3 +293,28 @@ function remove(arr, item) {
     }
   }
 }
+
+$(window).on('mainData.loaded', function() {
+  setTimeout(function() {
+
+    $('.slider-infographic > div').hide();
+    var curBg = $('.slider-infographic > div').eq(0).show();
+
+    function nextSlide() {
+      curBg.fadeOut(400);
+      if (curBg.next().length) {
+        setTimeout(function() {
+          curBg = curBg.next().fadeIn();
+        }, 400);
+      }
+      else {
+        setTimeout(function() {
+          curBg = $('.slider-infographic > div').eq(0).fadeIn();
+        }, 400);
+      }
+    }
+
+    setInterval(nextSlide, 8000);
+
+  }, 1000);
+});

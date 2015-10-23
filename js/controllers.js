@@ -1,6 +1,6 @@
 var myControllers = angular.module('myControllers', ['ngAnimate']);
 
-var api = 'http://54.173.9.19/api/';
+var api = 'http://api.resourcecontracts.org/';
 var options = "&country_code=ph"
 
 myControllers.controller('MainController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
@@ -8,11 +8,19 @@ myControllers.controller('MainController', ['$scope', '$rootScope', '$http', fun
 
     //console.log(data);
 
-    deleteByValue('Forum Energy Plc', data.company_name);
+
+    deleteByValue('Forum Exploration, Incorporated', data.company_name);
     deleteByValue('The Philodrill Corporation', data.company_name);
-    deleteByValue('Shell Philippines Exploration B. V. ', data.company_name);
+    deleteByValue('Shell Philippines Exploration B. V.', data.company_name);
 
     var data = filterData(data);
+
+    data.company_name_complete = data.company_name;
+    data.company_name_complete.push('Forum Exploration, Incorporated');
+    data.company_name_complete.push('The Philodrill Corporation');
+    data.company_name_complete.push('Shell Philippines Exploration B. V.');
+
+    data.company_name_complete = data.company_name_complete.sort();
 
     $rootScope.rootData = data;
 
@@ -56,7 +64,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 
     $scope.searchTerm = 'Contracts from <span>' + decodeURIComponent(company) + '</span>';
 
-    query += 'q=' + company + '&'
+    query += 'company_name=' + company + '&'
 
   }
 
@@ -98,7 +106,6 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
       //$('.search-result-wrapper').css('max-height', $(window).height() - $('.filter-wrapper').height() - $('.search-top-wrapper').height() - $('.navbar').height() );
     }
 
-
     $(window).trigger('rootData.loaded')
 
   }).error(function() {
@@ -117,6 +124,24 @@ myControllers.controller('ContractController', ['$scope', '$http', '$routeParams
     $('.download-word').on('click', function() {
       download(data.contract_name + '.docx', data.word_file);
     });
+
+    if (data.supporting_contracts.length > 0) {
+      $.each(data.supporting_contracts, function(i, v) {
+        console.log(v);
+        var cur = i;
+        $.ajax({
+          url: api + 'contract/' + v.id + '/metadata',
+          dataType: 'json',
+          success: function(data2) {
+            data.supporting_contracts[cur].total_pages = data2.total_pages;
+            console.log(data2.total_pages);
+            $scope.$apply(function(){ $scope.data = data; })
+            $scope.data = data;
+          }
+        });
+      });
+
+    }
 
     console.log(data);
 

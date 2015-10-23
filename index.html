@@ -44,6 +44,7 @@
     <script src="//code.angularjs.org/1.4.6/angular-animate.min.js"></script>
     <script src="//code.angularjs.org/1.4.6/angular-route.min.js"></script>
 
+    <script src="/js/Blob.js"></script>
     <script src="/js/FileSaver.js"></script>
     <script src="/js/html-docx.js"></script>
 
@@ -139,7 +140,7 @@
                             <div style="display: none; position: relative; width: 70%; margin-left: 11%;">
                                 <select name="company_name" class="sidebar-select" placeholder="Select Company">
                                     <option value="" selected>Select Company</option>
-                                    <option value='"{{v.contract_name}}"' ng-repeat="(i, v) in rootData.results | orderBy:'contract_name'">{{v.contract_name}}</option>
+                                    <option value='{{v}}' ng-repeat="(i, v) in rootData.company_name">{{v}}</option>
                                 </select>
                             </div>
                             <!--
@@ -158,9 +159,9 @@
                             <div style="display: none; position: relative; width: 70%; margin-left: 11%;">
                                 <select name="company_name" class="sidebar-select" placeholder="Select Company">
                                     <option value="" selected>Select Company</option>
-                                    <option value="Forum Energy Plc">Forum Energy Plc</option>
+                                    <option value="Forum Exploration, Incorporated">Forum Exploration, Incorporated</option>
+                                    <option value="Shell Philippines Exploration B. V.">Shell Philippines Exploration B. V.</option>
                                     <option value="The Philodrill Corporation">The Philodrill Corporation</option>
-                                    <option value="Shell Philippines Exploration B. V. ">Shell Philippines Exploration B. V.</option>
                                 </select>
                             </div>
                             <!--
@@ -218,14 +219,14 @@
             <div class="row">
                 <div class="col-md-6">
 
-                    <a href="http://ph-eiti.org/#/Secretariat">PH-EITI Secretariat</a><br>
+                    <a href="http://ph-eiti.org/#/Secretariat" target="_blank">PH-EITI Secretariat</a><br>
                     Philippine Extractive Industries Transparency Initiative<br>
                     4/F DOF building, Roxas Blvd. Corner Pablo Ocampo St.,<br>
                     Manila 1004, Philippines
 
                 </div>
                 <div class="col-md-6" style="text-align: right;">
-                    <a href="http://ph-eiti.org">www.ph-eiti.org</a><br>
+                    <a href="http://ph-eiti.org" target="_blank">www.ph-eiti.org</a><br>
                     <a href="mailto:info@ph-eiti.com" class="link-no-style">info@ph-eiti.com</a><br>
                     <a href="tel:+6325250487" class="link-no-style">02-525-0487</a><br>
                     <a href="https://www.facebook.com/PhilippineEITI" class="link-no-style" target="_blank" style="font-size: 30px;"><i class="fa fa-facebook-square"></i></a> <a href="https://twitter.com/ph_eiti" target="_blank" class="link-no-style" style="font-size: 30px;"><i class="fa fa-twitter-square"></i></a>
@@ -236,21 +237,33 @@
             <br>
             <div class="row">
                 <div class="col-xs-12" style="margin-bottom: 2em">
-                    <p>All content on the site is available as open data under <a href="http://opendefinition.org/licenses/cc-by/">Creative Commons Attribution 3.0</a> in accordance with the recommendations in the <a href="http://www.gov.ph/downloads/2014/01jan/Open-Data-Philippines-Action-Plan-2014-2016.pdf">Open Data Philippines Action Plan 2014-2016</a>.</p>
-                    <p>Source code for the site is available <a href="https://github.com/NRGI/resourcecontracts.org">here</a>.</p>
+                    <p>All content on the site is available as open data under <a href="http://opendefinition.org/licenses/cc-by/" target="_blank">Creative Commons Attribution 3.0</a> in accordance with the recommendations in the <a href="http://www.gov.ph/downloads/2014/01jan/Open-Data-Philippines-Action-Plan-2014-2016.pdf" target="_blank">Open Data Philippines Action Plan 2014-2016</a>.</p>
+                    <p>Source code for the site is available <a href="https://github.com/NRGI/resourcecontracts.org" target="_blank">here</a>.</p>
+                    <p>Explore extractive contracts from across the world at <a href="http://www.resourcecontracts.org" target="_blank">resourcecontracts.org</a></p>
                 </div>
             </div>
             <div class="row">
 
                 <div class="col-md-12">
-                    <p>In partnership with</p>
-                    <ul style="position: relative; left: -14px;">
-                        <li><a href="http://www.resourcecontracts.org/" target="_blank"><img src="/images/ic-nrgi.png" /></a></li>
-                        <li><a href="http://www.worldbank.org/en/topic/governance" target="_blank"><img src="/images/world-bank-logo.jpg" style="height: 60px; margin: 0 1em;" /></a></li>
+                    <p>Developed in partnership with</p>
+                    <ul style="position: relative; left: -8px;">
+                        <li><a href="http://resourcegovernance.org/" target="_blank"><img src="/images/ic-nrgi.png" /></a></li>
+                        <li><a href="http://www.worldbank.org/en/topic/governance" target="_blank"><img src="/images/ic-worldbank.png" style="margin: 0 1em;" /></a></li>
                         <li><a href="http://ccsi.columbia.edu/" target="_blank"><img src="/images/ic-cc.png" width="194" height="49" /></a></li>
 
                     </ul>
+					<br/>
                 </div>
+
+                <div class="col-md-12">
+                    <p>Created with support from</p>
+                    <ul style="">
+                        <li><a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/326391/UK_aid_branding_guidance_June_2014.pdf" target="_blank"><img src="/images/ic-dfid.png" /></a></li>
+
+
+                    </ul>
+                </div>
+
             </div>
         </footer>
     </div>

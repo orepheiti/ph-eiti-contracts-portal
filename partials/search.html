@@ -29,7 +29,7 @@
 
             $('select').select2();
 
-        }, 1000);
+        }, 500);
     });
 </script>
 
@@ -53,8 +53,8 @@
                             <label for="">Resource</label>
                             <select name="resource">
                                 <option value="">All</option>
-                                <option value="Oil,Gas">Oil and Gas</option>
                                 <option value="{{v}}" ng-repeat="(i, v) in rootData.resource">{{v}}</option>
+                                <option value="Oil,Gas">Oil and Gas</option>
                             </select>
                         </div>
 
@@ -62,7 +62,7 @@
                             <label for="">Company Name</label>
                             <select name="company_name">
                                 <option value="">All</option>
-                                <option value='"{{v.contract_name}}"' ng-repeat="(i, v) in rootData.results | orderBy:'contract_name'">{{v.contract_name}}</option>
+                                <option value="{{v}}" ng-repeat="(i, v) in rootData.company_name_complete">{{v}}</option>
                             </select>
                         </div>
 

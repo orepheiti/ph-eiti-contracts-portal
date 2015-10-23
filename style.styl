@@ -135,5 +135,28 @@ th
     height: 100px
     margin-bottom: 1em
 
-select[name=resource] + .select2 *
-  text-transform: capitalize
+
+.slider-infographic
+  > div
+    background: url('') no-repeat top center
+    background-size: cover
+    display: block
+    height: 100%
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    > .btn
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      background-color: #f37356
+      font-size: 1.5em
+      padding: 0.5em 2.5em !important
+      border-radius: 100px
+      background-image: none
+      color: #fff
+      &:hover
+        background-color: darken(#f37356, 10%)
+
