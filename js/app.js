@@ -1,5 +1,6 @@
 var myApp = angular.module('myApp', [
   'ngRoute',
+  'ngDialog',
   'myControllers',
 ]);
 
@@ -162,6 +163,7 @@ function download(filename, url) {
     url: url,
     success: function(data) {
       var data = '<meta http-equiv="Content-type" content="text/html; charset=utf-8" />' + data;
+      data = "NOTICE: The text below was created automatically and may contain errors and differences from the contract's original PDF file. <br/><br/>" + data;
       var converted = htmlDocx.asBlob(data);
       saveAs(converted, filename);
 

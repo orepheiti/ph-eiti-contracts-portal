@@ -9,6 +9,7 @@ myControllers.controller('MainController', ['$scope', '$rootScope', '$http', fun
     //console.log(data);
 
 
+    deleteByValue('Forum Exploration Incorporated', data.company_name);
     deleteByValue('Forum Exploration, Incorporated', data.company_name);
     deleteByValue('The Philodrill Corporation', data.company_name);
     deleteByValue('Shell Philippines Exploration B. V.', data.company_name);
@@ -16,7 +17,7 @@ myControllers.controller('MainController', ['$scope', '$rootScope', '$http', fun
     var data = filterData(data);
 
     data.company_name_complete = data.company_name;
-    data.company_name_complete.push('Forum Exploration, Incorporated');
+    data.company_name_complete.push('Forum Exploration Incorporated');
     data.company_name_complete.push('The Philodrill Corporation');
     data.company_name_complete.push('Shell Philippines Exploration B. V.');
 
@@ -32,7 +33,13 @@ myControllers.controller('MainController', ['$scope', '$rootScope', '$http', fun
   });
 }]);
 
-myControllers.controller('IndexController', ['$scope', '$http', function ($scope, $http) {
+myControllers.controller('IndexController', ['$scope', 'ngDialog', '$http', function ($scope, ngDialog, $http) {
+  $scope.openRegions = function() {
+    ngDialog.open({
+      template: '/partials/modal-regions.html',
+      class: 'ngdialog-theme-default'
+    });
+  }
 
 }]);
 
@@ -44,6 +51,8 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 
   var query = '';
 
+  $scope.searchTerm = '';
+
   if (q) {
 
     $scope.searchTerm = "Search results for <span>" + decodeURIComponent(q) + "</span>";
@@ -54,7 +63,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 
   if (year) {
 
-    $scope.searchTerm = 'Contracts signed on ' + year;
+    $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>';
 
     query += 'year=' + year + '&'
 
@@ -81,6 +90,10 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
     query = '';
     $scope.searchTerm = '<span>Mining, Oil & Gas Contracts from the Philippines</span>';
 
+  }
+
+  if ($scope.searchTerm == '') {
+    $scope.searchTerm = '<span>Mining, Oil & Gas Contracts from the Philippines</span>';
   }
 
   $http.get(api + 'contracts/search?from=0&per_page=1000&group=metadata&country=ph&' + query, { cache: true }).success(function(data) {
