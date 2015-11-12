@@ -51,6 +51,12 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
 }]);
 
 
+myApp.run(function ($rootScope, $location) {
+  $rootScope.$on('$routeChangeSuccess', function(){
+    ga('send', 'pageview', $location.path());
+  });
+});
+
 myApp.filter('rawHtml', ['$sce', function($sce){
   return function(val) {
     return $sce.trustAsHtml(val);
