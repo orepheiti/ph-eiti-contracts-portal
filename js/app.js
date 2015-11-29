@@ -267,6 +267,16 @@ function filterData(data) {
 
   data.company_name = company_name.sort();
 
+  // Make year array
+
+  var year = [];
+
+  $.each(data.year, function(i, v) {
+	year.push(v);
+  });
+
+  data.year = year.sort();
+
   /*
   var company_name_complete = [];
 
