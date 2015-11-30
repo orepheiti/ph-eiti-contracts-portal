@@ -230,12 +230,13 @@ function filterData(data) {
 
   var data = data;
 
-  // Remove annexes
+  // Remove supporting documents
 
   var newResults = [];
 
   $.each(data.results, function(i, v) {
-    if (!(v['contract_name'].indexOf('Annex') > -1) && !(v['contract_name'].indexOf('Basic Agreement') > -1) && !(v['contract_name'].indexOf('Joint Determination of Commerciality') > -1)) {
+    //if (!(v['contract_name'].indexOf('Annex') > -1) && !(v['contract_name'].indexOf('Basic Agreement') > -1) && !(v['contract_name'].indexOf('Joint Determination of Commerciality') > -1)) {
+    if ($.inArray(v['contract_id'], supporting_documents) == -1) {
       newResults.push(v);
     }
   });
