@@ -274,7 +274,7 @@ function filterData(data) {
 	year.push(v);
   });
 
-  data.year = year.sort();
+  data.year = year.sort().reverse();
 
   return data;
 
