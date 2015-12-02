@@ -17,7 +17,7 @@ foreach ($results as $r) {
   }
 }
 
-$written = file_put_contents('supporting_documents.txt', "supporting_documents = [" . implode(',', $supporting_documents) . "]");
+$written = file_put_contents('supporting_documents.js', "supporting_documents = [" . implode(',', $supporting_documents) . "]");
 
 if ($written) {
   echo "Updated";
