@@ -166,3 +166,27 @@ th
 
 .sidebar-nav li.contracts a
   background-image: url('/images/ic-folder.png') !important
+
+
+.search-list-wrapper td ul
+  margin-top: 10px;
+
+.search-list-wrapper td ul li
+  float: none;
+  font-size: 12px;
+  line-height: 17px;
+  display: inline-block
+  &:after
+    content: ','
+    padding-right: 0.5em
+    display: inline-block
+  &:last-child:after
+    content: ''
+
+
+.search-list-wrapper td ul li+li
+  border: none
+  margin: 0
+  padding: 0
+
+
