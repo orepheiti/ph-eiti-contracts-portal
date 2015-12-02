@@ -235,7 +235,6 @@ function filterData(data) {
   var newResults = [];
 
   $.each(data.results, function(i, v) {
-    //if (!(v['contract_name'].indexOf('Annex') > -1) && !(v['contract_name'].indexOf('Basic Agreement') > -1) && !(v['contract_name'].indexOf('Joint Determination of Commerciality') > -1)) {
     if ($.inArray(v['contract_id'], supporting_documents) == -1) {
       newResults.push(v);
     }
@@ -252,8 +251,7 @@ function filterData(data) {
       resource.push(v);
   });
 
-  remove(resource, 'Oil');
-  remove(resource, 'Gas');
+  remove(resource, 'Hydrocarbons');
 
   data.resource = resource.sort();
 
@@ -277,18 +275,6 @@ function filterData(data) {
   });
 
   data.year = year.sort();
-
-  /*
-  var company_name_complete = [];
-
-  $.each(data.company_name_complete, function(i, v) {
-    if (company_name_complete.indexOf(v) < 0)
-      company_name_complete.push(v);
-  });
-
-  data.company_name_complete = company_name_complete.sort();
-  */
-
 
   return data;
 

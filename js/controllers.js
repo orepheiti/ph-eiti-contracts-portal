@@ -6,22 +6,9 @@ var options = "&country_code=ph"
 myControllers.controller('MainController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
   $http.get(api + 'contracts/search?q=&from=0&per_page=10000&group=metadata&country=ph', { cache: true }).success(function(data) {
 
-    //console.log(data);
-
-
-    deleteByValue('Forum Exploration Incorporated', data.company_name);
-    deleteByValue('Forum Exploration, Incorporated', data.company_name);
-    deleteByValue('The Philodrill Corporation', data.company_name);
-    deleteByValue('Shell Philippines Exploration B. V.', data.company_name);
-
     var data = filterData(data);
 
-    data.company_name_complete = data.company_name;
-    data.company_name_complete.push('Forum Exploration Incorporated');
-    data.company_name_complete.push('The Philodrill Corporation');
-    data.company_name_complete.push('Shell Philippines Exploration B. V.');
-
-    data.company_name_complete = data.company_name_complete.sort();
+    data.hydrocarbon_companies = hydrocarbon_companies;
 
     $rootScope.rootData = data;
 

@@ -1,0 +1,1 @@
+hydrocarbon_companies = ['Forum Exploration Incorporated','The Philodrill Corporation','Shell Philippines Exploration B. V.']

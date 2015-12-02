@@ -44,6 +44,7 @@
     <![endif]-->
 
     <script src="/supporting_documents.js"></script>
+    <script src="/hydrocarbon_companies.js"></script>
     <script src="/public/js/jquery.min.js"></script>
     <script src="/public/js/bootstrap.min.js"></script>
     <script src="/public/js/metisMenu.min.js"></script>
@@ -137,8 +138,8 @@
                         </li>
 
                         <li>
-                            <a href="/search?resource=Oil,Gas" target="_self">
-                                <span>Oil and Gas</span>
+                            <a href="/search?resource=Hydrocarbons" target="_self">
+                                <span>Hydrocarbons</span>
                             </a>
                         </li>
 
@@ -169,13 +170,11 @@
                         </li>
 
                         <li>
-                            <a class="resources-mining" onclick="$(this).next().slideToggle();">Oil and Gas</a>
+                            <a class="resources-mining" onclick="$(this).next().slideToggle();">Hydrocarbons</a>
                             <div style="display: none; position: relative; width: 70%; margin-left: 11%;">
                                 <select name="company_name" class="sidebar-select" placeholder="Select Company">
                                     <option value="" selected>Select Company</option>
-                                    <option value="Forum Exploration Incorporated">Forum Exploration Incorporated</option>
-                                    <option value="Shell Philippines Exploration B. V.">Shell Philippines Exploration B. V.</option>
-                                    <option value="The Philodrill Corporation">The Philodrill Corporation</option>
+                                    <option value='{{v}}' ng-repeat="v in rootData.hydrocarbon_companies">{{v}}</option>
                                 </select>
                             </div>
                             <!--
