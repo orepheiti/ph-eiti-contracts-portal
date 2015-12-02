@@ -80,6 +80,11 @@ footer a:hover {
 .resources-mining:hover {
   cursor: pointer;
 }
+.resources,
+select[name="resource"] option,
+.select2-results__option {
+  text-transform: capitalize;
+}
 .search-input-wrapper .col-lg-2 {
   margin-bottom: 0;
 }
@@ -153,7 +158,7 @@ th {
 }
 .slider-infographic > div > .btn {
   position: absolute;
-  top: 80%;
+  top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
@@ -167,4 +172,10 @@ th {
 }
 .slider-infographic > div > .btn:hover {
   background-color: #f15a37;
+}
+#sidebar-wrapper {
+  background-image: linear-gradient(81deg, #382604 1%, #654508 100%);
+}
+.sidebar-nav li.contracts a {
+  background-image: url("/images/ic-folder.png") !important;
 }
