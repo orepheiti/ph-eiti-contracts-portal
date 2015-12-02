@@ -323,3 +323,11 @@ $(window).on('mainData.loaded', function() {
 
   }, 1000);
 });
+
+function resetSearch() {
+  $('.btn-navbar-search + input').val('');
+  $('.filter-country-wrap select').each(function() {
+    $(this).select2('val', '');
+  });
+  return false;
+}
