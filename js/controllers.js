@@ -73,6 +73,30 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 
   }
 
+  if (year && company) {
+
+    $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>' + ' from <span>' + decodeURIComponent(company) + '</span>';
+
+  }
+
+  if (year && resource) {
+
+    $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>' + ' with resource: <span>' + resource + '</span>';
+
+  }
+
+  if (company && resource) {
+
+    $scope.searchTerm = 'Contracts signed from <span>' + company + '</span>' + ' with resource: <span>' + resource + '</span>';
+
+  }
+
+  if (year && company && resource) {
+
+    $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>' + ' from <span>' + decodeURIComponent(company) + '</span>' + ' with resource: <span>' + resource + '</span>';;
+
+  }
+
   if (window.location.pathname == '/contracts') {
     query = '';
     $scope.searchTerm = '<span>Mining, Oil & Gas Contracts from the Philippines</span>';
