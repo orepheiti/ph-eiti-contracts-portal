@@ -87,7 +87,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 
   if (company && resource) {
 
-    $scope.searchTerm = 'Contracts signed from <span>' + company + '</span>' + ' with resource: <span>' + resource + '</span>';
+    $scope.searchTerm = 'Contracts signed from <span>' + decodeURIComponent(company) + '</span>' + ' with resource: <span>' + resource + '</span>';
 
   }
 
