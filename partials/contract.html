@@ -175,6 +175,12 @@
                             <a style="font-size: 14px !important;" href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.contract_name}}&contractParentId={{data.contract_id}}&totalPages={{v.total_pages}}" target="_self">{{v.contract_name || '-'}}</a>
                         </td>
                     </tr>
+
+                    <tr ng-repeat="(i,v) in data.supporting_contracts_extra">
+                        <td style="padding: 0.5em 48px 1em;">
+                            <a style="font-size: 14px !important;" href="/supporting-documents/{{data.contract_name}}/{{v}}" target="_self">{{v}}</a>
+                        </td>
+                    </tr>
                     <!--
                     <tr>
                         <td class="no-data">

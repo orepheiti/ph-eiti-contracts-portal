@@ -167,7 +167,10 @@ myControllers.controller('ContractController', ['$scope', '$http', '$routeParams
 
     }
 
-    console.log(data);
+    $http.get('/get_supporting_documents.php?contract_name=' + data.contract_name, { cache: true }).success(function(data) {
+      $scope.data.supporting_contracts_extra = data;
+    });
+
 
   });
 }]);
