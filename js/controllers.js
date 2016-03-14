@@ -174,3 +174,31 @@ myControllers.controller('ContractController', ['$scope', '$http', '$routeParams
 
   });
 }]);
+
+myControllers.controller('MapsController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+
+  var mymap = L.map('map-container').setView([11.717, 118.99], 6);
+
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'jerico.pbk5hmjh',
+    accessToken: 'pk.eyJ1IjoiamVyaWNvIiwiYSI6ImNpbGluc3BmdzM5cGF0c2twb3N5Mjd4NTAifQ.G5ZIkURpUJsBCd0FZO_1fA'
+  }).addTo(mymap);
+
+  var geodata = {
+    "type": "FeatureCollection",
+    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+
+    "features": [
+      { "type": "Feature", "properties": { "contract": "MPSA_007_92_X", "type": "Contract_Area", "num": "1", "full_name": "MPSA_007_92_X_Contract_Area_1", "id": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 125.7916667, 9.45 ], [ 125.7833333, 9.5 ], [ 125.8583333, 9.5 ], [ 125.85, 9.45 ], [ 125.7916667, 9.45 ] ] ] } }
+    ]
+  };
+
+  L.geoJson(geodata.features, {
+    onEachFeature: function (feature, layer) {
+      layer.bindPopup(feature.properties.contract);
+    }
+  }).addTo(mymap);
+
+}]);

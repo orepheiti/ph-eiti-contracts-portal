@@ -13,6 +13,11 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       controller: 'IndexController'
     }).
 
+    when('/maps', {
+      templateUrl: '/partials/maps.html',
+      controller: 'MapsController'
+    }).
+
     when('/about', {
       templateUrl: '/partials/about.html',
     }).

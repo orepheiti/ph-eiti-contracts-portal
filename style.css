@@ -201,3 +201,6 @@ th {
   margin: 0;
   padding: 0;
 }
+#map-container {
+  min-height: 800px;
+}
