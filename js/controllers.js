@@ -186,29 +186,9 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams', f
     accessToken: 'pk.eyJ1IjoiamVyaWNvIiwiYSI6ImNpbGluc3BmdzM5cGF0c2twb3N5Mjd4NTAifQ.G5ZIkURpUJsBCd0FZO_1fA'
   }).addTo(mymap);
 
+
+
   var geodata = {
-    "type": "FeatureCollection",
-    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-
-    "features": [
-      { "type": "Feature", "properties": { "contract": "MPSA_007_92_X", "type": "Contract_Area", "num": "1", "full_name": "MPSA_007_92_X_Contract_Area_1", "id": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 125.7916667, 9.45 ], [ 125.7833333, 9.5 ], [ 125.8583333, 9.5 ], [ 125.85, 9.45 ], [ 125.7916667, 9.45 ] ] ] } }
-    ]
-  };
-  var geodata2 = {
-    "type": "FeatureCollection",
-    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-
-    "features": [
-      { "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mario", "num": "1", "full_name": "MLCD_MRD_509_III_Mario_1", "id": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1407444, 15.07881389 ], [ 121.1407444, 15.08333333 ], [ 121.1416667, 15.08333333 ], [ 121.1416667, 15.07881389 ], [ 121.1407444, 15.07881389 ] ] ] } },
-      { "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mario", "num": "2", "full_name": "MLCD_MRD_509_III_Mario_2", "id": 2 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1458333, 15.075 ], [ 121.1458333, 15.07708333 ], [ 121.15, 15.07708333 ], [ 121.15, 15.075 ], [ 121.1458333, 15.075 ] ] ] } },
-      { "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mely", "num": "1", "full_name": "MLCD_MRD_509_III_Mely_1", "id": 3 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1416667, 15.075 ], [ 121.1416667, 15.07916667 ], [ 121.15, 15.07916667 ], [ 121.15, 15.075 ], [ 121.1416667, 15.075 ] ] ] } },
-      { "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mely", "num": "2", "full_name": "MLCD_MRD_509_III_Mely_2", "id": 4 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1407444, 15.075 ], [ 121.1407444, 15.07881389 ], [ 121.1416667, 15.07881389 ], [ 121.1416667, 15.075 ], [ 121.1407444, 15.075 ] ] ] } },
-      { "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mely", "num": "3", "full_name": "MLCD_MRD_509_III_Mely_3", "id": 5 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1416667, 15.07708333 ], [ 121.1416667, 15.07916667 ], [ 121.15, 15.07916667 ], [ 121.15, 15.07708333 ], [ 121.1416667, 15.07708333 ] ] ] } },
-      { "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mely", "num": "4", "full_name": "MLCD_MRD_509_III_Mely_4", "id": 6 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1416667, 15.075 ], [ 121.1416667, 15.07708333 ], [ 121.1458333, 15.07708333 ], [ 121.1458333, 15.075 ], [ 121.1416667, 15.075 ] ] ] } }
-    ]
-  };
-
-  var geodata3 = {
     "type": "FeatureCollection",
     "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 
@@ -223,16 +203,5 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams', f
     }
   }).addTo(mymap);
 
-  L.geoJson(geodata2.features, {
-    onEachFeature: function (feature, layer) {
-      layer.bindPopup(feature.properties.contract);
-    }
-  }).addTo(mymap);
-
-  L.geoJson(geodata3.features, {
-    onEachFeature: function (feature, layer) {
-      layer.bindPopup(feature.properties.contract);
-    }
-  }).addTo(mymap);
 
 }]);
