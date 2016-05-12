@@ -249,7 +249,9 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
                 $scope.contractMetadata.push({cmd: response[kkidx].data,
                                               cid: contract_ids_arr[kkidx],
                                               geojson: contract_ids_arr[kkidx]+'.geojson'});
-                
+                console.log({cmd: response[kkidx].data,
+                            cid: contract_ids_arr[kkidx],
+                            geojson: contract_ids_arr[kkidx]+'.geojson'})
                 var company = '',type_of_contract='',resource='',contract_name='', file_url='';
                 if (response[kkidx].data) {
                   if (response[kkidx].data.company) {
@@ -326,7 +328,8 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
                     // }
                     L.geoJson(geodata.features, {
                       onEachFeature: function (feature, layer) {   
-                        layer.bindPopup("<ul style='padding:0px;margin:0px;list-style-type:none;'><li><strong>Contract:</strong> "+feature.properties.contract+" </li><li><strong>Type of Contract:</strong> "+feature.properties.type+" </li></ul>");
+                        layer.bindPopup("<ul style='padding:0px;margin:0px;list-style-type:none;'><li><strong>Contract:</strong> "+feature.properties.contract+" </li></ul>");
+                        // <li><strong>Type of Contract:</strong> "+feature.properties.type+" </li>                        
                       }
                     }).addTo(mymap); 
                   }
