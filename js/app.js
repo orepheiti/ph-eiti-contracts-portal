@@ -4,8 +4,11 @@ var myApp = angular.module('myApp', [
   'myControllers',
 ]);
 
-myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-
+/* Uncomment to restore #/ implementation
+myApp.config(['$routeProvider',
+   function($routeProvider) {*/
+myApp.config(['$routeProvider','$locationProvider',
+  function($routeProvider,$locationProvider) {
   $routeProvider.
 
     when('/', {
@@ -21,7 +24,6 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     when('/about', {
       templateUrl: '/partials/about.html',
     }).
-
 
     when('/contact', {
       templateUrl: '/partials/contact.html',
@@ -51,7 +53,6 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     });
 
     $locationProvider.html5Mode(true);
-
 
 }]);
 

@@ -185,6 +185,13 @@ myApp.factory('MapsFactory',function($http){
           method: 'GET'
         });
         return p;
+      },
+      geojson : function(){
+        var p = $http({
+          url: '../get-geojson-files.php',
+          method: 'GET'
+        });
+        return p;
       }
     }
   }
@@ -203,184 +210,103 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
     accessToken: 'pk.eyJ1IjoiamVyaWNvIiwiYSI6ImNpbGluc3BmdzM5cGF0c2twb3N5Mjd4NTAifQ.G5ZIkURpUJsBCd0FZO_1fA'
   }).addTo(mymap);
 
+  /* Sample Code
+  var geodata = {
+    "type": "FeatureCollection",
+    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 
+    "features": [
+      { "type": "Feature", "properties": { "contract": "MPSA_007_92_X", "type": "Contract_Area", "num": "1", "full_name": "MPSA_007_92_X_Contract_Area_1", "id": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 125.7916667, 9.45 ], [ 125.7833333, 9.5 ], [ 125.8583333, 9.5 ], [ 125.85, 9.45 ], [ 125.7916667, 9.45 ] ] ] } }
+    ]
+  };
 
-  // var geodata = {
-  //   "type": "FeatureCollection",
-  //   "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  L.geoJson(geodata.features, {
+    onEachFeature: function (feature, layer) {
+      // console.log('this feature');
+      // console.log(feature)
+      layer.bindPopup(feature.properties.contract);
+    }
+  }).addTo(mymap);*/
 
-  //   "features": [
-  //     { "type": "Feature", "properties": { "contract": "MPSA_007_92_X", "type": "Contract_Area", "num": "1", "full_name": "MPSA_007_92_X_Contract_Area_1", "id": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 125.7916667, 9.45 ], [ 125.7833333, 9.5 ], [ 125.8583333, 9.5 ], [ 125.85, 9.45 ], [ 125.7916667, 9.45 ] ] ] } }
-  //   ]
-  // };
-
-  // L.geoJson(geodata.features, {
-  //   onEachFeature: function (feature, layer) {
-  //     // console.log('this feature');
-  //     // console.log(feature)
-  //     layer.bindPopup(feature.properties.contract);
-  //   }
-  // }).addTo(mymap);
-
-
-
-  // Get Contract Metadata
-  function getContractMetadata(){
-    $scope.geojson_list_arr = geojsonList;
+  function getGeoJsonProp(){
     $scope.contractMetadata = []
-    var promise_arr = []
-    var contract_ids_arr = []
-    if ($scope.geojson_list_arr) {
-      for (var idx=0;idx<geojsonList.length;idx++) {
-        var curr_geo_json_file = geojsonList[idx];
-        var contract_id = curr_geo_json_file.split('.')[0];
-        promise_arr.push(MapsFactory.get.contract_metadata(contract_id));
-        contract_ids_arr.push(contract_id)    
-      }
-      if (promise_arr) {
-        // 1. Company name (or names)
-        // 2. Type of contract
-        // 3. Resource
-        // 4. Contract name (with hyperlink to direct to the contract)
-        $q.all(promise_arr).then(function(response){
-          if (response) {
-            for (var kkidx=0;kkidx<response.length;kkidx++) {
-              if (response[kkidx].data) {
-                $scope.contractMetadata.push({cmd: response[kkidx].data,
-                                              cid: contract_ids_arr[kkidx],
-                                              geojson: contract_ids_arr[kkidx]+'.geojson'});
-                console.log({cmd: response[kkidx].data,
-                            cid: contract_ids_arr[kkidx],
-                            geojson: contract_ids_arr[kkidx]+'.geojson'})
-                var company = '',type_of_contract='',resource='',contract_name='', file_url='';
-                if (response[kkidx].data) {
-                  if (response[kkidx].data.company) {
-                    if (response[kkidx].data.company[0])  {
-                      company = response[kkidx].data.company[0].name
+    var p = MapsFactory.get.geojson();
+    p.then(function(response){
+      var contract_ids_arr = []
+      var promise_arr = []
+
+      if (response.data) {
+        var contract_detail = response.data;
+
+        for (var idx=0;idx<contract_detail.length;idx++) {
+          var curr_geo_json_file = contract_detail[idx].filename;
+          var cid = curr_geo_json_file.split('.')[0];
+          promise_arr.push(MapsFactory.get.contract_metadata(cid));
+          contract_ids_arr.push(cid)    
+        }
+
+        if (promise_arr) {
+          // 1. Company name (or names)
+          // 2. Type of contract
+          // 3. Resource
+          // 4. Contract name (with hyperlink to direct to the contract)
+          $q.all(promise_arr).then(function(responseData){
+            if (responseData) {
+              for (var kkidx=0;kkidx<responseData.length;kkidx++) {
+                if (responseData[kkidx].data) {
+
+                  var company = '',type_of_contract='',resource='',contract_name='', file_url='', contract_id='';
+                  if (responseData[kkidx].data) {
+                    contract_id = responseData[kkidx].data.contract_id;
+                    if (responseData[kkidx].data.company) {
+                      if (responseData[kkidx].data.company[0])  {
+                        company = responseData[kkidx].data.company[0].name
+                      }
+                    }
+                    if (responseData[kkidx].data.type_of_contract) {
+                      if (responseData[kkidx].data.type_of_contract[0])  {
+                        type_of_contract = responseData[kkidx].data.type_of_contract[0]
+                      }
+                    }
+                    if (responseData[kkidx].data.resource) {
+                      if (responseData[kkidx].data.resource[0])  {
+                        resource = responseData[kkidx].data.resource[0]
+                      }
+                    }
+                    if (responseData[kkidx].data.contract_name) {
+                      contract_name = responseData[kkidx].data.contract_name
+                    }
+                    if (responseData[kkidx].data.file_url) {
+                      file_url = responseData[kkidx].data.file_url
                     }
                   }
-                  if (response[kkidx].data.type_of_contract) {
-                    if (response[kkidx].data.type_of_contract[0])  {
-                      type_of_contract = response[kkidx].data.type_of_contract[0]
+                  
+                  for (var ccidx=0;ccidx<contract_detail.length;ccidx++) {
+                    if (contract_detail[ccidx].filename===contract_id+".geojson") {
+                      L.geoJson(contract_detail[ccidx].geojsonProperty.features, {
+                        onEachFeature: function (feature, layer) {   
+                          var html = "<ul style='padding:0px;margin:0px;list-style-type:none;'>";
+                          html += "<li><strong>Company name: </strong> "+company+"</li>";
+                          html += "<li><strong>Type of contract: </strong> "+type_of_contract+"</li>";
+                          html += "<li><strong>Resource: </strong> "+resource+"</li>";
+                          html += "<li><strong>Contract name: </strong> <a href="+file_url+">"+contract_name+"</a></li>";
+                          html += "</ul>";
+                          layer.bindPopup(html);
+                        }
+                      }).addTo(mymap); 
                     }
-                  }
-                  if (response[kkidx].data.resource) {
-                    if (response[kkidx].data.resource[0])  {
-                      resource = response[kkidx].data.resource[0]
-                    }
-                  }
-                  if (response[kkidx].data.contract_name) {
-                    contract_name = response[kkidx].data.contract_name
-                  }
-                  if (response[kkidx].data.file_url) {
-                    file_url = response[kkidx].data.file_url
                   }
                 }
-                // $.getJSON( "../geojson/"+contract_ids_arr[kkidx]+'.geojson', function( geodata ) {
-                //   if (geodata.features) {
-                //     L.geoJson(geodata.features, {
-                //       onEachFeature: function (feature, layer) {   
-                //         var html = "<ul style='padding:0px;margin:0px;list-style-type:none;'>";
-                //         html += "<li><strong>Company name: </strong> "+company+"</li>";
-                //         html += "<li><strong>Type of contract: </strong> "+type_of_contract+"</li>";
-                //         html += "<li><strong>Resource: </strong> "+resource+"</li>";
-                //         html += "<li><strong>Contract name: </strong> <a href="+file_url+">"+contract_name+"</a></li>";
-                //         html += "</ul>";
-                //         // "<ul style='padding:0px;margin:0px;list-style-type:none;'><li><strong>Contract:</strong> "+feature.properties.contract+" </li><li><strong>Type of Contract:</strong> "+feature.properties.type+" </li></ul>"
-                //         // layer.bindPopup(html);
-                //         layer.bindPopup("<ul style='padding:0px;margin:0px;list-style-type:none;'><li><strong>Contract:</strong> "+feature.properties.contract+" </li><li><strong>Type of Contract:</strong> "+feature.properties.type+" </li></ul>");
-                //       }
-                //     }).addTo(mymap); 
-                //   }
-                // }); 
               }
             }
-          }
-          // if ($scope.contractMetadata) { 
-          //   for (var bb=0;bb<$scope.contractMetadata.length;bb++) {
-          //     if ($scope.contractMetadata[bb].geojson) {
-          //       $.getJSON( "../geojson/"+$scope.contractMetadata[bb].geojson, function( geodata ) {
-          //         if (geodata.features) {
-          //           if ($scope.contractMetadata[bb].cmd){
-          //             console.log($scope.contractMetadata[bb].cmd)  
-          //           }
-          //           L.geoJson(geodata.features, {
-          //             onEachFeature: function (feature, layer) {   
-          //               layer.bindPopup("<ul style='padding:0px;margin:0px;list-style-type:none;'><li><strong>Contract:</strong> "+feature.properties.contract+" </li><li><strong>Type of Contract:</strong> "+feature.properties.type+" </li></ul>");
-          //             }
-          //           }).addTo(mymap); 
-          //         }
-          //       });                
-          //     }
-          //   }
-          // }
-        },function(err){
-          
-        })
-        .then(function(){
-          if ($scope.contractMetadata) { 
-            for (var bb=0;bb<$scope.contractMetadata.length;bb++) {
-              if ($scope.contractMetadata[bb].geojson) {
-                $.getJSON( "../geojson/"+$scope.contractMetadata[bb].geojson, function( geodata ) {
-                  if (geodata.features) {
-                    // if ($scope.contractMetadata[bb].cmd){
-                    //   console.log($scope.contractMetadata[bb].cmd)  
-                    // }
-                    L.geoJson(geodata.features, {
-                      onEachFeature: function (feature, layer) {   
-                        layer.bindPopup("<ul style='padding:0px;margin:0px;list-style-type:none;'><li><strong>Contract:</strong> "+feature.properties.contract+" </li></ul>");
-                        // <li><strong>Type of Contract:</strong> "+feature.properties.type+" </li>                        
-                      }
-                    }).addTo(mymap); 
-                  }
-                });                
-              }
-            }
-          }
-        })
+          })
+        }
       }
-    } 
+    }, function(err){
+      console.log(err)
+    })  
   }
 
-  // $scope.geojson_list_arr = geojsonList;
-  // var promise_arr = []
-  // var contract_ids_arr = []
-  // if ($scope.geojson_list_arr) {
-  //   for (var idx=0;idx<geojsonList.length;idx++) {
-  //     var curr_geo_json_file = geojsonList[idx];
-  //     console.log(curr_geo_json_file)
-  //     var contract_id = curr_geo_json_file.split('.')[0];
-  //     console.log(contract_id)
-  //     promise_arr.push(MapsFactory.get.contract_metadata(contract_id));
-  //     contract_ids_arr.push(contract_id)
-
-  //     $.getJSON( "../geojson/"+curr_geo_json_file, function( geodata ) {  
-  //       if (geodata.features) {
-
-  //         // $http.get(api + 'contract/' + contract_id + '/metadata', { cache: true } )
-  //         //   .success(function(data) {
-  //         //     console.log('from API data: '+contract_id)
-  //         //     console.log(data)
-  //         //     console.log('logged api data.')
-  //         //   });
-
-  //         L.geoJson(geodata.features, {
-  //           onEachFeature: function (feature, layer) {
-  //             layer.bindPopup("<ul style='padding:0px;margin:0px;'><li><strong>Contract:</strong> "+feature.properties.contract+" </li><li><strong>Type of Contract:</strong> "+feature.properties.type+" </li></ul>");
-  //           }
-  //         }).addTo(mymap);  
-  //       }
-  //     });
-  //   }
-  // }
-
-  getContractMetadata();
-
-  // if (promise_arr) {
-  //   $q.all(promise_arr).then(function(response){
-  //     console.log(response)
-  //   },function(err){
-  //     console.log(err)
-  //   })
-  // }
+  getGeoJsonProp();
+  
 }]);
