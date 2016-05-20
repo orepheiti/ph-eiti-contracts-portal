@@ -289,7 +289,7 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
                           html += "<li><strong>Company name: </strong> "+company+"</li>";
                           html += "<li><strong>Type of contract: </strong> "+type_of_contract+"</li>";
                           html += "<li><strong>Resource: </strong> "+resource+"</li>";
-                          html += "<li><strong>Contract name: </strong> <a href="+file_url+">"+contract_name+"</a></li>";
+                          html += "<li><strong>Contract name: </strong> <a href=\"javascript:window.open('"+file_url+"')\">"+contract_name+"</a></li>";
                           html += "</ul>";
                           layer.bindPopup(html);
                         }
