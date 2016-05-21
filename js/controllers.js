@@ -202,14 +202,14 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
   function ($scope, $http, $routeParams,MapsFactory,$q) {
 
   var mymap = L.map('map-container').setView([11.717, 118.99], 6);
-
+  mymap.zoomControl.setPosition('topright');
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     id: 'jerico.pbk5hmjh',
-    accessToken: 'pk.eyJ1IjoiamVyaWNvIiwiYSI6ImNpbGluc3BmdzM5cGF0c2twb3N5Mjd4NTAifQ.G5ZIkURpUJsBCd0FZO_1fA'
-  }).addTo(mymap);
-
+    accessToken: 'pk.eyJ1IjoiamVyaWNvIiwiYSI6ImNpbGluc3BmdzM5cGF0c2twb3N5Mjd4NTAifQ.G5ZIkURpUJsBCd0FZO_1fA'  
+  }).addTo(mymap)
+  
   /* Sample Code
   var geodata = {
     "type": "FeatureCollection",
@@ -254,8 +254,7 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
             if (responseData) {
               for (var kkidx=0;kkidx<responseData.length;kkidx++) {
                 if (responseData[kkidx].data) {
-
-                  var company = '',type_of_contract='',resource='',contract_name='', file_url='', contract_id='';
+                  var company = '',type_of_contract='',resource='',contract_name='', file_url='', contract_id='', total_pages=0 ;
                   if (responseData[kkidx].data) {
                     contract_id = responseData[kkidx].data.contract_id;
                     if (responseData[kkidx].data.company) {
@@ -279,18 +278,30 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
                     if (responseData[kkidx].data.file_url) {
                       file_url = responseData[kkidx].data.file_url
                     }
+                    if (responseData[kkidx].data.total_pages) {
+                      total_pages = responseData[kkidx].data.total_pages
+                    }
                   }
                   
                   for (var ccidx=0;ccidx<contract_detail.length;ccidx++) {
                     if (contract_detail[ccidx].filename===contract_id+".geojson") {
                       L.geoJson(contract_detail[ccidx].geojsonProperty.features, {
                         onEachFeature: function (feature, layer) {   
-                          var html = "<ul style='padding:0px;margin:0px;list-style-type:none;'>";
-                          html += "<li><strong>Company name: </strong> "+company+"</li>";
-                          html += "<li><strong>Type of contract: </strong> "+type_of_contract+"</li>";
-                          html += "<li><strong>Resource: </strong> "+resource+"</li>";
-                          html += "<li><strong>Contract name: </strong> <a href=\"javascript:window.open('"+file_url+"')\">"+contract_name+"</a></li>";
-                          html += "</ul>";
+                          // Tabular
+                          /*var html = "<table cellspacing=\"3\" cellpadding=\"5\">";
+                          html += "<tr><td width=\"45%\" class=\"ta-left va-top\"><strong>Company Name: </strong></td><td width=\"55%\" class=\"ta-left va-top\">"+company+"</td></tr>";
+                          html += "<tr><td class=\"ta-left va-top\"><strong>Type of Contract: </strong></td><td class=\"ta-left va-top\">"+type_of_contract+"</td></tr>";
+                          html += "<tr><td class=\"ta-left va-top\"><strong>Resource: </strong> </td><td class=\"ta-left va-top\">"+resource+"</td></tr>";
+                          html += "<tr><td class=\"ta-left va-top\"><strong>Contract Name: </strong> </td><td class=\"ta-left va-top\"><a href=\"javascript:window.open('"+file_url+"')\">"+contract_name+"</a></td></tr>";
+                          html += "</table>";*/
+
+                          // Divs
+                          var html = '<div class="tooltip-wrapper">';
+                          html += '<div class="tooltip-detail"><div class="tooltip-label">Company Name</div><div class="tooltip-value">'+company+'</div></div>';
+                          html += '<div class="tooltip-detail"><div class="tooltip-label">Type of Contract</div><div class="tooltip-value">'+type_of_contract+'</div></div>';
+                          html += '<div class="tooltip-detail"><div class="tooltip-label">Resource</div><div class="tooltip-value">'+resource+'</div></div>';
+                          html += '<div class="tooltip-detail"><div class="tooltip-label">Contract Name</div><div class="tooltip-value"><a href="javascript:window.open(\'contract-view.html?contractId='+contract_id+'&contractTitle='+contract_name+'&contractParentId=null&totalPages='+total_pages+'\',\''+contract_name+'\',\'width=600,height=768\')">'+contract_name+'</a></div></div>';
+                          html += '</div>';
                           layer.bindPopup(html);
                         }
                       }).addTo(mymap); 
