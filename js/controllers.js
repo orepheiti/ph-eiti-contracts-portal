@@ -254,27 +254,37 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
             if (responseData) {
               for (var kkidx=0;kkidx<responseData.length;kkidx++) {
                 if (responseData[kkidx].data) {
-                  var company = '',type_of_contract='',resource='',contract_name='', file_url='', contract_id='', total_pages=0 ;
+
+                  var company = '',type_of_contract='',resource='',contract_name='', file_url='', contract_id='', main_contract_id="", total_pages=0 ;
                   if (responseData[kkidx].data) {
-                    contract_id = responseData[kkidx].data.contract_id;
+                    contract_id = responseData[kkidx].data.contract_id; // Is the parentContractId
                     if (responseData[kkidx].data.company) {
                       if (responseData[kkidx].data.company[0])  {
                         company = responseData[kkidx].data.company[0].name
                       }
                     }
                     if (responseData[kkidx].data.type_of_contract) {
-                      if (responseData[kkidx].data.type_of_contract[0])  {
-                        type_of_contract = responseData[kkidx].data.type_of_contract[0]
-                      }
+                      type_of_contract = responseData[kkidx].data.type_of_contract.join();
                     }
                     if (responseData[kkidx].data.resource) {
-                      if (responseData[kkidx].data.resource[0])  {
-                        resource = responseData[kkidx].data.resource[0]
-                      }
+                      resource = responseData[kkidx].data.resource.join()
                     }
                     if (responseData[kkidx].data.contract_name) {
                       contract_name = responseData[kkidx].data.contract_name
                     }
+
+                    // For non-supporting
+                    if (responseData[kkidx].data.is_supporting_document) {
+                      if (responseData[kkidx].data.is_supporting_document=='0') {
+                        if (responseData[kkidx].data.supporting_contracts) {
+                          var supporting_contracts = responseData[kkidx].data.supporting_contracts;
+                          if (supporting_contracts[0]) {
+                            main_contract_id = supporting_contracts[0].id
+                          }
+                        }
+                      }  
+                    }                   
+
                     if (responseData[kkidx].data.file_url) {
                       file_url = responseData[kkidx].data.file_url
                     }
@@ -300,7 +310,7 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
                           html += '<div class="tooltip-detail"><div class="tooltip-label">Company Name</div><div class="tooltip-value">'+company+'</div></div>';
                           html += '<div class="tooltip-detail"><div class="tooltip-label">Type of Contract</div><div class="tooltip-value">'+type_of_contract+'</div></div>';
                           html += '<div class="tooltip-detail"><div class="tooltip-label">Resource</div><div class="tooltip-value">'+resource+'</div></div>';
-                          html += '<div class="tooltip-detail"><div class="tooltip-label">Contract Name</div><div class="tooltip-value"><a href="javascript:window.open(\'contract-view.html?contractId='+contract_id+'&contractTitle='+contract_name+'&contractParentId=null&totalPages='+total_pages+'\',\''+contract_name+'\',\'width=600,height=768\')">'+contract_name+'</a></div></div>';
+                          html += '<div class="tooltip-detail"><div class="tooltip-label">Contract Name</div><div class="tooltip-value"><a href="javascript:window.open(\'contract-view.html?contractId='+main_contract_id+'&contractTitle='+contract_name+'&contractParentId='+contract_id+'&totalPages='+total_pages+'\',\''+contract_name+'\',\'width=600,height=768\')">'+contract_name+'</a></div></div>';
                           html += '</div>';
                           layer.bindPopup(html);
                         }
