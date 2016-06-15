@@ -104,8 +104,8 @@
 	pointer-events: none;
 	}
 .leaflet-top {
-	/*top: 0;*/
-	top:3%;
+	top: 0;
+	/*top:3%;*/
 	}
 .leaflet-right {
 	right: 0;

@@ -8244,7 +8244,7 @@ L.Map.Keyboard = L.Handler.extend({
 		    top = body.scrollTop || docEl.scrollTop,
 		    left = body.scrollLeft || docEl.scrollLeft;
 
-		this._map._container.focus();
+		// this._map._container.focus();
 
 		window.scrollTo(left, top);
 	},
@@ -8491,7 +8491,7 @@ L.Control = L.Class.extend({
 	_refocusOnMap: function (e) {
 		// if map exists and event is not a keyboard event
 		if (this._map && e && e.screenX > 0 && e.screenY > 0) {
-			this._map.getContainer().focus();
+			// this._map.getContainer().focus();
 		}
 	}
 });
@@ -8587,12 +8587,14 @@ L.Control.Zoom = L.Control.extend({
 	_zoomIn: function (e) {
 		if (!this._disabled) {
 			this._map.zoomIn(e.shiftKey ? 3 : 1);
+			// this._map.zoomIn(this._map.options.zoomDelta * (e.shiftKey ? 3 : 1));
 		}
 	},
 
 	_zoomOut: function (e) {
 		if (!this._disabled) {
 			this._map.zoomOut(e.shiftKey ? 3 : 1);
+			// this._map.zoomOut(this._map.options.zoomDelta * (e.shiftKey ? 3 : 1));
 		}
 	},
 
