@@ -310,7 +310,8 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
                           html += '<div class="tooltip-detail"><div class="tooltip-label">Company Name</div><div class="tooltip-value">'+company+'</div></div>';
                           html += '<div class="tooltip-detail"><div class="tooltip-label">Type of Contract</div><div class="tooltip-value">'+type_of_contract+'</div></div>';
                           html += '<div class="tooltip-detail"><div class="tooltip-label">Resource</div><div class="tooltip-value">'+resource+'</div></div>';
-                          html += '<div class="tooltip-detail"><div class="tooltip-label">Contract Name</div><div class="tooltip-value"><a href="javascript:window.open(\'contract-view.html?contractId='+main_contract_id+'&contractTitle='+contract_name+'&contractParentId='+contract_id+'&totalPages='+total_pages+'\',\''+contract_name+'\',\'width=600,height=768\')">'+contract_name+'</a></div></div>';
+                          // html += '<div class="tooltip-detail"><div class="tooltip-label">Contract Name</div><div class="tooltip-value"><a href="javascript:window.open(\'contract-view.html?contractId='+main_contract_id+'&contractTitle='+contract_name+'&contractParentId='+contract_id+'&totalPages='+total_pages+'\',\''+contract_name+'\',\'width=600,height=768\')">'+contract_name+'</a></div></div>';
+                          html += '<div class="tooltip-detail"><div class="tooltip-label">Contract Name</div><div class="tooltip-value"><a href="javascript:window.open(\'../contract/'+contract_id+'\',\'width=600,height=768\')">'+contract_name+'</a></div></div>';
                           html += '</div>';
                           layer.bindPopup(html);
                         }
