@@ -203,16 +203,12 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
 
   var mymap = L.map('map-container').setView([11.717, 118.99], 6);
   mymap.zoomControl.setPosition('topright');
-
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    attribution: 'Map data &copy; <a hreflol="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     id: 'jerico.pbk5hmjh',
     accessToken: 'pk.eyJ1IjoiamVyaWNvIiwiYSI6ImNpbGluc3BmdzM5cGF0c2twb3N5Mjd4NTAifQ.G5ZIkURpUJsBCd0FZO_1fA'  
   }).addTo(mymap)
-
-  var el = L.DomUtil.create('div', 'my-control leaflet-bar');
-  L.DomEvent.disableClickPropagation(el);
   
   
   /* Sample Code
@@ -269,10 +265,10 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
                       }
                     }
                     if (responseData[kkidx].data.type_of_contract) {
-                      type_of_contract = responseData[kkidx].data.type_of_contract.join();
+                      type_of_contract = responseData[kkidx].data.type_of_contract.join(', ');
                     }
                     if (responseData[kkidx].data.resource) {
-                      resource = responseData[kkidx].data.resource.join()
+                      resource = responseData[kkidx].data.resource.join(', ')
                     }
                     if (responseData[kkidx].data.contract_name) {
                       contract_name = responseData[kkidx].data.contract_name
