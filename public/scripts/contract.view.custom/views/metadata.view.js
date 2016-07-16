@@ -74,7 +74,7 @@ var MetadataView = React.createClass({
                     </div>
                     <div className="metadata-signature-year">
                         <span>Signature year</span>
-                        <span>{this.props.metadata.get("signature_year") || "-"}</span>
+                        <span>{this.props.metadata.get("year_signed") || "-"}</span>
                     </div>
                     <div className="metadata-resource">
                         <span>Resources</span>
@@ -82,7 +82,7 @@ var MetadataView = React.createClass({
                     </div>
                     <div className="metadata-type-contract">
                         <span>Type of Contract</span>
-                        <span>{this.props.metadata.get("type_of_contract")}</span>
+                        <span>{this.props.metadata.get("type")}</span>
                     </div>
                     <div className="metadata-ocid">
                         <span>Open Contracting Identifier</span>
@@ -125,35 +125,37 @@ var RelatedDocumentsView = React.createClass({
         var parentContracts = "", 
             supportingContracts = []
             moreContracts = "";
-        if(this.props.metadata.get("parent_document")) {
-            parentContracts = this.props.metadata.get("parent_document").map(function(doc) {
+        console.log(this.props.metadata);
+        console.log('^^^^^^^^ props')
+        if(this.props.metadata.get("parent")) {
+             parentContracts = this.props.metadata.get("parent").map(function(doc) {
                 var docUrl = app_url + "/contract/" + doc.id;
-                if(doc.status === "published") {
+                if(doc.is_published===true){
                     return (
                         <span>
-                            <a href={docUrl}>{doc.contract_name}</a>
+                            <a href={docUrl}>{doc.name}</a>
                         </span>
                     );
                 } else {
                     return (
                         <span>
-                            {doc.contract_name}
+                            {doc.name}
                         </span>
                     );
                 }
             });
             var MaxAllowed = 2;
-            var maxDocs = (this.props.metadata.get("supporting_contracts").length < MaxAllowed)?this.props.metadata.get("supporting_contracts").length:MaxAllowed;
+            var maxDocs = (this.props.metadata.get("associated").length < MaxAllowed)?this.props.metadata.get("associated").length:MaxAllowed;
             for(var i = 0;i < maxDocs; i++) {
-                var doc = this.props.metadata.get("supporting_contracts")[i];
-                if(doc.status === "published") {
+                var doc = this.props.metadata.get("associated")[i];
+                if(doc.is_published === true) {
                     var docUrl = app_url + "/contract/" + doc.id;
-                    supportingContracts.push(<span id={i}><a href={docUrl}>{truncate(doc.contract_name)}</a></span>);
+                     supportingContracts.push(<span id={i}><a href={docUrl}>{truncate(doc.name)}</a></span>);
                 } else {
-                    supportingContracts.push(<span id={i}>{truncate(doc.contract_name)}</span>);
+                    supportingContracts.push(<span id={i}>{truncate(doc.name)}</span>);
                 }
             }
-            if(this.props.metadata.get("supporting_contracts").length > MaxAllowed) {
+            if(this.props.metadata.get("associated").length > MaxAllowed) {
                 moreContracts = (<span><a href={this.props.contractApp.getMetadataSummaryLink() + "#relateddocs"}>All related ...</a></span>);
             }
             if(parentContracts.length || supportingContracts.length) {
