@@ -168,9 +168,8 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
           }
         }
       }
-
-      // Build promise to get 
-      $scope.compareSupportDocs(resultIds);
+      // Filters supporting documents 
+      // $scope.compareSupportDocs(resultIds);
     })
     .error(function(error) {
       console.log('search error in search controller...');
