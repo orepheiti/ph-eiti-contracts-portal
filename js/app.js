@@ -241,7 +241,8 @@ function filterData(data) {
   var newResults = [];
 
   $.each(data.results, function(i, v) {
-    if ($.inArray(v['contract_id'], supporting_documents) == -1) {
+    // if ($.inArray(v['contract_id'], supporting_documents) == -1) {
+    if ($.inArray(v['id'], supporting_documents) == -1) {
       newResults.push(v);
     }
   });

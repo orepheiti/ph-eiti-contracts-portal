@@ -11,8 +11,11 @@
 
 <div class="row">
     <div class="contract-number-wrap contract-search-number-wrap">
-        <span>{{data.total}}</span> Contracts
-    </div>
+        <!-- <small data-ng-show="total_num_of_contracts==='Calculating'" style="text-transform:none;">{{total_num_of_contracts}} total <br />number of </small><span data-ng-show="total_num_of_contracts!=='Calculating'">{{total_num_of_contracts}}</span> Contracts -->
+        <small data-ng-show="!data.total"  style="text-transform:none;">Calculating total <br />number of <br /></small>
+        <span data-ng-show="data.total">{{data.total}}</span>
+        <small>CONTRACT<small data-ng-show="data.total > 1 || !data.total">S</small></small>
+    </div> 
 </div>
 
 <script>
@@ -108,25 +111,27 @@
                         <tr>
                             <th>
                                 <a ng-click="order('contract_name')">Document</a>
-                                <span class="sortorder" ng-show="predicate === 'contract_name'" ng-class="{reverse:reverse}"></span>
+                                <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
+                                <!-- ng-show="predicate === 'contract_name'" -->
                             </th>
                             <th>
                                 <a ng-click="order('signature_year')">Year Signed</a>
-                                <span class="sortorder" ng-show="predicate === 'signature_year'" ng-class="{reverse:reverse}"></span>
+                                <span class="sortorder" ng-show="predicate === 'year_signed'" ng-class="{reverse:reverse}"></span>
                             </th>
                             <th>Resource</th>
                             <th>Contract Type</th>
                         </tr>
                         <tr ng-repeat="(i, v) in data.results | orderBy:predicate:reverse">
                             <td>
-                                <a href='contract/{{v.contract_id}}' onclick="closeSidebar()">{{v.contract_name}}</a>
+                                <a href='contract/{{v.id}}' onclick="closeSidebar()">{{v.name}}<!-- {{v.contract_name}} --></a>
+                                <!-- href='contract/{{v.contract_id}}'  -->
                             </td>
                             <td>
-                                {{v.signature_year}}
+                                <!-- {{v.signature_year}} --> {{v.year_signed}}
                             </td>
-                            <td>
-                                <ul>
-                                    <li ng-repeat="(i, v) in v.resource">{{v}}</li>
+                            <td style="text-align:left;">
+                                <ul style="margin:0px;padding:0px;">
+                                    <li ng-repeat="(i, v) in v.resource" style="text-align:left;padding-top:3px;display:block;">{{v}}</li>
                                 </ul>
 
                             </td>
