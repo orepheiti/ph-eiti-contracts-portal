@@ -260,8 +260,7 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
     id: 'jerico.pbk5hmjh',
     accessToken: 'pk.eyJ1IjoiamVyaWNvIiwiYSI6ImNpbGluc3BmdzM5cGF0c2twb3N5Mjd4NTAifQ.G5ZIkURpUJsBCd0FZO_1fA'  
   }).addTo(mymap)
-  
-  
+
   /* Sample Code
   var geodata = {
     "type": "FeatureCollection",
@@ -370,6 +369,11 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
                       }).addTo(mymap); 
                     }
                   }
+
+                  (function(){
+                    var mapContainer = document.getElementById('map-container');
+                    mapContainer.style.minHeight = (window.height-25)+'px'  
+                  })()
                 }
               }
             }
@@ -384,3 +388,5 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
   getGeoJsonProp();
   
 }]);
+
+
