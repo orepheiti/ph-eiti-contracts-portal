@@ -125,8 +125,6 @@ var RelatedDocumentsView = React.createClass({
         var parentContracts = "", 
             supportingContracts = []
             moreContracts = "";
-        console.log(this.props.metadata);
-        console.log('^^^^^^^^ props')
         if(this.props.metadata.get("parent")) {
              parentContracts = this.props.metadata.get("parent").map(function(doc) {
                 var docUrl = app_url + "/contract/" + doc.id;

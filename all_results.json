@@ -1,0 +1,2220 @@
+{
+    "total": 93,
+    "country": [
+        "PH"
+    ],
+    "year": {
+        "0": 1999,
+        "1": 2001,
+        "2": 2008,
+        "3": 1996,
+        "4": 1997,
+        "5": 2007,
+        "8": 2005,
+        "9": 1990,
+        "11": 2009,
+        "12": 2011,
+        "15": 1993,
+        "17": 1998,
+        "19": 2000,
+        "27": 1991,
+        "29": 2002,
+        "32": 1992,
+        "36": 2004,
+        "48": 1975,
+        "53": 1988,
+        "67": 1994
+    },
+    "resource": {
+        "0": "Copper",
+        "1": "Gold",
+        "2": "Silver",
+        "5": "Chromite",
+        "6": "Nickel",
+        "17": "Hydrocarbons",
+        "58": "Platinum Group Metals",
+        "75": "Cobalt",
+        "76": "Iron Ore",
+        "116": "Magnetite"
+    },
+    "results": [
+        {
+            "id": 1084,
+            "open_contracting_id": "ocds-591adf-PH3030287885RC",
+            "name": "Johson Gold Mining Corporation - Annex of MPSA No. 139-99-V, 1999",
+            "year_signed": 1999,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold",
+                "Silver"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1185,
+            "open_contracting_id": "ocds-591adf-PH6493643447RC",
+            "name": "Rapu-Rapu Minerals, Incorporated - MPSA No. 168-2001-V, 2001",
+            "year_signed": 2001,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1089,
+            "open_contracting_id": "ocds-591adf-PH0200776861RC",
+            "name": "LNL Archipelago Minerals, Incorporated - Annex of MPSA No. 268-2008-III, 2008",
+            "year_signed": 2008,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1072,
+            "open_contracting_id": "ocds-591adf-PH1860483994RC",
+            "name": "TVI Resource Development Philippines, Incorporated - Annex of MPSA No. 054-96-IX, 1996",
+            "year_signed": 1996,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold",
+                "Silver"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 80,
+            "open_contracting_id": "ocds-591adf-PH2922969290RC",
+            "name": "Shuley Mine, Incorporated - MPSA No. 072-97-XIII (Surigao Mineral Reservation), 1997",
+            "year_signed": 1997,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 97,
+            "open_contracting_id": "ocds-591adf-PH0149652678RC",
+            "name": "Carrascal Nickel Corporation - MPSA No. 243-2007-XIII (Surigao Mineral Reservation), 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1091,
+            "open_contracting_id": "ocds-591adf-PH2043556030RC",
+            "name": "Adnama Mining Resources, Incorporated - Annex of MPSA No. 259-2007-XIII (Surigao Mineral Reservation), 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 100,
+            "open_contracting_id": "ocds-591adf-PH3489169169RC",
+            "name": "Filminera Resources Corporation- MPSA No. 256-2007-V, 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 92,
+            "open_contracting_id": "ocds-591adf-PH6102706030RC",
+            "name": "Carmen Copper Corporation - MPSA No. 210-2005-VII, 2005",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1116,
+            "open_contracting_id": "ocds-591adf-PH0959393732RC-1116",
+            "name": "Shell Philippines Exploration B. V. - Annex of SC No. 38, 1990",
+            "year_signed": 1990,
+            "contract_type": [
+                "Service Contract"
+            ],
+            "resource": [
+                "Hydrocarbons"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1109,
+            "open_contracting_id": "ocds-591adf-PH7337056728RC",
+            "name": "Hinatuan Mining Corporation - Annex of MPSA No. 246-2007-XIII (Surigao Mineral Reservation), 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 78,
+            "open_contracting_id": "ocds-591adf-PH5979139419RC",
+            "name": "Philex Mining Corporation - MPSA No. 276-2009-CAR, 2009",
+            "year_signed": 2009,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 73,
+            "open_contracting_id": "ocds-591adf-PH0779114806RC",
+            "name": "Mt. Sinai Exploration Mining and Development Corporation - MPSA No. 351-2011-VIII, 2011",
+            "year_signed": 2011,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1111,
+            "open_contracting_id": "ocds-591adf-PH3489169169RC-1111",
+            "name": "Filminera Resources Corporation- Annex of MPSA No. 256-2007-V, 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1096,
+            "open_contracting_id": "ocds-591adf-PH9233479159RC",
+            "name": "Apex Mining Company, Incorporated - Annex of MPSA No. 225-2005-XI, 2005",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Gold",
+                "Silver"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1104,
+            "open_contracting_id": "ocds-591adf-PH1900566082RC",
+            "name": "CTP Construction and Mining Corporation - Annex of MPSA No. 018-93-XI (Surigao Mineral Reservation), 1993",
+            "year_signed": 1993,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 85,
+            "open_contracting_id": "ocds-591adf-PH2978164147RC",
+            "name": "Taganito Mining Corporation - MPSA No. 266-2008-XIII (Surigao Mineral Reservation), 2008",
+            "year_signed": 2008,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 838,
+            "open_contracting_id": "ocds-591adf-PH0910910867RC",
+            "name": "Shenzou Mining Group Corporation - MPSA No. 103-98-XIII (Surigao Mineral Reservation), 1998",
+            "year_signed": 1998,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 86,
+            "open_contracting_id": "ocds-591adf-PH3299530882RC",
+            "name": "Rio Tuba Nickel Mining Corporation - MPSA No. 114-98-IV, 1998",
+            "year_signed": 1998,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1100,
+            "open_contracting_id": "ocds-591adf-PH0781535569RC",
+            "name": "Rapu-Rapu Minerals, Incorporated - Annex of MPSA No. 163-2000-V, 2000",
+            "year_signed": 2000,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1186,
+            "open_contracting_id": "ocds-591adf-PH0656966486RC",
+            "name": "Rapu-Rapu Minerals, Incorporated - Annex of MPSA No. 168-2001-V, 2001",
+            "year_signed": 2001,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 81,
+            "open_contracting_id": "ocds-591adf-PH8981022591RC",
+            "name": "Filminera Resources Corporation - MPSA No. 095-97-V, 1997",
+            "year_signed": 1997,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Gold",
+                "Silver"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1092,
+            "open_contracting_id": "ocds-591adf-PH2828720656RC",
+            "name": "Carrascal Nickel Corporation - Annex of MPSA No. 243-2007-XIII (Surigao Mineral Reservation), 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1117,
+            "open_contracting_id": "ocds-591adf-PH8798534926RC",
+            "name": "Forum Exploration, Incorporated - SC No. 40, 2005",
+            "year_signed": 2005,
+            "contract_type": [
+                "Service Contract"
+            ],
+            "resource": [
+                "Hydrocarbons"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1097,
+            "open_contracting_id": "ocds-591adf-PH8733553006RC",
+            "name": "Carmen Copper Corporation - Annex of MPSA No. 210-2005-VII, 2005",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1105,
+            "open_contracting_id": "ocds-591adf-PH4134961198RC-1105",
+            "name": "Marcventures Mining and Development Corporation - Annex of MPSA No. 016-93-X (Surigao Mineral Reservation), 1993",
+            "year_signed": 1993,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 101,
+            "open_contracting_id": "ocds-591adf-PH8934457630RC",
+            "name": "Adnama Mining Resources, Incorporated - MPSA No. 259-2007-XIII (Surigao Mineral Reservation), 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1080,
+            "open_contracting_id": "ocds-591adf-PH9630854692RC-1080",
+            "name": "Sinosteel Philippines HY Mining Corporation - Annex of MPSA No. 002-90-X (Surigao Mineral Reservation), 1991",
+            "year_signed": 1991,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 93,
+            "open_contracting_id": "ocds-591adf-PH3670634886RC",
+            "name": "Apex Mining Company, Incorporated - MPSA No. 225-2005-XI, 2005",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Gold",
+                "Silver"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1460,
+            "open_contracting_id": "ocds-591adf-PH5290710888RC-1460",
+            "name": "EPEP_Greenstone Resources",
+            "year_signed": 2002,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1458,
+            "open_contracting_id": "ocds-591adf-PH2291505019RC-1458",
+            "name": "MRFC reports_4th Quarter 2012 to 4th Quarter 2014_Eramen Minerals",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 98,
+            "open_contracting_id": "ocds-591adf-PH4751184055RC",
+            "name": "Hinatuan Mining Corporation - MPSA No. 246-2007-XIII (Surigao Mineral Reservation), 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 74,
+            "open_contracting_id": "ocds-591adf-PH0216420606RC",
+            "name": "Platinum Group Metals Corporation - MPSA No. 007-92-X, 1992",
+            "year_signed": 1992,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1112,
+            "open_contracting_id": "ocds-591adf-PH7022829305RC",
+            "name": "Mt. Sinai Exploration Mining and Development Corporation - Annex of MPSA No. 351-2011-VIII, 2011",
+            "year_signed": 2011,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 79,
+            "open_contracting_id": "ocds-591adf-PH4030600508RC",
+            "name": "CTP Construction and Mining Corporation - MPSA No. 018-93-XI (Surigao Mineral Reservation), 1993",
+            "year_signed": 1993,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1427,
+            "open_contracting_id": "ocds-591adf-PH2291505019RC-1427",
+            "name": "EPEP and FMRDP_Eramen Minerals",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1085,
+            "open_contracting_id": "ocds-591adf-PH7163942494RC",
+            "name": "Zambales Diversified Metals Corporation - Annex of MPSA No. 191-2004-III, 2004",
+            "year_signed": 2004,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel",
+                "Platinum Group Metals"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 82,
+            "open_contracting_id": "ocds-591adf-PH2629390746RC",
+            "name": "Cagdianao Mining Corporation - MPSA No. 078-97-XIII (Surigao Mineral Reservation), 1997",
+            "year_signed": 1997,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1081,
+            "open_contracting_id": "ocds-591adf-PH3461204639RC",
+            "name": "Platinum Group Metals Corporation - Annex of MPSA No. 007-92-X, 1992",
+            "year_signed": 1992,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 70,
+            "open_contracting_id": "ocds-591adf-PH8329561979RC",
+            "name": "Johson Gold Mining Corporation - MPSA No. 139-99-V, 1999",
+            "year_signed": 1999,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold",
+                "Silver"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1113,
+            "open_contracting_id": "ocds-591adf-PH2975349063RC",
+            "name": "Philsaga Mining Corporation - Annex of MPSA No. 262-2008-XIII, 2008",
+            "year_signed": 2008,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 87,
+            "open_contracting_id": "ocds-591adf-PH8417537552RC",
+            "name": "CTP Construction and Mining Corporation - MPSA No. 158-2000-XIII (Surigao Mineral Reservation), 2000",
+            "year_signed": 2000,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 94,
+            "open_contracting_id": "ocds-591adf-PH5772603253RC",
+            "name": "Benguetcorp Nickel Mines, Incorporated - MPSA No. 226-2005-III, 2005",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1106,
+            "open_contracting_id": "ocds-591adf-PH2907212767RC",
+            "name": "Oriental Synergy Mining Corporation - Annex of MPSA No. 011-92-X (Surigao Mineral Reservation), 1992",
+            "year_signed": 1992,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1860,
+            "open_contracting_id": "ocds-591adf-PH2291505019RC",
+            "name": "Eramen Minerals, Incorporated - MPSA No. 209-2005-III, 2005",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1118,
+            "open_contracting_id": "ocds-591adf-PH8798534926RC-1118",
+            "name": "Forum Exploration, Incorporated - Annex of SC No. 40, 2005",
+            "year_signed": 2005,
+            "contract_type": [
+                "Service Contract"
+            ],
+            "resource": [
+                "Hydrocarbons"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1093,
+            "open_contracting_id": "ocds-591adf-PH7712772895RC",
+            "name": "Berong Nickel Corporation - Annex of MPSA No. 235-2007-IVB, 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Cobalt",
+                "Iron Ore",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1428,
+            "open_contracting_id": "ocds-591adf-PH2291505019RC-1428",
+            "name": "SDMP monitoring reports_1st Semester 2012 to 3rd Quarter 2014_Eramen Minerals",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1120,
+            "open_contracting_id": "ocds-591adf-PH0095461880RC",
+            "name": "The Philodrill Corporation - SC No. 14, 1975",
+            "year_signed": 1975,
+            "contract_type": [
+                "Service Contract"
+            ],
+            "resource": [
+                "Hydrocarbons"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1079,
+            "open_contracting_id": "ocds-591adf-PH4623081838RC-1079",
+            "name": "Lepanto Consolidated Mining Company and Far Southeast Gold Resources Incorporated - Annex of MPSA No. 001-90-CAR, 1990",
+            "year_signed": 1990,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1086,
+            "open_contracting_id": "ocds-591adf-PH7526601537RC",
+            "name": "Krominco, Incorporated - Annex of MPSA No. 291-2009-XIII (Surigao Mineral Reservation), 2009",
+            "year_signed": 2009,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 75,
+            "open_contracting_id": "ocds-591adf-PH6794873572RC",
+            "name": "Cambayas Mining Corporation - MPSA No. 292-2009-VIII, 2009",
+            "year_signed": 2009,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1447,
+            "open_contracting_id": "ocds-591adf-PH2291505019RC-1447",
+            "name": "MMT reports_1st Quarter 2013 to 3rd Quarter 2014_Eramen Minerals",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 140,
+            "open_contracting_id": "ocds-591adf-PH6427059705RC",
+            "name": "Ore Asia Mining and Development Corporation - MLC-MRD-509-III, 1988",
+            "year_signed": 1988,
+            "contract_type": [
+                "Concession Agreement"
+            ],
+            "resource": [
+                "Iron Ore"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 102,
+            "open_contracting_id": "ocds-591adf-PH0675774487RC",
+            "name": "SR Metals, Incorporated - MPSA No. 261-2008-XIII, 2008",
+            "year_signed": 2008,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Cobalt",
+                "Iron Ore",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1101,
+            "open_contracting_id": "ocds-591adf-PH6926051448RC",
+            "name": "CTP Construction and Mining Corporation - Annex of MPSA No. 158-2000-XIII (Surigao Mineral Reservation), 2000",
+            "year_signed": 2000,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1461,
+            "open_contracting_id": "ocds-591adf-PH5290710888RC-1461",
+            "name": "FMRDP_Greenstone Resources",
+            "year_signed": 2002,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 99,
+            "open_contracting_id": "ocds-591adf-PH7709188161RC",
+            "name": "Filminera Resources Corporation- MPSA No. 255-2007-V, 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1098,
+            "open_contracting_id": "ocds-591adf-PH2291505019RC-1098",
+            "name": "Eramen Minerals, Incorporated - Annex of MPSA No. 209-2005-III, 2005",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1183,
+            "open_contracting_id": "ocds-591adf-PH9256807339RC",
+            "name": "Citinickel Mines and Development Corporation - MPSA No. 229-2007-IVB, 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1082,
+            "open_contracting_id": "ocds-591adf-PH2502762270RC",
+            "name": "Cagdianao Mining Corporation - Annex of MPSA No. 078-97-XIII (Surigao Mineral Reservation), 1997",
+            "year_signed": 1997,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 69,
+            "open_contracting_id": "ocds-591adf-PH4623081838RC",
+            "name": "Lepanto Consolidated Mining Company and Far Southeast Gold Resources Incorporated - MPSA No. 001-90-CAR, 1990",
+            "year_signed": 1990,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1119,
+            "open_contracting_id": "ocds-591adf-PH2801123660RC-1119",
+            "name": "Forum Exploration, Incorporated - SC No. 40 - Joint Determination of Commerciality, 2005",
+            "year_signed": 2005,
+            "contract_type": [
+                "Service Contract"
+            ],
+            "resource": [
+                "Hydrocarbons"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 76,
+            "open_contracting_id": "ocds-591adf-PH7733849609RC",
+            "name": "Krominco, Incorporated - MPSA No. 291-2009-XIII (Surigao Mineral Reservation), 2009",
+            "year_signed": 2009,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1114,
+            "open_contracting_id": "ocds-591adf-PH1057778397RC",
+            "name": "Carmen Copper Corporation - Annex of MPSA No. 264-2008-VII, 2008",
+            "year_signed": 2008,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1121,
+            "open_contracting_id": "ocds-591adf-PH9273467088RC-1121",
+            "name": "The Philodrill Corporation - Basic Agreement between SC6 and SC14",
+            "year_signed": 1975,
+            "contract_type": [
+                "Service Contract"
+            ],
+            "resource": [
+                "Hydrocarbons"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 83,
+            "open_contracting_id": "ocds-591adf-PH5970702930RC",
+            "name": "TVI Resource Development Philippines, Incorporated - MPSA No. 054-96-IX, 1996",
+            "year_signed": 1996,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold",
+                "Silver"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1075,
+            "open_contracting_id": "ocds-591adf-PH4206680510RC",
+            "name": "OceanaGold Philippines, Incorporated - FTAA No. 001, 1994",
+            "year_signed": 1994,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 103,
+            "open_contracting_id": "ocds-591adf-PH4736578351RC",
+            "name": "Philsaga Mining Corporation - MPSA No. 262-2008-XIII, 2008",
+            "year_signed": 2008,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 71,
+            "open_contracting_id": "ocds-591adf-PH9630854692RC",
+            "name": "Sinosteel Philippines HY Mining Corporation - MPSA No. 002-90-X (Surigao Mineral Reservation), 1991",
+            "year_signed": 1991,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1099,
+            "open_contracting_id": "ocds-591adf-PH5921556963RC",
+            "name": "Greenstone Resources Corporation - Annex of MPSA No. 184-2002-XIII, 2002",
+            "year_signed": 2002,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1087,
+            "open_contracting_id": "ocds-591adf-PH5975904123RC",
+            "name": "Leyte Ironsand Corporation - Annex of MPSA No. 290-2009-VIII, 2009",
+            "year_signed": 2009,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Magnetite"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1094,
+            "open_contracting_id": "ocds-591adf-PH1354075854RC",
+            "name": "Citinickel Mines and Development Corporation - Annex of MPSA No. 229-2007-IVB, 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1102,
+            "open_contracting_id": "ocds-591adf-PH6440950726RC",
+            "name": "Rio Tuba Nickel Mining Corporation - Annex of MPSA No. 114-98-IV, 1998",
+            "year_signed": 1998,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 88,
+            "open_contracting_id": "ocds-591adf-PH4061232253RC",
+            "name": "Rapu-Rapu Minerals, Incorporated - MPSA No. 163-2000-V, 2000",
+            "year_signed": 2000,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1107,
+            "open_contracting_id": "ocds-591adf-PH0237903485RC",
+            "name": "Taganito Mining Corporation - Annex of MPSA No. 266-2008-XIII (Surigao Mineral Reservation), 2008",
+            "year_signed": 2008,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 90,
+            "open_contracting_id": "ocds-591adf-PH9167186836RC",
+            "name": "Zambales Diversified Metals Corporation - MPSA No. 191-2004-III, 2004",
+            "year_signed": 2004,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel",
+                "Platinum Group Metals"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 77,
+            "open_contracting_id": "ocds-591adf-PH0482018664RC",
+            "name": "Leyte Ironsand Corporation - MPSA No. 290-2009-VIII, 2009",
+            "year_signed": 2009,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Magnetite"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 104,
+            "open_contracting_id": "ocds-591adf-PH3120497996RC",
+            "name": "Carmen Copper Corporation - MPSA No. 264-2008-VII, 2008",
+            "year_signed": 2008,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 89,
+            "open_contracting_id": "ocds-591adf-PH5290710888RC",
+            "name": "Greenstone Resources Corporation - MPSA No. 184-2002-XIII, 2002",
+            "year_signed": 2002,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1103,
+            "open_contracting_id": "ocds-591adf-PH6647214926RC",
+            "name": "Shuley Mine, Incorporated - Annex of MPSA No. 072-97-XIII (Surigao Mineral Reservation), 1997",
+            "year_signed": 1997,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1108,
+            "open_contracting_id": "ocds-591adf-PH6036713911RC",
+            "name": "Cambayas Mining Corporation - Annex of MPSA No. 292-2009-VIII, 2009",
+            "year_signed": 2009,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1184,
+            "open_contracting_id": "ocds-591adf-PH0910910867RC-1184",
+            "name": "Shenzou Mining Group Corporation - Annex of MPSA No. 103-98-XIII (Surigao Mineral Reservation), 1998",
+            "year_signed": 1998,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1115,
+            "open_contracting_id": "ocds-591adf-PH0959393732RC",
+            "name": "Shell Philippines Exploration B. V. - SC No. 38, 1990",
+            "year_signed": 1990,
+            "contract_type": [
+                "Service Contract"
+            ],
+            "resource": [
+                "Hydrocarbons"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 96,
+            "open_contracting_id": "ocds-591adf-PH9777489300RC",
+            "name": "Berong Nickel Corporation - MPSA No. 235-2007-IVB, 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Cobalt",
+                "Iron Ore",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1095,
+            "open_contracting_id": "ocds-591adf-PH1827785548RC",
+            "name": "Benguetcorp Nickel Mines, Incorporated - Annex of MPSA No. 226-2005-III, 2005",
+            "year_signed": 2005,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1110,
+            "open_contracting_id": "ocds-591adf-PH7709188161RC-1110",
+            "name": "Filminera Resources Corporation- Annex of MPSA No. 255-2007-V, 2007",
+            "year_signed": 2007,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 84,
+            "open_contracting_id": "ocds-591adf-PH6009742073RC",
+            "name": "LNL Archipelago Minerals, Incorporated - MPSA No. 268-2008-III, 2008",
+            "year_signed": 2008,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1083,
+            "open_contracting_id": "ocds-591adf-PH8981022591RC-1083",
+            "name": "Filminera Resources Corporation - Annex of MPSA No. 095-97-V, 1997",
+            "year_signed": 1997,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Gold",
+                "Silver"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 72,
+            "open_contracting_id": "ocds-591adf-PH3769032172RC",
+            "name": "Oriental Synergy Mining Corporation - MPSA No. 011-92-X (Surigao Mineral Reservation), 1992",
+            "year_signed": 1992,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Chromite",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1088,
+            "open_contracting_id": "ocds-591adf-PH5981879984RC",
+            "name": "Philex Mining Corporation - Annex of MPSA No. 276-2009-CAR, 2009",
+            "year_signed": 2009,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Copper",
+                "Gold"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1090,
+            "open_contracting_id": "ocds-591adf-PH8664068761RC",
+            "name": "SR Metals, Incorporated - Annex of MPSA No. 261-2008-XIII, 2008",
+            "year_signed": 2008,
+            "contract_type": [],
+            "resource": [
+                "Cobalt",
+                "Iron Ore",
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": false,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        },
+        {
+            "id": 1076,
+            "open_contracting_id": "ocds-591adf-PH4134961198RC",
+            "name": "Marcventures Mining and Development Corporation- MPSA No. 016-93-X (Surigao Mineral Reservation), 1993",
+            "year_signed": 1993,
+            "contract_type": [
+                "Production or Profit Sharing Agreement"
+            ],
+            "resource": [
+                "Nickel"
+            ],
+            "country_code": "PH",
+            "language": "en",
+            "category": [
+                "rc"
+            ],
+            "is_ocr_reviewed": true,
+            "group": [],
+            "text": "",
+            "annotations": [],
+            "metadata": ""
+        }
+    ],
+    "contract_type": {
+        "0": "Production or Profit Sharing Agreement",
+        "9": "Service Contract",
+        "53": "Concession Agreement"
+    },
+    "company_name": {
+        "0": "Johson Gold Mining Corporation",
+        "1": "Rapu-Rapu Minerals Incorporated",
+        "2": "Filipinas Mining Corporation",
+        "3": "LNL Archipelago Minerals Incorporated",
+        "4": "TVI Resource Development Philippines Incorporated",
+        "5": "Pacific Nickel Philippines Incorporated",
+        "6": "Shuley Mine Incorporated",
+        "7": "CTP Construction and Mining Corporation",
+        "8": "Carrascal Nickel Corporation",
+        "9": "Adnama Mining Resources Incorporated",
+        "10": "Filminera Resources Corporation",
+        "11": "Atlas Consolidated Mining and Development Corporation",
+        "12": "Carmen Copper Corporation",
+        "13": "Shell Philippines Exploration B. V.",
+        "14": "Chevron Malampaya LLC",
+        "15": "PNOC Exploration Corporation",
+        "16": "Hinatuan Mining Corporation",
+        "17": "Philex Mining Corporation",
+        "18": "Mt. Sinai Exploration Mining and Development Corporation",
+        "20": "Apex Mining Company Incorporated",
+        "22": "Taganito Mining Corporation",
+        "23": "Claver Mineral Development Corporation",
+        "24": "Shenzou Mining Group Corporation",
+        "25": "Rio Tuba Nickel Mining Corporation",
+        "31": "Forum Exploration Incorporated",
+        "34": "Marcventures Mining and Development Corporation",
+        "36": "Sinosteel Philippines HY Mining Corporation",
+        "38": "Greenstone Resources Corporation",
+        "39": "Eramen Minerals Incorporated",
+        "41": "Surigao Integrated Resources Corporation",
+        "42": "Platinum Group Metals Corporation",
+        "46": "Zambales Diversified Metals Corporation",
+        "47": "East Coast Mineral Resources Company Incorporated",
+        "48": "Cagdianao Mining Corporation",
+        "52": "Philsaga Mining Corporation",
+        "54": "Benguetcorp Nickel Mines Incorporated",
+        "55": "Oriental Synergy Mining Corporation",
+        "58": "Berong Nickel Corporation",
+        "60": "The Philodrill Corporation",
+        "61": "Lepanto Consolidated Mining Company",
+        "62": "Far Southeast Gold Resources Incorporated",
+        "63": "Krominco Incorporated",
+        "64": "Cambayas Mining Corporation",
+        "66": "Ore Asia Mining and Development Corporation",
+        "67": "SR Metals Incorporated",
+        "72": "Citinickel Mines and Development Corporation",
+        "83": "OceanaGold Philippines, Incorporated",
+        "87": "Leyte Ironsand Corporation",
+        "88": "Vincent Tan Tiong"
+    },
+    "corporate_group": {
+        "0": "Open Pit Holdings Ltd.",
+        "1": "Atlas Consolidated Mining and Development Corporation",
+        "3": "Philippine National Oil Company",
+        "4": "Nickel Asia Corporation",
+        "9": "FEC Resources, Incorporated",
+        "12": "Marcventures Holdings, Inc.",
+        "14": "ZDMC Holdings Corporation (formerly Fil-Asia Strategic Investment Holdings Corporation)",
+        "16": "Medusa Mining, Ltd.",
+        "17": "Benguet Corporation",
+        "19": "Nickeline Resources Holdings, Incorporated",
+        "20": "Lepanto Consolidated Mining Company",
+        "22": "Oriental Peninsula Resources Group, Inc.",
+        "28": "OceanaGold Corporation"
+    },
+    "from": "0",
+    "per_page": "10000"
+}

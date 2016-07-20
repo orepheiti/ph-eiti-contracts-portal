@@ -131,7 +131,7 @@
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Jurisdiction of Incorporation</label>
-                        <!-- <span>{{data.company[0].jurisdiction_of_incorporation || '-'}}</span> -->
+                        <span data-ng-show="data.participation[0].company.identifier.creator.spatial==='PH'">Philippines</span>
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Registration Agency</label>
@@ -159,7 +159,7 @@
                 <ul>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Open Corporate ID</label>
-                        <!-- <span>{{data.company[0].open_corporate_id || '-'}}</span> -->
+                        <span>{{data.participation[0].company.opencorporates_url || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Participation Share</label>
@@ -223,11 +223,11 @@
                 <ul>
                     <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <label for="">License Name</label>
-                        <span>{{data.license_name || '-'}}</span>
+                        <span>{{data.concession[0].name || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <label for="">License Identifier</label>
-                        <span>{{data.license_identifier || '-'}}</span>
+                        <span>{{data.concession[0].identifier || '-'}}</span>
                     </li>
                 </ul>
             </div>
