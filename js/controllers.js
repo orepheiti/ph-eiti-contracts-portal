@@ -22,21 +22,30 @@ myApp.factory('ContractsFactory',['$http',
     return ContractsFactory;
 }]);
 
-myControllers.controller('MainController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
-  $http.get(api + 'contracts/search?q=&from=0&per_page=10000&group=metadata&country_code=ph', { cache: true }).success(function(data) {
-
-    var data = filterData(data);
-
-    data.hydrocarbon_companies = hydrocarbon_companies;
-
-    $rootScope.rootData = data;
-
-    $(window).trigger('mainData.loaded')
-
-  }).error(function() {
-    console.log('error!');
-    window.location.reload();
-  });
+myControllers.controller('MainController', ['$scope', '$rootScope', '$http', '$q','ContractsFactory',
+  function($scope, $rootScope, $http,$q,ContractsFactory) {
+  var resultIds = []
+    
+    $http.get(api + 'contracts/search?q=&from=0&per_page=10000&group=metadata&country_code=ph', { cache: true })
+    .success(function(data) {
+      var data = filterData(data);
+      data.hydrocarbon_companies = hydrocarbon_companies;
+      $rootScope.rootData = data;
+      $(window).trigger('mainData.loaded')
+      if (data.results) {
+        var sResults = data.results;
+        for (var idx=0;idx<sResults.length;idx++) {
+          if ($.inArray(sResults[idx].id,resultIds)==-1) {
+            resultIds.push(sResults[idx].id);
+          }
+        }
+      }
+    })
+    .error(function(error) {
+      console.log('search error in main controller!');
+      console.log(error)
+      // window.location.reload();
+    });
 }]);
 
 myControllers.controller('IndexController', ['$scope', 'ngDialog', '$http', function ($scope, ngDialog, $http) {
@@ -308,27 +317,27 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
 
                   var company = '',type_of_contract='',resource='',contract_name='', file_url='', contract_id='', main_contract_id="", total_pages=0 ;
                   if (responseData[kkidx].data) {
-                    contract_id = responseData[kkidx].data.contract_id; // Is the parentContractId
-                    if (responseData[kkidx].data.company) {
-                      if (responseData[kkidx].data.company[0])  {
-                        company = responseData[kkidx].data.company[0].name
+                    contract_id = responseData[kkidx].data.id; //contract_id; // Is the parentContractId
+                    if (responseData[kkidx].data.participation) {
+                      if (responseData[kkidx].data.participation[0])  {
+                        company = responseData[kkidx].data.participation[0].company.name
                       }
                     }
-                    if (responseData[kkidx].data.type_of_contract) {
-                      type_of_contract = responseData[kkidx].data.type_of_contract.join(', ');
+                    if (responseData[kkidx].data.contract_type) {
+                      type_of_contract = responseData[kkidx].data.contract_type;//.join(', ');
                     }
                     if (responseData[kkidx].data.resource) {
                       resource = responseData[kkidx].data.resource.join(', ')
                     }
-                    if (responseData[kkidx].data.contract_name) {
-                      contract_name = responseData[kkidx].data.contract_name
+                    if (responseData[kkidx].data.name) {
+                      contract_name = responseData[kkidx].data.name;//contract_name
                     }
 
                     // For non-supporting
-                    if (responseData[kkidx].data.is_supporting_document) {
-                      if (responseData[kkidx].data.is_supporting_document=='0') {
-                        if (responseData[kkidx].data.supporting_contracts) {
-                          var supporting_contracts = responseData[kkidx].data.supporting_contracts;
+                    if (responseData[kkidx].data.is_associated_document) {
+                      if (responseData[kkidx].data.is_associated_document===false) {
+                        if (responseData[kkidx].data.associated) {
+                          var supporting_contracts = responseData[kkidx].data.associated;
                           if (supporting_contracts[0]) {
                             main_contract_id = supporting_contracts[0].id
                           }
@@ -336,11 +345,13 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
                       }  
                     }                   
 
-                    if (responseData[kkidx].data.file_url) {
-                      file_url = responseData[kkidx].data.file_url
+                    if (responseData[kkidx].data.file) {
+                      if (responseData[kkidx].data.file[0]) {
+                        file_url = responseData[kkidx].data.file[0].url
+                      }
                     }
-                    if (responseData[kkidx].data.total_pages) {
-                      total_pages = responseData[kkidx].data.total_pages
+                    if (responseData[kkidx].data.number_of_pages) {
+                      total_pages = responseData[kkidx].data.number_of_pages
                     }
                   }
                   
