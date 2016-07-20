@@ -105,10 +105,7 @@
     var debug = function() {
         var DEBUG = true;
         if(DEBUG) {
-            console.log("-----");
-            for (var i=0; i < arguments.length; i++) {
-                console.log(arguments[i]);
-            }
+            for (var i=0; i < arguments.length; i++) {}
         }
     }
     if (getParam('contractParentId'))
@@ -123,15 +120,13 @@
         //esapi: 'http://anstalk.com/api/'
         esapi: 'http://rc-api-stage.elasticbeanstalk.com/api/'
     });
-    console.log(contractApp)
-    console.log('logging contract app...')
-    debug("initializing contract ", contractTitle, contractApp.get("contract_id"));
+    // ----- debug("initializing contract ", contractTitle, contractApp.get("contract_id"));
 
     var pagesCollection = new ViewerPageCollection();
     pagesCollection.url = contractApp.getAllPageUrl();
     pagesCollection.fetch({reset: true});
     pagesCollection.on("reset", function() {
-        debug("view.blade pageCollection reset, trigger change:page_no")
+        // ----- debug("view.blade pageCollection reset, trigger change:page_no")
         contractApp.trigger("change:page_no");
     });
 
@@ -158,7 +153,7 @@
             }
         },
         text: function(page_no, annotation_id) {
-            debug("view.blade.php: setting text view");
+            // ----- debug("view.blade.php: setting text view");
             contractApp.setView("text");
             contractApp.resetSelectedAnnotation();
             if(page_no) {
@@ -170,22 +165,22 @@
             this.forceUpdate();
         },
         pdf: function(page_no, annotation_id) {
-            debug("view.blade.php: setting pdf view");
+            // ----- debug("view.blade.php: setting pdf view");
             if(page_no) {
                 contractApp.setCurrentPage(page_no);
-                debug("view.blade.php: setting current page to", page_no);
+                // ----- debug("view.blade.php: setting current page to", page_no);
             } else {
                 // contractApp.trigger("change:page_no");
                 // this.forceUpdate();
             }
             if(annotation_id) {
                 contractApp.setSelectedAnnotation(annotation_id);
-                debug("view.blade.php: setting annotation to", annotation_id);
+                // ----- debug("view.blade.php: setting annotation to", annotation_id);
             } else {
                 contractApp.resetSelectedAnnotation();
             }
             if(!pdfPage.init && contractApp.getView() != "pdf") {
-                debug("view.blade pdfPage init-none, trigger change:page_no")
+                // ----- debug("view.blade pdfPage init-none, trigger change:page_no")
                 contractApp.setView("pdf");
             }
             contractApp.setView("pdf");
@@ -194,9 +189,6 @@
         search: function(query) {
             contractApp.setView("search");
             var show_pdf_text = contractApp.metadata.get('show_pdf_text');
-
-            console.log(show_pdf_text);
-            console.log('^^^^ show pdf text ========')
             if(show_pdf_text ==1)
             {
                 contractApp.setSearchQuery(query);
