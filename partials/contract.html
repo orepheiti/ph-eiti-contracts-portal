@@ -15,7 +15,7 @@
             </div>
             <div class="action-links">
                 <ul>
-                    <li class="pull-left"><a target="_self" href="/contract-view.html?contractId={{data.id}}&contractTitle={{data.name}}&totalPages={{data.total_pages}}">View Document</a></li>
+                    <li class="pull-left"><a target="_self" href="/contract-view.html?contractId={{data.id}}&contractTitle={{data.name}}&totalPages={{data.number_of_pages}}">View Document</a></li>
                     <!-- <li class="pull-left"><a target="_self" href="/contract-view.html?contractId={{data.contract_id}}&contractTitle={{data.contract_name}}&totalPages={{data.total_pages}}">View Document</a></li> -->
                 </ul>
             </div>
@@ -185,7 +185,7 @@
                 <table class="table table-responsive table-contract table-associated-contract">
                     <tbody>
                     <!-- <tr ng-repeat="(i,v) in data.supporting_contracts" ng-show="v.status == 'published'"> -->
-                    <tr ng-repeat="(i,v) in data.associated" ng-show="v.is_published===true">
+                    <tr data-ng-if="data.associated.length > 0"  ng-repeat="(i,v) in data.associated" ng-show="v.is_published===true">
                         <td style="padding: 0.5em 48px 1em;">
                             <!-- <a style="font-size: 14px !important;" href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.contract_name}}&contractParentId={{data.contract_id}}&totalPages={{v.total_pages}}" target="_self">{{v.contract_name || '-'}}</a> -->
                             <a style="font-size: 14px !important;" href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.name}}&contractParentId={{data.id}}&totalPages={{v.total_pages}}" target="_self">{{v.name || '-'}}</a>
@@ -198,7 +198,7 @@
                         </td>
                     </tr>
 
-                    <tr data-ng-show="data.associated.length===0">
+                    <tr data-ng-show="data.associated.length===0 && data.supporting_contracts_extra.length===0">
                         <td>
                             There are no contracts associated.
                         </td>
