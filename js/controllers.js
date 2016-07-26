@@ -178,7 +178,8 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
     });
 }]);
 
-myControllers.controller('ContractController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+myControllers.controller('ContractController', ['$scope', '$http', '$routeParams','$q','ContractsFactory',
+  function ($scope, $http, $routeParams, $q, ContractsFactory) {
   var id = $routeParams.id;
   $http.get(api + 'contract/' + id + '/metadata', { cache: true } ).success(function(data) {
 
@@ -188,29 +189,28 @@ myControllers.controller('ContractController', ['$scope', '$http', '$routeParams
       download(data.name + '.docx', data.word_file);
       // download(data.contract_name + '.docx', data.word_file);
     });
-
-    if (data.supporting_contracts){
-      if (data.supporting_contracts.length > 0) {
-        $.each(data.supporting_contracts, function(i, v) {
-          console.log(v);
-          var cur = i;
-          $.ajax({
-            url: api + 'contract/' + v.id + '/metadata',
-            dataType: 'json',
-            success: function(data2) {
-              data.supporting_contracts[cur].total_pages = data2.total_pages;
-              console.log(data2.total_pages);
-              $scope.$apply(function(){ $scope.data = data; })
-              $scope.data = data;
-            }
-          });
+    
+    var promisesArr = [];
+    if (data.associated){
+      if (data.associated.length > 0) {
+        $.each(data.associated, function(i, v) {
+          promisesArr.push(ContractsFactory.get.metadata(v.id));
         });
-
+        var promise = $q.all(promisesArr);
+        promise.then(function(response){
+          if (response) {
+            if (response.length > 0) {
+              for (var kk=0;kk<response.length;kk++) {
+                var rdata = response[kk].data;
+                data.associated[kk].total_pages = rdata.number_of_pages
+              }
+            }
+          }
+        },function(err){
+          console.log('error in getting total number of pages of associated contracts...')
+          console.log(err)
+        })
       }  
     }
-    
-
-    console.log(data);
-
   });
 }]);
