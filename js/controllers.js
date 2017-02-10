@@ -6,7 +6,7 @@ var options = "&country_code=ph"
 myApp.factory('ContractsFactory',['$http',
   function($http){
     var wsurl = ['http://api.resourcecontracts.org','http://rc-api-stage.elasticbeanstalk.com/api'];
-    var wsurl_idx = 1;
+    var wsurl_idx = 0;
     var ContractsFactory = null;
     ContractsFactory = {
       get : {
