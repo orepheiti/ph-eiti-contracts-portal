@@ -236,8 +236,8 @@ myControllers.controller('ContractController', ['$scope', '$http', '$routeParams
 
     // Associated files that are not in elasticbeanstalk
     // Files in supporting-documents folder/
-    $http.get('/get_supporting_documents.php?contract_name=' + data.name, { cache: true }).success(function(data) {
-      $scope.data.supporting_contracts_extra = data;
+    $http.get('/get_supporting_documents.php?contract_name=' + data.name, { cache: true }).success(function(responseData) {
+      $scope.data.supporting_contracts_extra = responseData;
     });
   });
 
