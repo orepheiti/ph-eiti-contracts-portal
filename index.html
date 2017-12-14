@@ -21,6 +21,8 @@
     <link href="/public/css/font-awesome.min.css" rel="stylesheet">
     <link href="/public/css/select2.min.css" rel="stylesheet">
     <link href="/css/ngDialog.css" rel="stylesheet">
+    <link href="/css/maps.css" rel="stylesheet">
+    <link href="/css/basic.css" rel="stylesheet">
     <link href="/style.css" rel="stylesheet">
 
     <base href="/"/>
@@ -43,6 +45,7 @@
 
     <![endif]-->
 
+    <script src="/geojson_list.js"></script>
     <script src="/supporting_documents.js"></script>
     <script src="/hydrocarbon_companies.js"></script>
     <script src="/public/js/jquery.min.js"></script>
@@ -54,10 +57,16 @@
     <script src="/public/js/sb-admin-2.js"></script>
     <script src="/public/js/jquery.cookie.js"></script>
 
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <!--script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
     <script src="//code.angularjs.org/1.4.6/angular-animate.min.js"></script>
-    <script src="//code.angularjs.org/1.4.6/angular-route.min.js"></script>
+    <script src="//code.angularjs.org/1.4.6/angular-route.min.js"></script-->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.min.js"></script>
+    <script src="/js/angular-route.min.js"></script>
     <script src="/js/ngDialog.js"></script>
+
+    <script src="/js/leaflet/leaflet.js"></script>
+    <link href="/js/leaflet/leaflet.css" rel="stylesheet">
 
     <script src="/js/Blob.js"></script>
     <script src="/js/FileSaver.js"></script>
@@ -73,7 +82,7 @@
     <div id="page-wrapper" class="not-front sidebar-collapse-container">
 
         <div class="row">
-            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;">
                 <div class="navbar-header">
                     <span data-toggle="collapse-sidebar" data-target=".sidebar-collapse" data-target-2=".sidebar-collapse-container" class="pull-left trigger">
                         <span></span>
@@ -85,6 +94,9 @@
                 </div>
 
                 <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/maps">Maps</a>
+                    </li>
                     <li>
                         <a href="/about">About</a>
                     </li>
@@ -208,7 +220,7 @@
                     <div style="position: relative; width: 70%; margin-left: 11%;">
                         <select name="year" class="sidebar-select" placeholder="Select Year">
                             <option value="" selected>Select Year</option>
-                            <option value="{{v}}" ng-repeat="(i, v) in rootData.year | orderBy">{{v}}</option>
+                            <option value="{{v}}" ng-repeat="(i, v) in rootData.year">{{v}}</option>
                         </select>
                     </div>
                     <br>
@@ -226,7 +238,7 @@
             </ul>
         </div>
 
-        <div ng-view></div>
+        <div ng-view style="margin-top:3.85em;"></div>
 
         <footer>
             <div class="row">

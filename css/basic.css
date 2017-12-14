@@ -1,0 +1,44 @@
+.clearfix { clear:  both; }
+.fl-left { float: left; }
+.fl-right { float: right; }
+
+.ta-left { text-align: left; }
+.ta-right { text-align: right; }
+.ta-center { text-align: center; }
+.ta-justify { text-align: justify; }
+
+.va-top { vertical-align: top; }
+.va-mid { vertical-align: middle; }
+.va-middle { vertical-align: middle; }
+.va-bottom { vertical-align: bottom; }
+
+.wd-100 { box-sizing: border-box; width: 100%; }
+.wd-95 { box-sizing: border-box; width: 95%; }
+.wd-90 { box-sizing: border-box; width: 90%; }
+.wd-80 { box-sizing: border-box; width: 80%; }
+.wd-75 { box-sizing: border-box; width: 75%; }
+.wd-70 { box-sizing: border-box; width: 70%; }
+.wd-65 { box-sizing: border-box; width: 65%; }
+.wd-60 { box-sizing: border-box; width: 60%; }
+.wd-55 { box-sizing: border-box; width: 55%; }
+.wd-50 { box-sizing: border-box; width: 50%; }
+.wd-48 { box-sizing: border-box; width: 48%; }
+.wd-47 { box-sizing: border-box; width: 47%; }
+.wd-45 { box-sizing: border-box; width: 45%; }
+.wd-40 { box-sizing: border-box; width: 40%; }
+.wd-35 { box-sizing: border-box; width: 35%; }
+.wd-33 { box-sizing: border-box; width: 33%; }
+.wd-30 { box-sizing: border-box; width: 30%; }
+.wd-25 { box-sizing: border-box; width: 25%; }
+.wd-20 { box-sizing: border-box; width: 20%; }
+.wd-15 { box-sizing: border-box; width: 15%; }
+.wd-10 { box-sizing: border-box; width: 10%; }
+.wd-5 { box-sizing: border-box; width: 5%; }
+
+.pd-10 { padding: 10px; }
+.pd-8 { padding: 8px; }
+.pd-7 { padding: 7px; }
+.pd-6 { padding: 6px; }
+.pd-5 { padding: 5px; }
+.pd-4 { padding: 4px; }
+.pd-3 { padding: 3px; }

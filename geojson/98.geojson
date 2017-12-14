@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "contract": "MPSA_246_2007_XIII", "type": "Parcel", "num": "1", "full_name": "MPSA_246_2007_XIII_Parcel_1", "id": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 125.7225278, 9.7574 ], [ 125.7011028, 9.767163889 ], [ 125.6971889, 9.789125 ], [ 125.6967639, 9.793902778 ], [ 125.712925, 9.796944444 ], [ 125.7279278, 9.788975 ], [ 125.7359028, 9.782880556 ], [ 125.7225278, 9.7574 ] ] ] } },
+{ "type": "Feature", "properties": { "contract": "MPSA_246_2007_XIII", "type": "Parcel", "num": "2", "full_name": "MPSA_246_2007_XIII_Parcel_2", "id": 2 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 125.7154281, 9.805633333 ], [ 125.71205, 9.807769444 ], [ 125.71175, 9.811672222 ], [ 125.71405, 9.812133333 ], [ 125.7171389, 9.807586111 ], [ 125.7154281, 9.805633333 ] ] ] } }
+]
+}

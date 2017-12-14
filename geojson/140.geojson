@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mario", "num": "1", "full_name": "MLCD_MRD_509_III_Mario_1", "id": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1407444, 15.07881389 ], [ 121.1407444, 15.08333333 ], [ 121.1416667, 15.08333333 ], [ 121.1416667, 15.07881389 ], [ 121.1407444, 15.07881389 ] ] ] } },
+{ "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mario", "num": "2", "full_name": "MLCD_MRD_509_III_Mario_2", "id": 2 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1458333, 15.075 ], [ 121.1458333, 15.07708333 ], [ 121.15, 15.07708333 ], [ 121.15, 15.075 ], [ 121.1458333, 15.075 ] ] ] } },
+{ "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mely", "num": "1", "full_name": "MLCD_MRD_509_III_Mely_1", "id": 3 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1416667, 15.075 ], [ 121.1416667, 15.07916667 ], [ 121.15, 15.07916667 ], [ 121.15, 15.075 ], [ 121.1416667, 15.075 ] ] ] } },
+{ "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mely", "num": "2", "full_name": "MLCD_MRD_509_III_Mely_2", "id": 4 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1407444, 15.075 ], [ 121.1407444, 15.07881389 ], [ 121.1416667, 15.07881389 ], [ 121.1416667, 15.075 ], [ 121.1407444, 15.075 ] ] ] } },
+{ "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mely", "num": "3", "full_name": "MLCD_MRD_509_III_Mely_3", "id": 5 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1416667, 15.07708333 ], [ 121.1416667, 15.07916667 ], [ 121.15, 15.07916667 ], [ 121.15, 15.07708333 ], [ 121.1416667, 15.07708333 ] ] ] } },
+{ "type": "Feature", "properties": { "contract": "MLCD_MRD_509_III", "type": "Mely", "num": "4", "full_name": "MLCD_MRD_509_III_Mely_4", "id": 6 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 121.1416667, 15.075 ], [ 121.1416667, 15.07708333 ], [ 121.1458333, 15.07708333 ], [ 121.1458333, 15.075 ], [ 121.1416667, 15.075 ] ] ] } }
+]
+}

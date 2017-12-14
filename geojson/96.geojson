@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "contract": "MPSA_235_2007_IVB", "type": "Contract_area", "num": "1", "full_name": "MPSA_235_2007_IVB_Contract_area_1", "id": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 118.2334658, 9.399955278 ], [ 118.2006722, 9.408019722 ], [ 118.2006661, 9.410731944 ], [ 118.2279611, 9.418930278 ], [ 118.2334239, 9.418942222 ], [ 118.2388986, 9.413529167 ], [ 118.2389283, 9.399966944 ], [ 118.2334658, 9.399955278 ] ] ] } }
+]
+}

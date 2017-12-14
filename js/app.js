@@ -4,8 +4,11 @@ var myApp = angular.module('myApp', [
   'myControllers',
 ]);
 
-myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-
+/* Uncomment to restore #/ implementation
+myApp.config(['$routeProvider',
+   function($routeProvider) {*/
+myApp.config(['$routeProvider','$locationProvider',
+  function($routeProvider,$locationProvider) {
   $routeProvider.
 
     when('/', {
@@ -13,10 +16,14 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       controller: 'IndexController'
     }).
 
+    when('/maps', {
+      templateUrl: '/partials/maps.html',
+      controller: 'MapsController'
+    }).
+
     when('/about', {
       templateUrl: '/partials/about.html',
     }).
-
 
     when('/contact', {
       templateUrl: '/partials/contact.html',
@@ -274,7 +281,7 @@ function filterData(data) {
 	year.push(v);
   });
 
-  data.year = year.sort();
+  data.year = year.sort().reverse();
 
   return data;
 
@@ -323,3 +330,11 @@ $(window).on('mainData.loaded', function() {
 
   }, 1000);
 });
+
+function resetSearch() {
+  $('.btn-navbar-search + input').val('');
+  $('.filter-country-wrap select').each(function() {
+    $(this).select2('val', '');
+  });
+  return false;
+}

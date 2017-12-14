@@ -3,13 +3,11 @@
 $url = "http://api.resourcecontracts.org/contracts/search?q=&from=0&per_page=10000&group=metadata&country=ph";
 $url = "http://rc-api-stage.elasticbeanstalk.com/api/contracts/search?q=&from=0&per_page=10000&group=metadata&country_code=ph"
 */
-
 $url = "http://api.resourcecontracts.org/contracts/search?q=&from=0&per_page=10000&group=metadata&country_code=ph";
 $raw = file_get_contents($url);//all_results.json
 $json = json_decode($raw); 
 $results = $json->results;
 $supporting_documents = array();
-
 foreach ($results as $r) {
   // $contract_url = "http://rc-api-stage.elasticbeanstalk.com/api/contract/" . $r->id . "/metadata";
   $contract_url = "http://api.resourcecontracts.org/contracts/" . $r->id . "/metadata";
@@ -27,3 +25,4 @@ else {
   echo "Error";
 }
 
+?>

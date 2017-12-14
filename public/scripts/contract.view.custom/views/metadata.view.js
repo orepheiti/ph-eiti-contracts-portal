@@ -148,7 +148,7 @@ var RelatedDocumentsView = React.createClass({
                 var doc = this.props.metadata.get("associated")[i];
                 if(doc.is_published === true) {
                     var docUrl = app_url + "/contract/" + doc.id;
-                     supportingContracts.push(<span id={i}><a href={docUrl}>{truncate(doc.name)}</a></span>);
+                    supportingContracts.push(<span id={i}><a href={docUrl}>{truncate(doc.name)}</a></span>);
                 } else {
                     supportingContracts.push(<span id={i}>{truncate(doc.name)}</span>);
                 }
