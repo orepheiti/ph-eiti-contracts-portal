@@ -16,7 +16,7 @@
 }
 .sidebar-nav > .sidebar-brand a,
 .sidebar-nav > .sidebar-brand a:hover {
-  background-image: url("/images/ic-title-bg.png");
+  background-image: url("images/ic-title-bg.png");
 }
 a {
   color: #eeb301;
@@ -177,7 +177,7 @@ th {
   background-image: linear-gradient(81deg, #382604 1%, #654508 100%);
 }
 .sidebar-nav li.contracts a {
-  background-image: url("/images/ic-folder.png") !important;
+  background-image: url("images/ic-folder.png") !important;
 }
 .search-list-wrapper td ul {
   margin-top: 10px;

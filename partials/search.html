@@ -46,7 +46,7 @@
 <div class="filter-wrapper">
     <div class="col-lg-12">
         <div class="filter-country-wrap">
-            <form action="/search" method="get" class="search-form search-page-form " id="search-form">
+            <form action="#/search" method="get" class="search-form search-page-form " id="search-form">
                 <div class="form-group">
                     <button type="submit" class="btn btn-navbar-search pull-left"></button>
                     <input type="text" autocomplete="off" name="q" class="form-control pull-left" placeholder="Search for contracts...">
@@ -84,7 +84,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="col-lg-4">
-                            <a href="/contracts" class="btn btn-form-search" style="width: auto; margin-right: 1em;" target="_self">View all contracts</a>
+                            <a href="#/contracts" class="btn btn-form-search" style="width: auto; margin-right: 1em;" target="_self">View all contracts</a>
                             <button type="submit" class="btn btn-form-search" style="margin-right: 1em;">Search</button>
                             <a href="#" onclick="resetSearch();" class="btn btn-form-search" style="width: auto; margin-right: 1em; background-color: #999; min-width: 130px;">Reset</a>
                         </div>
@@ -123,7 +123,7 @@
                         </tr>
                         <tr ng-repeat="(i, v) in data.results | orderBy:predicate:reverse">
                             <td>
-                                <a href='contract/{{v.id}}' onclick="closeSidebar()">{{v.name}}<!-- {{v.contract_name}} --></a>
+                                <a href='#/contract/{{v.id}}' onclick="closeSidebar()">{{v.name}}<!-- {{v.contract_name}} --></a>
                                 <!-- href='contract/{{v.contract_id}}'  -->
                             </td>
                             <td>

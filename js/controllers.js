@@ -51,7 +51,7 @@ myControllers.controller('MainController', ['$scope', '$rootScope', '$http', '$q
 myControllers.controller('IndexController', ['$scope', 'ngDialog', '$http', function ($scope, ngDialog, $http) {
   $scope.openRegions = function() {
     ngDialog.open({
-      template: '/partials/modal-regions.html',
+      template: 'partials/modal-regions.html',
       class: 'ngdialog-theme-default'
     });
   }
@@ -259,7 +259,7 @@ myApp.factory('MapsFactory',function($http){
       },
       geojson : function(){
         var p = $http({
-          url: '../get-geojson-files.php',
+          url: './get-geojson-files.php',
           method: 'GET'
         });
         return p;
@@ -305,7 +305,7 @@ myControllers.controller('MapsController', ['$scope', '$http', '$routeParams','M
     p.then(function(response){
       var contract_ids_arr = []
       var promise_arr = []
-
+      console.log(response.data);
       if (response.data) {
         var contract_detail = response.data;
 

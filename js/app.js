@@ -12,39 +12,39 @@ myApp.config(['$routeProvider','$locationProvider',
   $routeProvider.
 
     when('/', {
-      templateUrl: '/partials/home.html',
+      templateUrl: 'partials/home.html',
       controller: 'IndexController'
     }).
 
     when('/maps', {
-      templateUrl: '/partials/maps.html',
+      templateUrl: 'partials/maps.html',
       controller: 'MapsController'
     }).
 
     when('/about', {
-      templateUrl: '/partials/about.html',
+      templateUrl: 'partials/about.html',
     }).
 
     when('/contact', {
-      templateUrl: '/partials/contact.html',
+      templateUrl: 'partials/contact.html',
     }).
 
     when('/related-links', {
-      templateUrl: '/partials/related-links.html',
+      templateUrl: 'partials/related-links.html',
     }).
 
     when('/search', {
-      templateUrl: '/partials/search.html',
+      templateUrl: 'partials/search.html',
       controller: 'SearchController'
     }).
 
     when('/contracts', {
-      templateUrl: '/partials/search.html',
+      templateUrl: 'partials/search.html',
       controller: 'SearchController'
     }).
 
     when('/contract/:id', {
-      templateUrl: '/partials/contract.html',
+      templateUrl: 'partials/contract.html',
       controller: 'ContractController'
     }).
 
@@ -52,7 +52,7 @@ myApp.config(['$routeProvider','$locationProvider',
       redirectTo: '/'
     });
 
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
 
 }]);
 
