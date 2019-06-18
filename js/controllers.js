@@ -22,6 +22,13 @@ myApp.factory('ContractsFactory',['$http',
     return ContractsFactory;
 }]);
 
+myApp.factory('NewContractsFactory',['$http',function($http){
+	var factory = {
+		allData : []
+	};
+	return factory;
+}])
+
 myControllers.controller('MainController', ['$scope', '$rootScope', '$http', '$q','ContractsFactory',
   function($scope, $rootScope, $http,$q,ContractsFactory) {
   var resultIds = []
@@ -48,18 +55,115 @@ myControllers.controller('MainController', ['$scope', '$rootScope', '$http', '$q
     });
 }]);
 
-myControllers.controller('IndexController', ['$scope', 'ngDialog', '$http', function ($scope, ngDialog, $http) {
-  $scope.openRegions = function() {
-    ngDialog.open({
-      template: '/partials/modal-regions.html',
-      class: 'ngdialog-theme-default'
-    });
-  }
+myControllers.controller('IndexController', ['$scope', 'ngDialog', '$http',
+function ($scope, ngDialog, $http) {
+	$scope.openRegions = function() {
+		ngDialog.open({
+			template: '/partials/modal-regions.html',
+			class: 'ngdialog-theme-default'
+		});
+	}
 
+	function inArr(arr,needle) {
+		if (arr) {
+			for (var idx=0;idx<arr.length;idx++) {
+				if (arr[idx]==needle) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	function getIndexInArr(arr,attr,val){
+		if (arr) {
+			for (var idx=0;idx<arr.length;idx++) {
+				if (arr[idx][attr]==val) {
+					return idx;
+				}
+			}
+		}
+		return -1;
+	}
+
+	function getYearSigned(signDate){
+		if (signDate) {
+			return signDate.split('/')[2];
+		}
+	}
+
+	function getResource(resourceStr) {
+		if (resourceStr.match('/ and /gi')) {
+			var tempData = resourceStr.split(' and ');
+			if (tempData[0].match('/, /gi')) {
+				var comData = tempData[0].split(', ');
+				comData.push(tempData[1]);
+				return comData;
+			}
+			else {
+				return tempData;
+			}
+		}
+		return [resourceStr];
+	}
+
+	function init(){
+		var _new_contracts_mapped = [];
+		for (var filename in NCONTRACTS_MAPPED) {
+			var idx = getIndexInArr(NEW_CONTRACTS_INFO,'FILE NAME',filename);
+			if (idx!=-1) {
+				var newContractObj = Object.assign({},NCONTRACTS_MAPPED[filename]);
+				newContractObj['name'] = NEW_CONTRACTS_INFO[idx]['DOCUMENT/FILE NAME'];
+				newContractObj['government_entity'].push({
+					name: NEW_CONTRACTS_INFO[idx]['GOVERNMENT ENTITY'],
+					identity: ""
+				});
+				newContractObj['contract_type'] = [NEW_CONTRACTS_INFO[idx]['DOCUMENT TYPE']];
+				newContractObj['date_signed'] = NEW_CONTRACTS_INFO[idx]["SIGNATUR DATE"];
+				newContractObj['year_signed'] = parseInt(getYearSigned(NEW_CONTRACTS_INFO[idx]["SIGNATUR DATE"]),10);
+				newContractObj['resource'] = [ NEW_CONTRACTS_INFO[idx]['RESOURCE'] ];
+				newContractObj['participation'].push({
+					company : {
+						name : NEW_CONTRACTS_INFO[idx]["NAME"],
+						address: NEW_CONTRACTS_INFO[idx]["COMPANY ADDRESS"],
+						corporate_grouping : "",
+						founding_date : "",
+						identifier: { 
+							id: "",
+							creator : {
+								name : "",
+								spatial: ""
+							}
+						},
+						opencorporates_url : "",
+						is_operator : "",
+						share : null
+					}
+				});
+				newContractObj['file'].push({
+					url : "/Main-Company-Contracts/"+filename+".pdf",
+					media_type: "application/pdf"
+				})
+				newContractObj["id"] = 'nc-'+_new_contracts_mapped.length;
+				_new_contracts_mapped.push(newContractObj);
+			}
+		}
+	}
+
+	function getUniqueResource(){
+		var uniqueRes = [];
+		for (var idx=0;idx<NEW_CONTRACTS_INFO.length;idx++) {
+			if (inArr(uniqueRes,NEW_CONTRACTS_INFO[idx]['RESOURCE'])==false) {
+				uniqueRes.push(NEW_CONTRACTS_INFO[idx]['RESOURCE']);
+			}
+		}
+	}
+
+	init();
 }]);
 
-myControllers.controller('SearchController', ['$scope', '$http', '$routeParams', '$q','ContractsFactory',
-  function ($scope, $http, $routeParams, $q, ContractsFactory) {
+myControllers.controller('SearchController', ['$scope', '$http', '$routeParams', '$q','ContractsFactory','NewContractsFactory',
+  function ($scope, $http, $routeParams, $q, ContractsFactory, NewContractsFactory) {
   $scope.total_num_of_contracts = 'Calculating';
   var q = getParam('q');
   var year = getParam('year');
@@ -157,7 +261,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
           }
         }
       }
-      $scope.total_num_of_contracts = totalNumContracts;
+	  $scope.total_num_of_contracts = totalNumContracts;
     }, function(err){
 
     })
@@ -167,7 +271,8 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
     .success(function(data) {
       var resultIds = []
       var data = filterData(data);
-      $scope.data = data;
+	  $scope.data = data;
+
       $scope.predicate = 'name'; //'contract_name';
       $scope.reverse = false;
       $scope.order = function(predicate) {
@@ -192,57 +297,190 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
         }
       }
       // Filters supporting documents 
-      // $scope.compareSupportDocs(resultIds);
+	  // $scope.compareSupportDocs(resultIds);
+	  
+	  // Get Additional Contracts
+	  getAdditionalContracts();
     })
     .error(function(error) {
       console.log('search error in search controller...');
       console.log(error)
       // window.location.reload();
-    });
+	});
+
+	function inArr(arr,needle) {
+		if (arr) {
+			for (var idx=0;idx<arr.length;idx++) {
+				if (arr[idx]==needle) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	function getIndexInArr(arr,attr,val){
+		if (arr) {
+			for (var idx=0;idx<arr.length;idx++) {
+				if (arr[idx][attr]==val) {
+					return idx;
+				}
+			}
+		}
+		return -1;
+	}
+
+	function getYearSigned(signDate){
+		if (signDate) {
+			return signDate.split('/')[2];
+		}
+	}
+
+	function getResource(resourceStr) {
+		if (resourceStr.match('/ and /gi')) {
+			var tempData = resourceStr.split(' and ');
+			if (tempData[0].match('/, /gi')) {
+				var comData = tempData[0].split(', ');
+				comData.push(tempData[1]);
+				return comData;
+			}
+			else {
+				return tempData;
+			}
+		}
+		return [resourceStr];
+	}
+
+	function getAdditionalContracts(){
+		var _new_contracts_mapped = [];
+		for (var filename in NCONTRACTS_MAPPED) {
+			var idx = getIndexInArr(NEW_CONTRACTS_INFO,'FILE NAME',filename);
+			if (idx!=-1) {
+				var newContractObj = Object.assign({},NCONTRACTS_MAPPED[filename]);
+				newContractObj['name'] = NEW_CONTRACTS_INFO[idx]['DOCUMENT/FILE NAME'];
+				newContractObj['government_entity'].push({
+					name: NEW_CONTRACTS_INFO[idx]['GOVERNMENT ENTITY'],
+					identity: ""
+				});
+				newContractObj['contract_type'] = [NEW_CONTRACTS_INFO[idx]['DOCUMENT TYPE']];
+				newContractObj['date_signed'] = NEW_CONTRACTS_INFO[idx]["SIGNATUR DATE"];
+				newContractObj['year_signed'] = parseInt(getYearSigned(NEW_CONTRACTS_INFO[idx]["SIGNATUR DATE"]),10);
+				newContractObj['resource'] = [ NEW_CONTRACTS_INFO[idx]['RESOURCE'] ];
+				newContractObj['participation'].push({
+					company : {
+						name : NEW_CONTRACTS_INFO[idx]["NAME"],
+						address: NEW_CONTRACTS_INFO[idx]["COMPANY ADDRESS"],
+						corporate_grouping : "",
+						founding_date : "",
+						identifier: { 
+							id: "",
+							creator : {
+								name : "",
+								spatial: ""
+							}
+						},
+						opencorporates_url : "",
+						is_operator : null,
+						share : null
+					}
+				});
+				newContractObj['file'].push({
+					url : "/Main-Company-Contracts/"+filename+".pdf",
+					media_type: "application/pdf"
+				})
+				newContractObj["id"] = 'nc-'+_new_contracts_mapped.length;
+				newContractObj["isNew"] = true;
+				_new_contracts_mapped.push(newContractObj);
+				if (!q) {
+					$scope.data.results.push(newContractObj);
+				}
+				else if (q!==undefined && q!="") {
+					var exp = new RegExp(q,"g");
+					if (newContractObj.name.match(exp)) {
+						$scope.data.results.push(newContractObj);
+					}
+				}
+			}
+			$scope.data.total = $scope.data.results.length;
+		}
+		NewContractsFactory.allData = $scope.data.results;
+	}
+	
 }]);
 
-myControllers.controller('ContractController', ['$scope', '$http', '$routeParams','$q','ContractsFactory',
-  function ($scope, $http, $routeParams, $q, ContractsFactory) {
-  var id = $routeParams.id;
-  $http.get(api + 'contract/' + id + '/metadata', { cache: true } )
-  .success(function(data) {
-    $scope.data = data;
-    $('.download-word').on('click', function() {
-      download(data.name + '.docx', data.word_file);
-      // download(data.contract_name + '.docx', data.word_file);
-    });
+myControllers.controller('ContractController', ['$scope', '$http', '$routeParams','$q','ContractsFactory','NewContractsFactory',
+  function ($scope, $http, $routeParams, $q, ContractsFactory, NewContractsFactory) {
+	var id = $routeParams.id;
+	var dataLookup = NewContractsFactory.allData;
 
-    var promisesArr = [];
-    if (data.associated){
-      if (data.associated.length > 0) {
-        $.each(data.associated, function(i, v) {
-          promisesArr.push(ContractsFactory.get.metadata(v.id));
-        });
-        var promise = $q.all(promisesArr);
-        promise.then(function(response){
-          if (response) {
-            if (response.length > 0) {
-              for (var kk=0;kk<response.length;kk++) {
-                var rdata = response[kk].data;
-                data.associated[kk].total_pages = rdata.number_of_pages
-              }
-            }
-          }
-        },function(err){
-          console.log('error in getting total number of pages of associated contracts...')
-          console.log(err)
-        })
-      }  
-    }
+	function getIndexInArr(arr,attr,val){
+		if (arr) {
+			for (var idx=0;idx<arr.length;idx++) {
+				if (arr[idx][attr]==val) {
+					return idx;
+				}
+			}
+		}
+		return -1;
+	}
 
-    // Associated files that are not in elasticbeanstalk
-    // Files in supporting-documents folder/
-    $http.get('/get_supporting_documents.php?contract_name=' + data.name, { cache: true }).success(function(responseData) {
-      // console.log('get supporting docs')
-      // console.log(responseData)
-      $scope.data.supporting_contracts_extra = responseData;
-    });
-  });
+	if (id.match(/nc-/gi)) {
+		if (dataLookup.length==0) {
+			// Need to build data again.
+			dataLookup = COMBINED_DATA;
+		}
+		
+		var idx = getIndexInArr(dataLookup,'id',id);
+		if (idx!=-1) {
+			$scope.data = dataLookup[idx];
+		}
+
+	}
+	else {
+
+		$http.get(api + 'contract/' + id + '/metadata', { cache: true } )
+		.success(function(data) {
+			$scope.data = data;
+
+			$('.download-word').on('click', function() {
+				download(data.name + '.docx', data.word_file);
+				// download(data.contract_name + '.docx', data.word_file);
+			});
+
+			var promisesArr = [];
+			if (data.associated){
+				if (data.associated.length > 0) {
+					$.each(data.associated, function(i, v) {
+						promisesArr.push(ContractsFactory.get.metadata(v.id));
+					});
+					
+					var promise = $q.all(promisesArr);
+					promise.then(function(response){
+						if (response) {
+							if (response.length > 0) {
+								for (var kk=0;kk<response.length;kk++) {
+									var rdata = response[kk].data;
+									data.associated[kk].total_pages = rdata.number_of_pages
+								}
+							}
+						}
+					},function(err){
+						console.log('error in getting total number of pages of associated contracts...')
+						console.log(err)
+					})
+				}  
+			}
+
+			// Associated files that are not in elasticbeanstalk
+			// Files in supporting-documents folder/
+			$http.get('/get_supporting_documents.php?contract_name=' + data.name, { cache: true }).success(function(responseData) {
+				// console.log('get supporting docs')
+				// console.log(responseData)
+				$scope.data.supporting_contracts_extra = responseData;
+			});
+		});
+  
+	}
 
 }]);
 
