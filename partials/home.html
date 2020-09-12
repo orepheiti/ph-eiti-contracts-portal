@@ -4,16 +4,21 @@
             <div class="tagline" onclick="window.location.href = '/contracts'">
                 An open database of
                 <span style="font-size: 1.5em;line-height:1.2em;">Contracts and Beneficial Ownership Information of Mining, Oil, and Gas Industries in the Philippines</span>
+                <!-- <br/>
+                <strong style="text-transform: uppercase">Explore</strong> -->
             </div>
 
-            <a href="/contracts" class="btn btn-cta">View all contracts</a>
+            <a href="/contracts" class="btn btn-cta">Explore</a>
 
             <br>
 
             <form action="search" method="GET" class="contract-search-form">
-                <div class="form-group">
-                    <input type="text" name="q" class="form-control pull-left" placeholder="Search type, contract name or location...">
-                    <button type="submit" class="btn btn-search">Search Contracts</button>
+                <span class="search-text">Browse by company name or search by contract type, contract number, <br/>commodity, signature date or location</span>
+                <div class="form-group" style="margin-top:0.8em;">
+                    <input type="text" name="q" class="form-control pull-left" 
+                        placeholder="Search type, contract name or location..."
+                        style="background-color: #fff;">
+                    <button type="submit" class="btn btn-search">Search</button>
                 </div>
             </form>
         </div>
