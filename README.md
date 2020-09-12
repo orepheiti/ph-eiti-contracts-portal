@@ -1,8 +1,6 @@
-# PH-EITI Contracts Portal
+# PH-EITI Contracts and Ownership Register in the Extractives
 
 http://contracts.ph-eiti.org/
-
--
 
 This utilizes Resource Contract's API: 
 https://github.com/younginnovations/resourcecontracts-api
