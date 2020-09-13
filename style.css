@@ -223,3 +223,39 @@ th {
 #map-container {
   min-height: 600px;
 }
+.box-3-main {
+  min-height: 460px;
+  text-align: center;
+}
+.box-3 {
+  min-height: 400px;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: 360px 360px;
+  text-align:center;
+  cursor: pointer;
+}
+#box-timeline {
+  background-image: url('images/infographic/1.png');
+}
+#box-map {
+  background-image: url('/images/infographic/2.png');
+}
+#box-xx {
+  background-image: url('/images/infographic/3.png');
+}
+.btn-view-box {
+  margin:auto;
+  max-width: 325px;
+  background-color:#092257;
+  border-radius: 16px;
+  color: rgb(255,255,255);
+  color: rgba(255,255,255,0.7);
+  padding: 8px 32px;
+  text-align: center;
+}
+.btn-view-box:hover,
+.btn-view-box:focus {
+  background-color:#061a44;
+  color: #fff;
+}
