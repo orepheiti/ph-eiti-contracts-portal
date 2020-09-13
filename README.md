@@ -1,4 +1,4 @@
-# PH-EITI Contracts and Ownership Register in the Extractives
+# PH-EITI Contracts Portal
 
 http://contracts.ph-eiti.org/
 
