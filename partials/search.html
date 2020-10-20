@@ -124,6 +124,7 @@
                         <tr ng-repeat="(i, v) in data.results | orderBy:predicate:reverse">
                             <td>
                                 <a href='contract/{{v.id}}' onclick="closeSidebar()">{{v.name}}<!-- {{v.contract_name}} --></a>
+                                <span class="tag tag--new" ng-show="v.isNew">NEW</span>
                                 <!-- href='contract/{{v.contract_id}}'  -->
                             </td>
                             <td>
