@@ -336,17 +336,16 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 			}
 		}
 		return [resourceStr];
-	}
-
+    }
+    
 	function getAdditionalContracts(){
-        const __SCS__ = new StaticContractService(STATIC_CONTRACTS, NEW_CONTRACTS_INFO)
+        const __SCS__ = new StaticContractService(STATIC_CONTRACTS, [
+            NEW_CONTRACTS_INFO,
+            NEW_CONTRACTS_INFO_2020
+        ])
+        
         if (!q) {
-            // $scope.data.results = [...$scope.data.results, ...__SCS__.allStaticContracts]
-            if (__SCS__.allStaticContracts.length > 0) {
-                __SCS__.allStaticContracts.forEach(nc => {
-                    $scope.data.results.push(nc)
-                })
-            }
+            $scope.data.results = [...$scope.data.results, ...__SCS__.allStaticContracts]
         }
         else if (q!==undefined && q!="") {
             var exp = new RegExp(q,"g");

@@ -1,4 +1,4 @@
-const STATIC_CONTRACTS = [
+var STATIC_CONTRACTS = [
     {
         setId: 2019,
         subFolder: '',
@@ -102,7 +102,8 @@ const STATIC_CONTRACTS = [
             "MPSA Contract 350", 
             "MPSA Contract 351"
         ],
-        isNew: false
+        isNew: false,
+        contractDetails: []
     },
     {
         setId: 2020,
@@ -127,6 +128,7 @@ const STATIC_CONTRACTS = [
             "MPSA Contract 414",
             "MPSA Contract 415"
         ],
-        isNew: true
+        isNew: true,
+        contractDetails: []
     }
 ]
