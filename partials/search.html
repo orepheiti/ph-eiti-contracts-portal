@@ -12,14 +12,14 @@
 <div class="row">
     <div class="contract-number-wrap contract-search-number-wrap">
         <!-- <small data-ng-show="total_num_of_contracts==='Calculating'" style="text-transform:none;">{{total_num_of_contracts}} total <br />number of </small><span data-ng-show="total_num_of_contracts!=='Calculating'">{{total_num_of_contracts}}</span> Contracts -->
-        <small data-ng-show="!data.total"  style="text-transform:none;">Calculating total <br />number of <br /></small>
+        <small data-ng-show="!data.total" style="text-transform:none;">Calculating total <br />number of <br /></small>
         <span data-ng-show="data.total">{{data.total}}</span>
         <small>CONTRACT<small data-ng-show="data.total > 1 || !data.total">S</small></small>
-    </div> 
+    </div>
 </div>
 
 <script>
-    $(window).on('rootData.loaded', function() {
+    $(window).on('rootData.loaded', function () {
         setTimeout(function () {
             $('select, input').each(function (i, v) {
                 var key = $(v).attr('name');
@@ -49,7 +49,8 @@
             <form action="/search" method="get" class="search-form search-page-form " id="search-form">
                 <div class="form-group">
                     <button type="submit" class="btn btn-navbar-search pull-left"></button>
-                    <input type="text" autocomplete="off" name="q" class="form-control pull-left" placeholder="Search for contracts...">
+                    <input type="text" autocomplete="off" name="q" class="form-control pull-left"
+                        placeholder="Search for contracts...">
                 </div>
                 <div class="search-input-wrapper search-page-input-wrapper ">
                     <div class="col-lg-12">
@@ -84,9 +85,11 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="col-lg-4">
-                            <a href="/contracts" class="btn btn-form-search" style="width: auto; margin-right: 1em;" target="_self">View all contracts</a>
+                            <a href="/contracts" class="btn btn-form-search" style="width: auto; margin-right: 1em;"
+                                target="_self">View all contracts</a>
                             <button type="submit" class="btn btn-form-search" style="margin-right: 1em;">Search</button>
-                            <a href="#" onclick="resetSearch();" class="btn btn-form-search" style="width: auto; margin-right: 1em; background-color: #999; min-width: 130px;">Reset</a>
+                            <a href="#" onclick="resetSearch();" class="btn btn-form-search"
+                                style="width: auto; margin-right: 1em; background-color: #999; min-width: 130px;">Reset</a>
                         </div>
                     </div>
                 </div>
@@ -106,118 +109,74 @@
                 <div class="search-loading" style="opacity: 0.25; font-style: italic;">Loading...</div>
 
                 <div class="search-result-wrapper">
-                <table ng-show="data.results.length > 0" class="table table-responsive table-contract table-contract-list">
-                    <tbody>
-                        <tr>
-                            <th>
-                                <a ng-click="order('contract_name')">Document</a>
-                                <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
-                                <!-- ng-show="predicate === 'contract_name'" -->
-                            </th>
-                            <th>
-                                <a ng-click="order('signature_year')">Year Signed</a>
-                                <span class="sortorder" ng-show="predicate === 'year_signed'" ng-class="{reverse:reverse}"></span>
-                            </th>
-                            <th>Resource</th>
-                            <th>Contract Type</th>
-                        </tr>
-                        <tr ng-repeat="(i, v) in data.results | orderBy:predicate:reverse">
-                            <td>
-                                <a href='contract/{{v.id}}' onclick="closeSidebar()">{{v.name}}<!-- {{v.contract_name}} --></a>
-                                <span class="tag tag--new" ng-show="v.isNew">NEW</span>
-                                <!-- href='contract/{{v.contract_id}}'  -->
-                            </td>
-                            <td>
-                                <!-- {{v.signature_year}} --> {{v.year_signed}}
-                            </td>
-                            <td style="text-align:left;">
-                                <ul style="margin:0px;padding:0px;">
-                                    <li ng-repeat="(i, v) in v.resource" style="text-align:left;padding-top:3px;display:block;">{{v}}</li>
-                                </ul>
-                            </td>
-                            <td>
-                                {{v.contract_type[0]}}
-                            </td>
-                        </tr>
+                    <table ng-show="data.results.length > 0"
+                        class="table table-responsive table-contract table-contract-list">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <a ng-click="order('contract_name')">Document</a>
+                                    <span class="sortorder" ng-show="predicate === 'name'"
+                                        ng-class="{reverse:reverse}"></span>
+                                    <!-- ng-show="predicate === 'contract_name'" -->
+                                </th>
+                                <th>
+                                    <a ng-click="order('signature_year')">Year Signed</a>
+                                    <span class="sortorder" ng-show="predicate === 'year_signed'"
+                                        ng-class="{reverse:reverse}"></span>
+                                </th>
+                                <th>Resource</th>
+                                <th>Contract Type</th>
+                            </tr>
+                            <tr ng-repeat="(i, v) in data.results | orderBy:predicate:reverse">
+                                <td> {{i}} --
+                                    <a href='contract/{{v.id}}' ng-show="v.name !== ''"
+                                        onclick="closeSidebar()">{{v.name}}</a>
+                                    <a href='contract/{{v.id}}' ng-show="v.name == ''"
+                                        onclick="closeSidebar()">{{v.id}}</a>
+                                    <span class="tag tag--new" ng-show="v.isNew==true">NEW</span>
+                                </td>
+                                <td>
+                                    {{v.year_signed}}
+                                </td>
+                                <td style="text-align:left;">
+                                    <ul style="margin:0px;padding:0px;">
+                                        <li ng-repeat="(i, v) in v.resource"
+                                            style="text-align:left;padding-top:3px;display:block;">{{v}}</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    {{v.contract_type[0]}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                     <!--
-                        <tr>
-                        <td>
-                            <a class="title-1061" href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contract/1061/view">
-                                Kazakhstan Falcon O&amp;G Zhakarmy West I Block Exploration Contract
-                            </a>
+                        <div class="text-center">
+                            <div class="pagination-wrapper">
+                                <ul>
 
-                            <div class="annotate-text"> Annotated </div>
 
-                            <div class="search-text">
-                                period during <strong>test</strong> production should be delivered to
-                                Kazakhstani oil refineries
-                                <strong>test</strong>
+
+                                    <li class="active"><a href="javascript:void()">1</a></li>
+
+                                    <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=2">2</a></li>
+                                    <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=3">3</a></li>
+                                    <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=4">4</a></li>
+                                    <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=5">5</a></li>
+
+
+                                    <li class="num-text next">
+                                        <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=2">Next</a>
+                                    </li>
+                                    <li class="num-text"><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=5">Last</a></li>
+                                </ul>
 
                             </div>
-                            <div class="contract-info-section">
-                                <div class="download-main-wrap">
-                                    <div class="download-wrap">
-                                        <span>Download</span>
-                                    </div>
 
-                                    <ul class="dropdown-menu">
-                                        <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contract/1061/downloadpdf" >Pdf</a></li>
-                                        <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/contract/1061/download" >Word File</a></li>
-                                    </ul>
-                                </div>
-                                <div class="contract-group">
-                                    <label for="">Found in: </label>
-                                    <a>Text</a>
-                                    <a>Annotation</a>
-                                </div>
-                            </div>
-                            <div class="resource-contract-list">
-                                <div class="resource-type">
-                                    <label for="">Resource: </label>
-                                </div>
-                                <div class="contract-type">
-                                    <label for="">Contract Type:</label>Exploration Permit/License
-                                </div>
-                            </div>
-                        </td>
-                        <td>2007</td>
-                        <td>
-                            Kazakhstan
-                        </td>
-
-                    </tr>
+                        </div>
                     -->
-
-                    </tbody>
-                </table>
-
-                <!--
-                <div class="text-center">
-                    <div class="pagination-wrapper">
-                        <ul>
-
-
-
-                            <li class="active"><a href="javascript:void()">1</a></li>
-
-                            <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=2">2</a></li>
-                            <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=3">3</a></li>
-                            <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=4">4</a></li>
-                            <li><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=5">5</a></li>
-
-
-                            <li class="num-text next">
-                                <a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=2">Next</a>
-                            </li>
-                            <li class="num-text"><a href="http://rc-site-stage.elasticbeanstalk.com/rc/public/search?q=test&amp;page=5">Last</a></li>
-                        </ul>
-
-                    </div>
-
                 </div>
-                -->
-            </div>
             </div>
         </div>
     </div>

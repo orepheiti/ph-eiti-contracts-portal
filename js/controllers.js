@@ -107,8 +107,10 @@ function ($scope, ngDialog, $http) {
 		return [resourceStr];
 	}
 
-	function init(){
-		var _new_contracts_mapped = [];
+	/*  function getStaticContracts(){
+        console.log(_SCS_.allStaticContracts)
+        var _new_contracts_mapped = [];
+        var contractsList = []
 		for (var filename in NCONTRACTS_MAPPED) {
 			var idx = getIndexInArr(NEW_CONTRACTS_INFO,'FILE NAME',filename);
 			if (idx!=-1) {
@@ -147,8 +149,8 @@ function ($scope, ngDialog, $http) {
 				newContractObj["id"] = 'nc-'+_new_contracts_mapped.length;
 				_new_contracts_mapped.push(newContractObj);
 			}
-		}
-	}
+        }
+	}   */
 
 	function getUniqueResource(){
 		var uniqueRes = [];
@@ -157,156 +159,141 @@ function ($scope, ngDialog, $http) {
 				uniqueRes.push(NEW_CONTRACTS_INFO[idx]['RESOURCE']);
 			}
 		}
-	}
-
-	init();
+    }
+    
 }]);
 
 myControllers.controller('SearchController', ['$scope', '$http', '$routeParams', '$q','ContractsFactory','NewContractsFactory',
   function ($scope, $http, $routeParams, $q, ContractsFactory, NewContractsFactory) {
-  $scope.total_num_of_contracts = 'Calculating';
-  var q = getParam('q');
-  var year = getParam('year');
-  var resource = getParam('resource');
-  var company = getParam('company_name');
-
-  var query = '';
-
-  $scope.searchTerm = '';
-
-  if (q) {
-
-    $scope.searchTerm = "Search results for <span>" + decodeURIComponent(q) + "</span>";
-
-    query += 'q=' + q + '&'
-
-  }
-
-  if (year) {
-
-    $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>';
-
-    query += 'year=' + year + '&'
-
-  }
-
-  if (company) {
-
-    $scope.searchTerm = 'Contracts from <span>' + decodeURIComponent(company) + '</span>';
-
-    query += 'company_name=' + company + '&'
-
-  }
-
-
-  if (resource) {
-
-    $scope.searchTerm = 'Contracts with resource: <span>' + decodeURIComponent(resource) + '</span>';
-
-    query += 'resource=' + resource + '&'
-
-  }
-
-  if (year && company) {
-
-    $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>' + ' from <span>' + decodeURIComponent(company) + '</span>';
-
-  }
-
-  if (year && resource) {
-
-    $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>' + ' with resource: <span>' + resource + '</span>';
-
-  }
-
-  if (company && resource) {
-
-    $scope.searchTerm = 'Contracts signed from <span>' + decodeURIComponent(company) + '</span>' + ' with resource: <span>' + resource + '</span>';
-
-  }
-
-  if (year && company && resource) {
-
-    $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>' + ' from <span>' + decodeURIComponent(company) + '</span>' + ' with resource: <span>' + resource + '</span>';;
-
-  }
-
-  if (window.location.pathname == '/contracts') {
-    query = '';
-    $scope.searchTerm = '<span>Mining, Oil & Gas Contracts from the Philippines</span>';
-
-  }
-
-  if ($scope.searchTerm == '') {
-    $scope.searchTerm = '<span>Mining, Oil & Gas Contracts from the Philippines</span>';
-  }
-
-  $scope.compareSupportDocs=function(contractIds){
+    
     $scope.total_num_of_contracts = 'Calculating';
-    var totalNumContracts = 0;
-    var promiseArr = [];
-    for (var idx=0;idx<contractIds.length;idx++) {
-      promiseArr.push(ContractsFactory.get.metadata(contractIds[idx]));
+    var q = getParam('q');
+    var year = getParam('year');
+    var resource = getParam('resource');
+    var company = getParam('company_name');
+
+    var query = '';
+
+    $scope.searchTerm = '';
+
+    if (q) {
+        $scope.searchTerm = "Search results for <span>" + decodeURIComponent(q) + "</span>";
+        query += 'q=' + q + '&'
     }
 
-    $scope.bulkPromise = $q.all(promiseArr);
-    $scope.bulkPromise.then(function(responseValues){
-      if (responseValues) {
-        if (responseValues.length) {
-          for (var kk=0;kk<responseValues.length;kk++) {
-            var returnData = responseValues[kk].data
-            if (returnData.type==='Contract') {
-              totalNumContracts++;
+    if (year) {
+        $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>';
+        query += 'year=' + year + '&'
+    }
+
+    if (company) {
+        $scope.searchTerm = 'Contracts from <span>' + decodeURIComponent(company) + '</span>';
+        query += 'company_name=' + company + '&'
+    }
+
+
+    if (resource) {
+        $scope.searchTerm = 'Contracts with resource: <span>' + decodeURIComponent(resource) + '</span>';
+        query += 'resource=' + resource + '&'
+    }
+
+    if (year && company) {
+        $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>' + ' from <span>' + decodeURIComponent(company) + '</span>';
+    }
+
+    if (year && resource) {
+        $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>' + ' with resource: <span>' + resource + '</span>';
+    }
+
+    if (company && resource) {
+        $scope.searchTerm = 'Contracts signed from <span>' + decodeURIComponent(company) + '</span>' + ' with resource: <span>' + resource + '</span>';
+    }
+
+    if (year && company && resource) {
+        $scope.searchTerm = 'Contracts signed in <span>' + year + '</span>' + ' from <span>' + decodeURIComponent(company) + '</span>' + ' with resource: <span>' + resource + '</span>';
+    }
+
+    if (window.location.pathname == '/contracts') {
+        query = '';
+        $scope.searchTerm = '<span>Mining, Oil & Gas Contracts from the Philippines</span>';
+    }
+
+    if ($scope.searchTerm == '') {
+        $scope.searchTerm = '<span>Mining, Oil & Gas Contracts from the Philippines</span>';
+    }
+
+    $scope.compareSupportDocs=function(contractIds){
+        $scope.total_num_of_contracts = 'Calculating';
+        var totalNumContracts = 0;
+        var promiseArr = [];
+        for (var idx=0;idx<contractIds.length;idx++) {
+            promiseArr.push(ContractsFactory.get.metadata(contractIds[idx]));
+        }
+
+        $scope.bulkPromise = $q.all(promiseArr);
+        $scope.bulkPromise.then(function(responseValues){
+            if (responseValues) {
+                if (responseValues.length) {
+                    for (var kk=0;kk<responseValues.length;kk++) {
+                        var returnData = responseValues[kk].data
+                        if (returnData.type==='Contract') {
+                            totalNumContracts++;
+                        }
+                    }
+                }
             }
-          }
-        }
-      }
-	  $scope.total_num_of_contracts = totalNumContracts;
-    }, function(err){
+            $scope.total_num_of_contracts = totalNumContracts;
+            // Get additional contracts
+            getAdditionalContracts()
+        }, function(err){
 
-    })
-  }
+        })
+    }
 
-  $http.get(api + 'contracts/search?from=0&per_page=1000&group=metadata&country_code=ph&' + query, { cache: true })
-    .success(function(data) {
-      var resultIds = []
-      var data = filterData(data);
-	  $scope.data = data;
+    function runSearch () {
+        $http.get(api + 'contracts/search?from=0&per_page=1000&group=metadata&country_code=ph&' + query, { cache: true })
+            .success(function(data) {
+                var resultIds = []
+                var data = filterData(data);
+                $scope.data = data;
 
-      $scope.predicate = 'name'; //'contract_name';
-      $scope.reverse = false;
-      $scope.order = function(predicate) {
-        $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse: false;
-        $scope.predicate = predicate;
-      };
+                $scope.predicate = 'name'; //'contract_name';
+                $scope.reverse = false;
+                $scope.order = function(predicate) {
+                    $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse: false;
+                    $scope.predicate = predicate;
+                };
 
-      $('.search-loading').hide();
-      if (data.results.length < 1) {
-        $('.search-no-result').show()
-      }
-      else {
-        //$('.search-result-wrapper').css('max-height', $(window).height() - $('.filter-wrapper').height() - $('.search-top-wrapper').height() - $('.navbar').height() );
-      }
-      $(window).trigger('rootData.loaded')
-      if (data.results) {
-        var sResults = data.results;
-        for (var idx=0;idx<sResults.length;idx++) {
-          if ($.inArray(sResults[idx].id,resultIds)==-1) {
-            resultIds.push(sResults[idx].id);
-          }
-        }
-      }
-      // Filters supporting documents 
-	  // $scope.compareSupportDocs(resultIds);
-	  
-	  // Get Additional Contracts
-	  getAdditionalContracts();
-    })
-    .error(function(error) {
-      console.log('search error in search controller...');
-      console.log(error)
-      // window.location.reload();
-	});
+                $('.search-loading').hide();
+                if (data.results.length < 1) {
+                    $('.search-no-result').show()
+                }
+                else {
+                    //$('.search-result-wrapper').css('max-height', $(window).height() - $('.filter-wrapper').height() - $('.search-top-wrapper').height() - $('.navbar').height() );
+                }
+                $(window).trigger('rootData.loaded')
+                if (data.results) {
+                    var sResults = data.results;
+                    for (var idx=0;idx<sResults.length;idx++) {
+                        if ($.inArray(sResults[idx].id,resultIds)==-1) {
+                            resultIds.push(sResults[idx].id);
+                        }
+                    }
+                }
+                // Filters supporting documents 
+                $scope.compareSupportDocs(resultIds);
+                
+                // Get Additional Contracts
+                // getAdditionalContracts();
+            })
+            .error(function(error) {
+                console.log('search error in search controller...');
+                console.log(error)
+                // window.location.reload();
+            });
+    }
+
+    runSearch()
 
 	function inArr(arr,needle) {
 		if (arr) {
@@ -352,7 +339,30 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 	}
 
 	function getAdditionalContracts(){
-		var _new_contracts_mapped = [];
+        const __SCS__ = new StaticContractService(STATIC_CONTRACTS, NEW_CONTRACTS_INFO)
+        if (!q) {
+            // $scope.data.results = [...$scope.data.results, ...__SCS__.allStaticContracts]
+            if (__SCS__.allStaticContracts.length > 0) {
+                __SCS__.allStaticContracts.forEach(nc => {
+                    $scope.data.results.push(nc)
+                })
+            }
+        }
+        else if (q!==undefined && q!="") {
+            var exp = new RegExp(q,"g");
+            var matchedRes = []
+            if (__SCS__.allStaticContracts.length > 0) {
+                matchedRes = __SCS__.allStaticContracts.filter(nc => {
+                    return nc.name.match(exp)
+                })
+            }
+            if (matchedRes.length > 0) {
+                $scope.data.results = [...$scope.data.results, ...matchedRes]
+            }
+        }
+        NewContractsFactory.allData = $scope.data.results
+        $scope.data.total = $scope.data.results.length;
+		/* var _new_contracts_mapped = [];
 		for (var filename in NCONTRACTS_MAPPED) {
 			var idx = getIndexInArr(NEW_CONTRACTS_INFO,'FILE NAME',filename);
 			if (idx!=-1) {
@@ -402,14 +412,14 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 				}
 			}
 			$scope.data.total = $scope.data.results.length;
-		}
-		NewContractsFactory.allData = $scope.data.results;
+		} */ 
 	}
 	
 }]);
 
 myControllers.controller('ContractController', ['$scope', '$http', '$routeParams','$q','ContractsFactory','NewContractsFactory',
   function ($scope, $http, $routeParams, $q, ContractsFactory, NewContractsFactory) {
+    alert('contract controller')
 	var id = $routeParams.id;
 	var dataLookup = NewContractsFactory.allData;
 

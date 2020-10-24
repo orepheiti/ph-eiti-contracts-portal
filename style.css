@@ -266,8 +266,9 @@ th {
   border-radius: 4px;
   margin-left: 0.65em;
   font-weight: bold;
-
+  color: #fff;
 }
 .tag--new {
   background-color:orange;
+  color: #fff;
 }
