@@ -1,8 +1,6 @@
 # PH-EITI Contracts Portal
 
-http://contracts.ph-eiti.org/
-
--
+http://contracts-eiti.dof.gov.ph/
 
 This utilizes Resource Contract's API: 
 https://github.com/younginnovations/resourcecontracts-api

@@ -8,7 +8,7 @@ if (isset($_POST['message']) && isset($_POST['email'])) {
 	}
 
 	$to = "pheiticontractsportal@gmail.com";
-	$subject = "PH-EITI Contracts Portal - Feedback";
+	$subject = "PH-EITI Contracts Portal";
 	$message = $_POST['message'];
 	$headers = 'From: '. $_POST['name'] . " <" . $_POST['email'] . ">\r\n";
 

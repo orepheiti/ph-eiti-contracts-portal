@@ -57,12 +57,31 @@ footer a:hover {
   cursor: pointer;
 }
 .btn-cta {
-  background-color: #f37356;
+  /* background-color: #f37356; */
+  background-color:#092257;
   color: #fff;
   padding: 1em 2em;
   border-radius: 100px;
   margin-bottom: 2em;
   font-size: 1.25em;
+}
+.btn-cta:hover {
+  background-color:#061a44;
+  color: #fff;
+}
+.search-text {
+  color: #fff;
+  font-size: 1.2em;
+  margin-bottom: 0.5rem;
+}
+.btn-search {
+  background-color:#092257;
+  color: #fff;
+  border:none;
+}
+.btn-search:hover { 
+  background-color:#061a44;
+  border:none;
 }
 .contract-search-form .form-control,
 .btn-search,
@@ -203,6 +222,42 @@ th {
 }
 #map-container {
   min-height: 600px;
+}
+.box-3-main {
+  min-height: 460px;
+  text-align: center;
+}
+.box-3 {
+  min-height: 400px;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: 360px 360px;
+  text-align:center;
+  cursor: pointer;
+}
+#box-timeline {
+  background-image: url('images/infographic/1.png');
+}
+#box-map {
+  background-image: url('/images/infographic/2.png');
+}
+#box-xx {
+  background-image: url('/images/infographic/3.png');
+}
+.btn-view-box {
+  margin:auto;
+  max-width: 325px;
+  background-color:#092257;
+  border-radius: 16px;
+  color: rgb(255,255,255);
+  color: rgba(255,255,255,0.7);
+  padding: 8px 32px;
+  text-align: center;
+}
+.btn-view-box:hover,
+.btn-view-box:focus {
+  background-color:#061a44;
+  color: #fff;
 }
 .tag {
   font-size: 11px;
