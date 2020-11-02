@@ -2,9 +2,14 @@ class StaticContractService {
     constructor (contractSets, contractDetailsArr) {
         this.contractSets = contractSets
         this.allStaticContracts = []
+        this.allContracts = []
         this.newSetId = null
 
         this.getNewContractSet(contractDetailsArr)
+    }
+
+    setAllContracts(data) {
+        this.allContracts = data
     }
 
     getContractStruct () {

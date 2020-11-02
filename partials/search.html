@@ -128,7 +128,8 @@
                                 <th>Contract Type</th>
                             </tr>
                             <tr ng-repeat="(i, v) in data.results | orderBy:predicate:reverse">
-                                <td> {{i}} --
+                                <td>
+                                    <!-- Remove name if we have details ready -->
                                     <a href='contract/{{v.id}}' ng-show="v.name !== ''"
                                         onclick="closeSidebar()">{{v.name}}</a>
                                     <a href='contract/{{v.id}}' ng-show="v.name == ''"

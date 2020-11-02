@@ -1,5 +1,10 @@
 var myControllers = angular.module('myControllers', ['ngAnimate']);
 
+const __SCS__ = new StaticContractService(STATIC_CONTRACTS, [
+    NEW_CONTRACTS_INFO,
+    NEW_CONTRACTS_INFO_2020
+])
+
 var api = 'http://api.resourcecontracts.org/'; //'http://rc-api-stage.elasticbeanstalk.com/api/';
 var options = "&country_code=ph"
 
@@ -242,9 +247,9 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
                     }
                 }
             }
-            $scope.total_num_of_contracts = totalNumContracts;
+            // $scope.total_num_of_contracts = totalNumContracts;
             // Get additional contracts
-            getAdditionalContracts()
+            getAdditionalContracts(totalNumContracts)
         }, function(err){
 
         })
@@ -338,14 +343,10 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 		return [resourceStr];
     }
     
-	function getAdditionalContracts(){
-        const __SCS__ = new StaticContractService(STATIC_CONTRACTS, [
-            NEW_CONTRACTS_INFO,
-            NEW_CONTRACTS_INFO_2020
-        ])
-        
+	function getAdditionalContracts(){        
         if (!q) {
             $scope.data.results = [...$scope.data.results, ...__SCS__.allStaticContracts]
+            __SCS__.setAllContracts($scope.data.results)
         }
         else if (q!==undefined && q!="") {
             var exp = new RegExp(q,"g");
@@ -359,7 +360,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
                 $scope.data.results = [...$scope.data.results, ...matchedRes]
             }
         }
-        NewContractsFactory.allData = $scope.data.results
+        // NewContractsFactory.allData = $scope.data.results
         $scope.data.total = $scope.data.results.length;
 		/* var _new_contracts_mapped = [];
 		for (var filename in NCONTRACTS_MAPPED) {
@@ -418,9 +419,9 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 
 myControllers.controller('ContractController', ['$scope', '$http', '$routeParams','$q','ContractsFactory','NewContractsFactory',
   function ($scope, $http, $routeParams, $q, ContractsFactory, NewContractsFactory) {
-    alert('contract controller')
 	var id = $routeParams.id;
-	var dataLookup = NewContractsFactory.allData;
+	var dataLookup = __SCS__.allStaticContracts
+    $scope.isOcds = false
 
 	function getIndexInArr(arr,attr,val){
 		if (arr) {
@@ -433,28 +434,32 @@ myControllers.controller('ContractController', ['$scope', '$http', '$routeParams
 		return -1;
 	}
 
-	if (id.match(/nc-/gi)) {
+	if (id.match(/offline-contract-/gi)) {
+        $scope.isOcds = false
+
+        console.log(__SCS__.allStaticContracts)
 		if (dataLookup.length==0) {
-			// Need to build data again.
-			dataLookup = COMBINED_DATA;
+            // Get static contracts again
 		}
 		
 		var idx = getIndexInArr(dataLookup,'id',id);
 		if (idx!=-1) {
 			$scope.data = dataLookup[idx];
-		}
+        }
 
 	}
 	else {
-
+        $scope.isOcds = false
 		$http.get(api + 'contract/' + id + '/metadata', { cache: true } )
 		.success(function(data) {
-			$scope.data = data;
-
-			$('.download-word').on('click', function() {
-				download(data.name + '.docx', data.word_file);
-				// download(data.contract_name + '.docx', data.word_file);
-			});
+            $scope.data = data;
+            
+            if (data.word_file) {
+                $('.download-word').on('click', function() {
+                    download(data.name + '.docx', data.word_file);
+                    // download(data.contract_name + '.docx', data.word_file);
+                });
+            }
 
 			var promisesArr = [];
 			if (data.associated){
