@@ -92,7 +92,10 @@ class StaticContractService {
             c.contractDetails = contractDetailsArr[setIdx]
         })
 
-        /** Get latest set */
+        /**
+         * Get contracts set with isNew property and get the setId
+         * setId is (basically) the current year
+        */
         const res = this.contractSets.filter(s => {
             return s.isNew
         })
@@ -127,10 +130,6 @@ class StaticContractService {
                     } else {
                         newContract["isNew"] = false
                     }
-
-                    if (infoRes[0]['DOCUMENT/FILE NAME']) {
-                        newContract['name'] = infoRes[0]['DOCUMENT/FILE NAME']
-                    }
                     
                     if (infoRes[0]['GOVERNMENT ENTITY']) {
                         newContract['government_entity'].push({
@@ -155,6 +154,13 @@ class StaticContractService {
                     if (infoRes[0]["NAME"]) {
                         companyName = infoRes[0]["NAME"]
                     }
+                    
+
+                    if (infoRes[0]['DOCUMENT/FILE NAME'] !== '') {
+                        newContract['name'] = infoRes[0]['DOCUMENT/FILE NAME']
+                    } else {
+                        newContract['name'] = `${companyName} ${infoRes[0]['CONTRACT NO.']}`
+                    }                    
 
                     var companyAddress = ''
                     if (infoRes[0]["COMPANY ADDRESS"]) {

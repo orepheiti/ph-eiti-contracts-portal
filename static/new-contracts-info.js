@@ -7310,12 +7310,6 @@ const NEW_CONTRACTS_INFO = [
     "MUNICIPALITY": "Mati",
     "AREA (Has.)": "254.9595",
     "STATUS": "Exploration."
-  },
-  {
-    "FILE NAME": "  "
-  },
-  {
-    "FILE NAME": "  "
   }
 ];
 
@@ -7323,92 +7317,128 @@ const NEW_CONTRACTS_INFO = [
 const NEW_CONTRACTS_INFO_2020 = [
     {
         "NAME": "Agata Mining Ventures, Inc.",
-        "FILE NAME": "MPSA Contract 400",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 134",
         "CONTRACT NO.": "MPSA No. 134-99-XIII"
     },
     {
         "NAME": "Bohol Limestone Corporation",
-        "FILE NAME": "MPSA Contract 401",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 150",
         "CONTRACT NO.": "MPSA No. 150-00-VII"
     },
     {
         "NAME": "Dolomite Mining Corporation",
-        "FILE NAME": "MPSA Contract 402",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 208",
         "CONTRACT NO.": "MPSA No. 208-2005-VII"
     },
     {
         "NAME": "Eagle Cement Corporation",
-        "FILE NAME": "MPSA Contract 403",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 181",
         "CONTRACT NO.": "MPSA No. 181-2002-III"
     },
     {
         "NAME": "FCF Minerals Corporation",
-        "FILE NAME": "FTAA 400",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "FTAA No. 04-2009-II FCF Minerals Corp.",
         "CONTRACT NO.": "FTAA No. 04-2009-II"
     },
     {
         "NAME": "Hardrock Aggregates, Inc.",
-        "FILE NAME": "MPSA Contract 404",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 202",
         "CONTRACT NO.": "MPSA No. 202-2004-IVA"
     },
     {
         "NAME": "Holcim Mining and Development Corporation - Bulacan",
-        "FILE NAME": "MPSA Contract 405",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 140",
         "CONTRACT NO.": "MPSA No. 140-99-III"
     },
     {
         "NAME": "Holcim Resources and Development Corporation",
-        "FILE NAME": "MPSA Contract 406",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 047",
         "CONTRACT NO.": "MPSA No. 047-96-XII"
     },
     {
         "NAME": "JLR Construction and Aggregates, Inc.",
-        "FILE NAME": "MPSA Contract 407",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 194",
         "CONTRACT NO.": "MPSA No. 194-2004-VII"
     },
     {
         "NAME": "Northern Cement Corporation",
-        "FILE NAME": "MPSA Contract 408",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 106",
         "CONTRACT NO.": "MPSA No. 106-98-I"
     },
     {
         "NAME": "OceanaGold (Philippines), Inc.",
-        "FILE NAME": "FTAA 401",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "FTAA Contract No. 001",
         "CONTRACT NO.": "FTAA No. 001"
     },
     {
         "NAME": "Oriental Vision Mining Philippines Corporation",
-        "FILE NAME": "MPSA Contract 409",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 242",
         "CONTRACT NO.": "MPSA No. 242-2007-XIII (SMR)"
     },
     {
         "NAME": "Rapid City Realty and Development Corporation",
-        "FILE NAME": "MPSA Contract 410",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 074",
         "CONTRACT NO.": "MPSA No. 074-97-IV"
     },
     {
         "NAME": "Republic Cement and Building Materials, Inc. - Bulacan",
-        "FILE NAME": "MPSA Contract 411",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 026",
         "CONTRACT NO.": "MPSA No. 026-94-III"
     },
     {
         "NAME": "Republic Cement and Building Materials, Inc. - Teresa",
-        "FILE NAME": "MPSA Contract 412",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 138",
         "CONTRACT NO.": "MPSA No. 138-99-IVA"
     },
     {
         "NAME": "Republic Cement Land & Resources - Norzagaray",
-        "FILE NAME": "MPSA Contract 413",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 056",
         "CONTRACT NO.": "MPSA No. 056-96-III"
     },
     {
         "NAME": "Rio Tuba Nickel Mining Corporation",
-        "FILE NAME": "MPSA Contract 414",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 213",
         "CONTRACT NO.": "MPSA No. 213-2005-IVB"
     },
     {
         "NAME": "Techiron Resources, Inc.",
-        "FILE NAME": "MPSA Contract 415",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 292",
         "CONTRACT NO.": "MPSA No. 292-2009-VIII (Amended B)"
     }
 ]
