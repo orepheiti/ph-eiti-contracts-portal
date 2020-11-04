@@ -230,29 +230,34 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
     $scope.compareSupportDocs=function(contractIds){
         $scope.total_num_of_contracts = 'Calculating';
         var totalNumContracts = 0;
-        var promiseArr = [];
-        for (var idx=0;idx<contractIds.length;idx++) {
-            promiseArr.push(ContractsFactory.get.metadata(contractIds[idx]));
-        }
-
-        $scope.bulkPromise = $q.all(promiseArr);
-        $scope.bulkPromise.then(function(responseValues){
-            if (responseValues) {
-                if (responseValues.length) {
-                    for (var kk=0;kk<responseValues.length;kk++) {
-                        var returnData = responseValues[kk].data
-                        if (returnData.type==='Contract') {
-                            totalNumContracts++;
+        if (contractIds.length > 0) {   
+            var promiseArr = [];
+            for (var idx=0;idx<contractIds.length;idx++) {
+                promiseArr.push(ContractsFactory.get.metadata(contractIds[idx]));
+            }
+            $scope.bulkPromise = $q.all(promiseArr)
+            $scope.bulkPromise
+                .then(function(responseValues){
+                    if (responseValues) {
+                        if (responseValues.length) {
+                            for (var kk=0;kk<responseValues.length;kk++) {
+                                var returnData = responseValues[kk].data
+                                if (returnData.type==='Contract') {
+                                    totalNumContracts++;
+                                }
+                            }
                         }
                     }
-                }
-            }
-            // $scope.total_num_of_contracts = totalNumContracts;
+                    // $scope.total_num_of_contracts = totalNumContracts;
+                    // Get additional contracts
+                    getAdditionalContracts(totalNumContracts)
+                }, function(err){
+
+                })
+        } else {
             // Get additional contracts
             getAdditionalContracts(totalNumContracts)
-        }, function(err){
-
-        })
+        }
     }
 
     function runSearch () {
@@ -349,7 +354,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
             __SCS__.setAllContracts($scope.data.results)
         }
         else if (q!==undefined && q!="") {
-            var exp = new RegExp(q,"g");
+            var exp = new RegExp(decodeURIComponent(q),'g');
             var matchedRes = []
             if (__SCS__.allStaticContracts.length > 0) {
                 matchedRes = __SCS__.allStaticContracts.filter(nc => {
@@ -437,14 +442,19 @@ myControllers.controller('ContractController', ['$scope', '$http', '$routeParams
 	if (id.match(/offline-contract-/gi)) {
         $scope.isOcds = false
 
-        console.log(__SCS__.allStaticContracts)
 		if (dataLookup.length==0) {
             // Get static contracts again
 		}
 		
 		var idx = getIndexInArr(dataLookup,'id',id);
 		if (idx!=-1) {
-			$scope.data = dataLookup[idx];
+            $scope.data = dataLookup[idx];
+            // Associated files that are not in elasticbeanstalk
+            // Files in supporting-documents folder/
+            $http.get('/get_supporting_documents.php?contract_name=' + $scope.data.name, { cache: true })
+                .success(function(responseData) {
+                    $scope.data.supporting_contracts_extra = responseData;
+                });
         }
 
 	}
@@ -486,10 +496,9 @@ myControllers.controller('ContractController', ['$scope', '$http', '$routeParams
 			}
 
 			// Associated files that are not in elasticbeanstalk
-			// Files in supporting-documents folder/
+            // Files in supporting-documents folder/
+            console.log(data.name)
 			$http.get('/get_supporting_documents.php?contract_name=' + data.name, { cache: true }).success(function(responseData) {
-				// console.log('get supporting docs')
-				// console.log(responseData)
 				$scope.data.supporting_contracts_extra = responseData;
 			});
 		});
