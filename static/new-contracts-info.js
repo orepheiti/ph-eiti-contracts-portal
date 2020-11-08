@@ -238,9 +238,9 @@ const NEW_CONTRACTS_INFO = [
     "STATUS": "Exploration."
   },
   {
-    "NAME": "Republic Cement & Building Materials, Inc.",
+    "NAME": "Republic Cement and Building Materials, Inc.",
     "MAIN OR ASSOCIATED": "Main",
-    "DOCUMENT/FILE NAME": "Republic Cement & Building Materials, Inc., MPSA No. 026-94-III, 1994",
+    "DOCUMENT/FILE NAME": "Republic Cement and Building Materials, Inc., MPSA No. 026-94-III, 1994",
     "FILE NAME": "MPSA Contract 026",
     "CONTRACT NO.": "MPSA No. 026-94-III",
     "LANGUAGE": "English",
@@ -302,9 +302,9 @@ const NEW_CONTRACTS_INFO = [
     "STATUS": "Exploration."
   },
   {
-    "NAME": "Republic Cement & Building Materials, Inc.",
+    "NAME": "Republic Cement and Building Materials, Inc.",
     "MAIN OR ASSOCIATED": "Main",
-    "DOCUMENT/FILE NAME": "Republic Cement & Building Materials, Inc., MPSA No. 029-95-IVA, 1995",
+    "DOCUMENT/FILE NAME": "Republic Cement and Building Materials, Inc., MPSA No. 029-95-IVA, 1995",
     "FILE NAME": "MPSA Contract 029",
     "CONTRACT NO.": "MPSA No. 029-95-IVA",
     "LANGUAGE": "English",
@@ -491,9 +491,9 @@ const NEW_CONTRACTS_INFO = [
     "STATUS": "Development."
   },
   {
-    "NAME": "Republic Cement & Building Materials, Inc.",
+    "NAME": "Republic Cement and Building Materials, Inc.",
     "MAIN OR ASSOCIATED": "Main",
-    "DOCUMENT/FILE NAME": "Republic Cement & Building Materials, Inc., MPSA No. 038-96-VII, 1996",
+    "DOCUMENT/FILE NAME": "Republic Cement and Building Materials, Inc., MPSA No. 038-96-VII, 1996",
     "FILE NAME": "MPSA Contract 038",
     "CONTRACT NO.": "MPSA No. 038-96-VII",
     "LANGUAGE": "English",
@@ -2129,9 +2129,9 @@ const NEW_CONTRACTS_INFO = [
     "STATUS": "Exploration."
   },
   {
-    "NAME": "Republic Cement & Building Materials, Inc.",
+    "NAME": "Republic Cement and Building Materials, Inc.",
     "MAIN OR ASSOCIATED": "Main",
-    "DOCUMENT/FILE NAME": "Republic Cement & Building Materials, Inc., MPSA No. 132-99-VII, 1999",
+    "DOCUMENT/FILE NAME": "Republic Cement and Building Materials, Inc., MPSA No. 132-99-VII, 1999",
     "FILE NAME": "MPSA Contract 132",
     "CONTRACT NO.": "MPSA No. 132-99-VII",
     "LANGUAGE": "English",
@@ -2234,9 +2234,9 @@ const NEW_CONTRACTS_INFO = [
     "STATUS": "Commercial Operation."
   },
   {
-    "NAME": "Republic Cement & Building Materials, Inc.",
+    "NAME": "Republic Cement and Building Materials, Inc.",
     "MAIN OR ASSOCIATED": "Main",
-    "DOCUMENT/FILE NAME": "Republic Cement & Building Materials, Inc., MPSA No. 138-99-IVA, 1999",
+    "DOCUMENT/FILE NAME": "Republic Cement and Building Materials, Inc., MPSA No. 138-99-IVA, 1999",
     "FILE NAME": "MPSA Contract 138",
     "CONTRACT NO.": "MPSA No. 138-99-IVA",
     "LANGUAGE": "English",
@@ -2634,9 +2634,9 @@ const NEW_CONTRACTS_INFO = [
     "STATUS": "Commercial Operation."
   },
   {
-    "NAME": "Republic Cement & Building Materials, Inc.",
+    "NAME": "Republic Cement and Building Materials, Inc.",
     "MAIN OR ASSOCIATED": "Main",
-    "DOCUMENT/FILE NAME": "Republic Cement & Building Materials, Inc., MPSA No. 159-00-IVA, 2000",
+    "DOCUMENT/FILE NAME": "Republic Cement and Building Materials, Inc., MPSA No. 159-00-IVA, 2000",
     "FILE NAME": "MPSA Contract 159",
     "CONTRACT NO.": "MPSA No. 159-00-IVA",
     "LANGUAGE": "English",
@@ -7421,7 +7421,7 @@ const NEW_CONTRACTS_INFO_2020 = [
         "CONTRACT NO.": "MPSA No. 138-99-IVA"
     },
     {
-        "NAME": "Republic Cement Land & Resources - Norzagaray",
+        "NAME": "Republic Cement Land and Resources - Norzagaray",
         "MAIN OR ASSOCIATED": "Main",
         "DOCUMENT/FILE NAME": "",
         "FILE NAME": "MPSA Contract 056",
