@@ -172,6 +172,7 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams, $q, ContractsFactory, NewContractsFactory) {
     
     $scope.total_num_of_contracts = 'Calculating';
+    $scope.searchInProgress = false
     var q = getParam('q');
     var year = getParam('year');
     var resource = getParam('resource');
@@ -180,7 +181,8 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
     var query = '';
 
     $scope.searchTerm = '';
-
+    /** Show search progress indicator */
+    $('.search-loading').show();
     if (q) {
         $scope.searchTerm = "Search results for <span>" + decodeURIComponent(q) + "</span>";
         query += 'q=' + q + '&'
@@ -252,7 +254,11 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
                     // Get additional contracts
                     getAdditionalContracts(totalNumContracts)
                 }, function(err){
-
+                  $scope.searchInProgress = false
+                  $('.search-loading').hide();
+                  if ($scope.data && $scope.data.results.length < 1) {
+                      $('.search-no-result').show()
+                  }
                 })
         } else {
             // Get additional contracts
@@ -261,11 +267,13 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
     }
 
     function runSearch () {
+        $scope.searchInProgress = true  
         $http.get(api + 'contracts/search?from=0&per_page=1000&group=metadata&country_code=ph&' + query, { cache: true })
             .success(function(data) {
                 var resultIds = []
                 var data = filterData(data);
                 $scope.data = data;
+                $scope.data.total = $scope.data.results.length
 
                 $scope.predicate = 'name'; //'contract_name';
                 $scope.reverse = false;
@@ -274,13 +282,6 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
                     $scope.predicate = predicate;
                 };
 
-                $('.search-loading').hide();
-                if (data.results.length < 1) {
-                    $('.search-no-result').show()
-                }
-                else {
-                    //$('.search-result-wrapper').css('max-height', $(window).height() - $('.filter-wrapper').height() - $('.search-top-wrapper').height() - $('.navbar').height() );
-                }
                 $(window).trigger('rootData.loaded')
                 if (data.results) {
                     var sResults = data.results;
@@ -297,8 +298,9 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
                 // getAdditionalContracts();
             })
             .error(function(error) {
-                console.log('search error in search controller...');
-                console.log(error)
+                $scope.searchInProgress = false
+                $('.search-loading').hide();
+                $('.search-no-result').show()
                 // window.location.reload();
             });
     }
@@ -367,6 +369,11 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
         }
         // NewContractsFactory.allData = $scope.data.results
         $scope.data.total = $scope.data.results.length;
+        $scope.searchInProgress = false
+        $('.search-loading').hide();
+        if ($scope.data && $scope.data.results.length < 1) {
+            $('.search-no-result').show()
+        }
 		/* var _new_contracts_mapped = [];
 		for (var filename in NCONTRACTS_MAPPED) {
 			var idx = getIndexInArr(NEW_CONTRACTS_INFO,'FILE NAME',filename);

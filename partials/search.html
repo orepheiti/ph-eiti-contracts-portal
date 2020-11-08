@@ -12,8 +12,9 @@
 <div class="row">
     <div class="contract-number-wrap contract-search-number-wrap">
         <!-- <small data-ng-show="total_num_of_contracts==='Calculating'" style="text-transform:none;">{{total_num_of_contracts}} total <br />number of </small><span data-ng-show="total_num_of_contracts!=='Calculating'">{{total_num_of_contracts}}</span> Contracts -->
-        <small data-ng-show="!data.total" style="text-transform:none;">Calculating total <br />number of <br /></small>
-        <span data-ng-show="data.total">{{data.total}}</span>
+        <small data-ng-show="searchInProgress" style="text-transform:none;">Calculating total <br />number of
+            <br /></small>
+        <span data-ng-show="!searchInProgress">{{data.total}}</span>
         <small>CONTRACT<small data-ng-show="data.total > 1 || !data.total">S</small></small>
     </div>
 </div>
