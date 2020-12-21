@@ -1,6 +1,6 @@
 var myControllers = angular.module('myControllers', ['ngAnimate']);
 
-var api = 'http://api.resourcecontracts.org/';
+var api = 'https://api.resourcecontracts.org/';
 var options = "&country_code=ph"
 
 myControllers.controller('MainController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
