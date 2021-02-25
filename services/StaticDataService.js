@@ -197,7 +197,7 @@ class StaticContractService {
                 } catch(maperror) {
                     console.log(maperror)
                 }
-            }
+            } 
         } else {
             newContract["id"] = `offline-contract-${setId}-${this.allStaticContracts.length}`
         }

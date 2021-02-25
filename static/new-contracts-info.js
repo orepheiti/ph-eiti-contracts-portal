@@ -7440,5 +7440,173 @@ const NEW_CONTRACTS_INFO_2020 = [
         "DOCUMENT/FILE NAME": "",
         "FILE NAME": "MPSA Contract 292",
         "CONTRACT NO.": "MPSA No. 292-2009-VIII (Amended B)"
-    }
+    },
+    {
+        "NAME": "Apo Land and Quarry Corporation - Uling",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 111 Amended I",
+        "CONTRACT NO.": "MPSA No. 111-98-VII (Amended I)"
+    },
+    {
+        "NAME": "AAM-PHIL Natural Resources Exploration & Development Corp. (Parcel 2B)",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 290",
+        "CONTRACT NO.": "Dinagat Chromite/Nickel Project (Parcel 2B) MPSA No. 328-2010-XIII (SMR)"
+    },
+    {
+        "NAME": "Abra Mining & Industrial Corp.",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 143",
+        "CONTRACT NO.": "Abra Gold Project MPSA No. 143-99-CAR"
+    },
+    {
+        "NAME": "CTP Construction and Mining Corporation - Adlay",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 018",
+        "CONTRACT NO.": "MPSA No. 018-93-X (SMR)"
+    },
+    {
+        "NAME": "Century Peak Corporation - Esperanza",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 283",
+        "CONTRACT NO.": "MPSA No. 283-2009-XIII (SMR)"
+    },
+    {
+        "NAME": "Nicua Corporation-Vincent Tan Tiong",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract_290",
+        "CONTRACT NO.": "Leyte Magnetite Project MPSA No. 290-2009-VIII"
+    },
+    {
+        "NAME": "Shangfil Mining and Trading Corp.",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 250 Amended I",
+        "CONTRACT NO.": "Shangfil Chromite Project MPSA No. 250-2007-III (Amended I)"
+    },
+    {
+        "NAME": "Wellex Mining Corp./Vista Buena Mining Corp.",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 031_Vista Buena Mining Corporation",
+        "CONTRACT NO.": "Wellex Area II Nickel Mining Project MPSA No. 031-94-X (SMR)"
+    },
+    {
+        "NAME": "Concrete Aggregates Corp.",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 032",
+        "CONTRACT NO.": "MPSA No. 032-95-IV"
+    },
+    {
+        "NAME": "Holcim Mining and Development Corp. - HMDC (Assignment with subscription Agreement for Holcim Phils., Inc.)",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 274 Amended II",
+        "CONTRACT NO.": "MPSA-274-08-XI"
+    },
+    {
+        "NAME": "Holcim Mining and Development Corporation – HMDC (Assignment with Subscription Agreement from Holcim Philippines, Inc.)",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 236",
+        "CONTRACT NO.": "MPSA 236-2007"
+    },
+    {
+        "NAME": "Island Quarry and Aggregates Corp. Solid Cement Corp.",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 125",
+        "CONTRACT NO.": "MPSA 125-98-IV"
+    },
+    {
+        "NAME": "Montalban Millex Aggregate Corporation",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 239",
+        "CONTRACT NO.": "MPSA 239-2007-IV"
+    },
+    {
+        "NAME": "Rapid City Realty and Dev't Corp.",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 087",
+        "CONTRACT NO.": "MPSA-087-97-IV"
+    },
+    {
+        "NAME": "Rapid City Realty and Dev't Corp.",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 088",
+        "CONTRACT NO.": "MPSA-088-97-IV"
+    },
+    {
+        "NAME": "Rapid City Realty and Dev't Corp.",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 075",
+        "CONTRACT NO.": "MPSA-075-97-IV"
+    },
+    {
+        "NAME": "Rapid City Realty and Dev't Corp.",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 064 Amended",
+        "CONTRACT NO.": "MPSA-064-96-IV As Amended"
+    },
+    {
+        "NAME": "Rapid City Realty and Dev't Corp.",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 064",
+        "CONTRACT NO.": "MPSA-064-96-IV"
+    },
+    {
+        "NAME": "Republic Cement Mindanao, Inc. (Formerly Lafarge Mindanao Inc.)",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 031_Mindanao Portland Cement Corporation",
+        "CONTRACT NO.": "MPSA-031-95-XII"
+    },
+    {
+        "NAME": "Solid North Mineral Corp. (Assignment from Holcim Philippines, Inc.)",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 161",
+        "CONTRACT NO.": "MPSA 161-2000-III"
+    },
+    {
+        "NAME": "Holcim Mining and Development Corporation - Davao",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 080",
+        "CONTRACT NO.": "MPSA No. 080-97-XI"
+    },
+    {
+        "NAME": "Pacific Nickel Philippines, Inc.",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "MPSA Contract 072",
+        "CONTRACT NO.": "MPSA No. 072-97-XIII (SMR)"
+    },
+    {
+        "NAME": "SC No. 49",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "DOE Petroleum Service Contract 49",
+        "CONTRACT NO.": "China International Mining Petroleum Co. Ltd."
+    },
+    {
+        "NAME": "SC No. 14C",
+        "MAIN OR ASSOCIATED": "Main",
+        "DOCUMENT/FILE NAME": "",
+        "FILE NAME": "DOE Petroleum Service Contract 14",
+        "CONTRACT NO.": "Galoc Production SPC (Formerly Galoc Production Company WLL)"
+    }      
 ]
