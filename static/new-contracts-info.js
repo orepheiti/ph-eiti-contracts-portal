@@ -7452,7 +7452,7 @@ const NEW_CONTRACTS_INFO_2020 = [
         "NAME": "AAM-PHIL Natural Resources Exploration & Development Corp. (Parcel 2B)",
         "MAIN OR ASSOCIATED": "Main",
         "DOCUMENT/FILE NAME": "",
-        "FILE NAME": "MPSA Contract 290",
+        "FILE NAME": "MPSA Contract 328",
         "CONTRACT NO.": "Dinagat Chromite/Nickel Project (Parcel 2B) MPSA No. 328-2010-XIII (SMR)"
     },
     {
@@ -7480,7 +7480,7 @@ const NEW_CONTRACTS_INFO_2020 = [
         "NAME": "Nicua Corporation-Vincent Tan Tiong",
         "MAIN OR ASSOCIATED": "Main",
         "DOCUMENT/FILE NAME": "",
-        "FILE NAME": "MPSA Contract_290",
+        "FILE NAME": "MPSA Contract 290",
         "CONTRACT NO.": "Leyte Magnetite Project MPSA No. 290-2009-VIII"
     },
     {
