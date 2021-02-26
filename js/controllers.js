@@ -5,12 +5,12 @@ const __SCS__ = new StaticContractService(STATIC_CONTRACTS, [
     NEW_CONTRACTS_INFO_2020
 ])
 
-var api = 'http://api.resourcecontracts.org/'; //'http://rc-api-stage.elasticbeanstalk.com/api/';
+var api = 'https://api.resourcecontracts.org/'; //'http://rc-api-stage.elasticbeanstalk.com/api/';
 var options = "&country_code=ph"
 
 myApp.factory('ContractsFactory',['$http',
   function($http){
-    var wsurl = ['http://api.resourcecontracts.org','http://rc-api-stage.elasticbeanstalk.com/api'];
+    var wsurl = ['https://api.resourcecontracts.org','https://rc-api-stage.elasticbeanstalk.com/api'];
     var wsurl_idx = 0;
     var ContractsFactory = null;
     ContractsFactory = {
