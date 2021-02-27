@@ -356,11 +356,11 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
             __SCS__.setAllContracts($scope.data.results)
         }
         else if (q!==undefined && q!="") {
-            var exp = new RegExp(decodeURIComponent(q),'g');
+            var exp = new RegExp(decodeURIComponent(q),'gi');
             var matchedRes = []
             if (__SCS__.allStaticContracts.length > 0) {
                 matchedRes = __SCS__.allStaticContracts.filter(nc => {
-                    return nc.name.match(exp)
+                    return (nc.name.match(exp) !== null || (nc.name.indexOf(decodeURIComponent(q)) !== -1))
                 })
             }
             if (matchedRes.length > 0) {
