@@ -34,7 +34,7 @@ myApp.config(['$routeProvider','$locationProvider',
     }).
 
     when('/search', {
-      templateUrl: '/partials/search.html',
+      templateUrl: '/partials/search.html?v=2.0',
       controller: 'SearchController'
     }).
 

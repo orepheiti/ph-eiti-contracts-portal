@@ -41,7 +41,35 @@
         setTimeout(function () {
             $('select').select2();
         }, 2500);
+
+        setPanelWt()
     });
+
+
+    function setPanelWt () {
+        try {
+            if (window.innerWidth < 1200 && window.innerWidth > 767) {
+                $('.filter-wrapper').css({'margin-top':'unset'})
+                $('.country-list-wrapper').css({'margin-top':'22rem'})
+            } else if (window.innerWidth < 767 && window.innerWidth > 555) {
+                $('.filter-wrapper').css({'margin-top':'9rem'})
+                $('.country-list-wrapper').css({'margin-top':'37rem'})
+            } else if (window.innerWidth < 555 && window.innerWidth > 395) {
+                $('.filter-wrapper').css({'margin-top':'5rem'})
+                $('.country-list-wrapper').css({'margin-top':'39rem'})
+            } else if (window.innerWidth < 395) {
+                $('.filter-wrapper').css({'margin-top':'1rem'})
+                $('.country-list-wrapper').css({'margin-top':'40rem'})
+            } else if (window.innerWidth > 1200) {
+                $('.filter-wrapper').css({'margin-top':'unset'})
+                $('.country-list-wrapper').css({'margin-top':'unset'})
+            }
+        } catch(srErr) {
+            console.log(srErr)
+        }
+    }
+
+    window.onresize = setPanelWt
 </script>
 
 <div class="filter-wrapper">
