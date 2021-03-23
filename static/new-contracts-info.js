@@ -7601,12 +7601,12 @@ const NEW_CONTRACTS_INFO_2020 = [
         "DOCUMENT/FILE NAME": "",
         "FILE NAME": "DOE Petroleum Service Contract 49",
         "CONTRACT NO.": "China International Mining Petroleum Co. Ltd."
-    },
-    {
+    }
+    /* {
         "NAME": "SC No. 14C",
         "MAIN OR ASSOCIATED": "Main",
         "DOCUMENT/FILE NAME": "",
         "FILE NAME": "DOE Petroleum Service Contract 14",
         "CONTRACT NO.": "Galoc Production SPC (Formerly Galoc Production Company WLL)"
-    }      
+    }*/    
 ]
