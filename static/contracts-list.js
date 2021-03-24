@@ -150,7 +150,7 @@ var STATIC_CONTRACTS = [
             "MPSA Contract 080",
             "MPSA Contract 072",
             "DOE Petroleum Service Contract 49",
-            "DOE Petroleum Service Contract 14"
+            // "DOE Petroleum Service Contract 14"
         ],
         isNew: true,
         contractDetails: []
