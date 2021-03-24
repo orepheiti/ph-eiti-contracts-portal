@@ -44,7 +44,7 @@ myApp.config(['$routeProvider','$locationProvider',
     }).
 
     when('/contracts/eis', {
-      templateUrl: '/partials/mmt.html',
+      templateUrl: '/partials/eis.html',
       controller: 'EISController'
     }).
 
