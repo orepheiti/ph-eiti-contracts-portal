@@ -38,6 +38,16 @@ myApp.config(['$routeProvider','$locationProvider',
       controller: 'SearchController'
     }).
 
+    when('/contracts/mmt', {
+      templateUrl: '/partials/mmt.html',
+      controller: 'MMTController'
+    }).
+
+    when('/contracts/eis', {
+      templateUrl: '/partials/mmt.html',
+      controller: 'EISController'
+    }).
+
     when('/contracts', {
       templateUrl: '/partials/search.html',
       controller: 'SearchController'
