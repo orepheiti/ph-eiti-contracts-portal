@@ -892,7 +892,7 @@ myControllers.controller('MMTController', ['$scope', '$http', '$routeParams', '$
             })
         }
 
-        $scope.data.results = dataWithMMT
+        $scope.data.results = _.orderBy(dataWithMMT, ['name'], ['asc'])
         $scope.data.total = dataWithMMT.length
         $scope.searchInProgress = false
         $('.search-loading').hide();
@@ -1096,7 +1096,7 @@ myControllers.controller('EISController', ['$scope', '$http', '$routeParams', '$
             })
         }
 
-        $scope.data.results = dataWithEIS
+        $scope.data.results =  _.orderBy(dataWithEIS, ['name'], ['asc'])
         $scope.data.total = dataWithEIS.length
         $scope.searchInProgress = false
         $('.search-loading').hide();
