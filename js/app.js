@@ -38,6 +38,11 @@ myApp.config(['$routeProvider','$locationProvider',
       controller: 'SearchController'
     }).
 
+    when('/summary-data', {
+      templateUrl: '/partials/summary-data.html',
+      controller: 'SummaryDataController'
+    }).
+
     when('/contracts/mmt', {
       templateUrl: '/partials/mmt.html',
       controller: 'MMTController'

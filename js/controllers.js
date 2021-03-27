@@ -1105,3 +1105,15 @@ myControllers.controller('EISController', ['$scope', '$http', '$routeParams', '$
 }]);
 
 
+myControllers.controller('SummaryDataController', [function () {
+    
+    /** Show search progress indicator */
+    $('.search-loading').show();
+
+    setTimeout(()=>{
+        $('.search-loading').hide();
+    }, 500)
+	
+}]);
+
+
