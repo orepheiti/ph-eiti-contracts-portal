@@ -2533,7 +2533,7 @@ const COMBINED_DATA = [{
 	"is_pages_missing": false,
 	"language": "en",
 	"matrix_page": "",
-	"name": "Solid Earth Development Corporation, MPSA No. 131-99-VII   , 1999",
+	"name": "Solid Earth Development Corporation, MPSA No. 131-99-VII, 1999",
 	"note": "",
 	"number_of_pages": 0,
 	"open_contracting_id": "",

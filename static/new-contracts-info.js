@@ -2110,7 +2110,7 @@ const NEW_CONTRACTS_INFO = [
   {
     "NAME": "Solid Earth Development Corporation",
     "MAIN OR ASSOCIATED": "Main",
-    "DOCUMENT/FILE NAME": "Solid Earth Development Corporation, MPSA No. 131-99-VII   , 1999",
+    "DOCUMENT/FILE NAME": "Solid Earth Development Corporation, MPSA No. 131-99-VII, 1999",
     "FILE NAME": "MPSA Contract 131",
     "CONTRACT NO.": "MPSA No. 131-99-VII   ",
     "LANGUAGE": "English",
