@@ -45,7 +45,33 @@ myControllers.controller('MainController', ['$scope', '$rootScope', '$http', '$q
     .success(function(data) {
       var data = filterData(data);
       data.hydrocarbon_companies = hydrocarbon_companies;
+      getCompaniesOfStaticContracts(data)
+    })
+    .error(function(error) {
+      console.log('search error in main controller!');
+      console.log(error)
+      // window.location.reload();
+    });
+
+    function getCompaniesOfStaticContracts(data) {
+        var companiesArr = data.company_name
+        var uniqueCompanyNames = [...companiesArr]
+        if (__SCS__.allStaticContracts.length > 0) {
+            __SCS__.allStaticContracts.forEach(c => {
+                if (c.participation && c.participation.length > 0) {
+                    if (c.participation[0] && c.participation[0].company) {
+                        const currCompanyName = c.participation[0].company.name
+                        if (inArr(uniqueCompanyNames, currCompanyName) === false) {
+                            uniqueCompanyNames.push(currCompanyName)
+                        }
+                    }
+                }
+            })
+        }
+
+      data.company_name = uniqueCompanyNames.sort()
       $rootScope.rootData = data;
+        
       $(window).trigger('mainData.loaded')
       if (data.results) {
         var sResults = data.results;
@@ -55,12 +81,29 @@ myControllers.controller('MainController', ['$scope', '$rootScope', '$http', '$q
           }
         }
       }
-    })
-    .error(function(error) {
-      console.log('search error in main controller!');
-      console.log(error)
-      // window.location.reload();
-    });
+    }
+
+	function inArr(arr,needle) {
+		if (arr) {
+			for (var idx=0;idx<arr.length;idx++) {
+				if (arr[idx]==needle) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	function getIndexInArr(arr,attr,val){
+		if (arr) {
+			for (var idx=0;idx<arr.length;idx++) {
+				if (arr[idx][attr]==val) {
+					return idx;
+				}
+			}
+		}
+		return -1;
+	}
 }]);
 
 myControllers.controller('IndexController', ['$scope', 'ngDialog', '$http',
@@ -353,23 +396,63 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
 		return [resourceStr];
     }
     
-	function getAdditionalContracts(){        
+    function inParticipation (cData, cName) {
+      var confirmed = false
+      if (cData.participation && cData.participation.length > 0) {
+          if (cData.participation[0] && cData.participation[0].company) {
+              if (cData.participation[0].company.name === cName) {
+                confirmed = true
+              }
+          }
+      }
+      return confirmed
+    }
+  
+    function getAdditionalContracts(){      
+
+        var filteredResults = [...$scope.data.results, ...__SCS__.allStaticContracts]
         if (!q) {
-            $scope.data.results = [...$scope.data.results, ...__SCS__.allStaticContracts]
-            __SCS__.setAllContracts($scope.data.results)
-        }
+          __SCS__.setAllContracts(filteredResults)
+        } 
         else if (q!==undefined && q!="") {
             var exp = new RegExp(decodeURIComponent(q),'gi');
-            var matchedRes = []
             if (__SCS__.allStaticContracts.length > 0) {
-                matchedRes = __SCS__.allStaticContracts.filter(nc => {
+                filteredResults = __SCS__.allStaticContracts.filter(nc => {
                     return (nc.name.match(exp) !== null || (nc.name.indexOf(decodeURIComponent(q)) !== -1))
                 })
             }
-            if (matchedRes.length > 0) {
-                $scope.data.results = [...$scope.data.results, ...matchedRes]
+        }
+        if (filteredResults.length > 0) {
+            if (company !== '') {
+                const companyQuery = decodeURIComponent(company)
+                const compNameExp = new RegExp(companyQuery,'gi');
+                filteredResults = filteredResults.filter(nc => {
+                    const confirmed = inParticipation(nc, companyQuery)
+                    return (nc.name.match(compNameExp) !== null || 
+                           (nc.name.indexOf(companyQuery) !== -1) || confirmed==true)
+                })
+            }
+            if (year !== '') {
+                filteredResults = filteredResults.filter(c => {
+                    return c.year_signed == year
+                })
+            }
+            if (resource !== '') {
+                filteredResults = filteredResults.filter(c => {
+                    return (inArr(c.resource, resource) === true)
+                })
             }
         }
+
+        if ($scope.data.results.length > 0 && filteredResults.length === 0) {
+          /** 
+           * If there's no result in filteredResults but
+           * there's data returned from back-end, use data from back-end
+           */
+          filteredResults = $scope.data.results
+        }
+
+        $scope.data.results = filteredResults
         // NewContractsFactory.allData = $scope.data.results
         $scope.data.total = $scope.data.results.length;
         $scope.searchInProgress = false
