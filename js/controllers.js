@@ -411,37 +411,39 @@ myControllers.controller('SearchController', ['$scope', '$http', '$routeParams',
     function getAdditionalContracts(){      
 
         var filteredResults = [...$scope.data.results, ...__SCS__.allStaticContracts]
+        
         if (!q) {
           __SCS__.setAllContracts(filteredResults)
         } 
         else if (q!==undefined && q!="") {
             var exp = new RegExp(decodeURIComponent(q),'gi');
+            var matchedRes = []
             if (__SCS__.allStaticContracts.length > 0) {
-                filteredResults = __SCS__.allStaticContracts.filter(nc => {
+                matchedRes = __SCS__.allStaticContracts.filter(nc => {
                     return (nc.name.match(exp) !== null || (nc.name.indexOf(decodeURIComponent(q)) !== -1))
                 })
             }
+            filteredResults = [...$scope.data.results, ...matchedRes]
         }
-        if (filteredResults.length > 0) {
-            if (company !== '') {
-                const companyQuery = decodeURIComponent(company)
-                const compNameExp = new RegExp(companyQuery,'gi');
-                filteredResults = filteredResults.filter(nc => {
-                    const confirmed = inParticipation(nc, companyQuery)
-                    return (nc.name.match(compNameExp) !== null || 
-                           (nc.name.indexOf(companyQuery) !== -1) || confirmed==true)
-                })
-            }
-            if (year !== '') {
-                filteredResults = filteredResults.filter(c => {
-                    return c.year_signed == year
-                })
-            }
-            if (resource !== '') {
-                filteredResults = filteredResults.filter(c => {
-                    return (inArr(c.resource, resource) === true)
-                })
-            }
+
+        if (company !== undefined && company !== '') {
+            const companyQuery = decodeURIComponent(company)
+            const compNameExp = new RegExp(companyQuery,'gi');
+            filteredResults = filteredResults.filter(nc => {
+                const confirmed = inParticipation(nc, companyQuery)
+                return (nc.name.match(compNameExp) !== null || 
+                        (nc.name.indexOf(companyQuery) !== -1) || confirmed==true)
+            })
+        }
+        if (year !== undefined && year !== '') {
+            filteredResults = filteredResults.filter(c => {
+                return c.year_signed == year
+            })
+        }
+        if (resource !== undefined && resource !== '') {
+            filteredResults = filteredResults.filter(c => {
+                return (inArr(c.resource, resource) === true)
+            })
         }
 
         if ($scope.data.results.length > 0 && filteredResults.length === 0) {
