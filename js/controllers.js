@@ -1202,3 +1202,207 @@ myControllers.controller('SummaryDataController', [function () {
 }]);
 
 
+myControllers.controller('ASDMPController', ['$scope', '$http', '$routeParams', '$q','ContractsFactory','NewContractsFactory',
+  function ($scope, $http, $routeParams, $q, ContractsFactory, NewContractsFactory) {
+    
+    $scope.total_num_of_contracts = 'Calculating';
+    $scope.searchInProgress = false
+    var query = '';
+    var apiContracts = {results: [], total: 0} // $scope.data
+    $scope.data = {results: [], total: 0}
+
+    $scope.searchTerm = '';
+    /** Show search progress indicator */
+    $('.search-loading').show();
+
+    $scope.compareSupportDocs=function(contractIds){
+        $scope.total_num_of_contracts = 'Calculating';
+        var totalNumContracts = 0;
+        if (contractIds.length > 0) {   
+            var promiseArr = [];
+            for (var idx=0;idx<contractIds.length;idx++) {
+                promiseArr.push(ContractsFactory.get.metadata(contractIds[idx]));
+            }
+            $scope.bulkPromise = $q.all(promiseArr)
+            $scope.bulkPromise
+                .then(function(responseValues){
+                    if (responseValues) {
+                        if (responseValues.length) {
+                            for (var kk=0;kk<responseValues.length;kk++) {
+                                var returnData = responseValues[kk].data
+                                if (returnData.type==='Contract') {
+                                    totalNumContracts++;
+                                }
+                            }
+                        }
+                    }
+                    // $scope.total_num_of_contracts = totalNumContracts;
+                    // Get additional contracts
+                    getAdditionalContracts(totalNumContracts)
+                }, function(err){
+                  $scope.searchInProgress = false
+                  $('.search-loading').hide();
+                  if ($scope.data && $scope.data.results.length < 1) {
+                      $('.search-no-result').show()
+                  }
+                })
+        } else {
+            // Get additional contracts
+            getAdditionalContracts(totalNumContracts)
+        }
+    }
+
+    function runSearch () {
+        $scope.searchInProgress = true  
+
+        $http.get(api + 'contracts/search?from=0&per_page=1000&group=metadata&country_code=ph&' + query, { cache: true })
+            .success(function(data) {
+                var resultIds = []
+                var data = filterData(data);
+
+                apiContracts = data.results
+
+                $(window).trigger('rootData.loaded')
+                if (data.results) {
+                    var sResults = data.results;
+                    for (var idx=0;idx<sResults.length;idx++) {
+                        if ($.inArray(sResults[idx].id,resultIds)==-1) {
+                            resultIds.push(sResults[idx].id);
+                        }
+                    }
+                }
+                // Filters supporting documents 
+                // $scope.compareSupportDocs(resultIds);
+                
+                // Get Additional Contracts
+                getAdditionalContracts();
+            })
+            .error(function(error) {
+                $scope.searchInProgress = false
+                $('.search-loading').hide();
+                $('.search-no-result').show()
+                // window.location.reload();
+            });
+    }
+
+    runSearch()
+
+	function inArr(arr,needle) {
+		if (arr) {
+			for (var idx=0;idx<arr.length;idx++) {
+				if (arr[idx]==needle) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	function getIndexInArr(arr,attr,val){
+		if (arr) {
+			for (var idx=0;idx<arr.length;idx++) {
+				if (arr[idx][attr]==val) {
+					return idx;
+				}
+			}
+		}
+		return -1;
+	}
+
+	function getYearSigned(signDate){
+		if (signDate) {
+			return signDate.split('/')[2];
+		}
+	}
+
+	function getResource(resourceStr) {
+		if (resourceStr.match('/ and /gi')) {
+			var tempData = resourceStr.split(' and ');
+			if (tempData[0].match('/, /gi')) {
+				var comData = tempData[0].split(', ');
+				comData.push(tempData[1]);
+				return comData;
+			}
+			else {
+				return tempData;
+			}
+		}
+		return [resourceStr];
+    }
+    
+	function getAdditionalContracts(){        
+        apiContracts = [...apiContracts, ...__SCS__.allStaticContracts]
+    
+        var allContractNames = apiContracts.map(contract => {
+            return contract.name 
+        })
+
+        if (allContractNames.length > 0) {
+
+            var promisesArr = []
+            allContractNames.forEach(cname=>{
+                promisesArr.push(ContractsFactory.get.supportingDocs(cname))
+            })
+            
+            var allSuppDocs = []
+            $q.all(promisesArr)
+                .then(function(responseResult){
+                    if (responseResult) {
+                        if (responseResult.length) {
+                            for (var kk=0;kk<responseResult.length;kk++) {
+                                var returnData = responseResult[kk]
+                                const cname = returnData.config.url.split('contract_name=')[1]
+                                allSuppDocs.push({
+                                    contract_name: cname,
+                                    supportingDocs: returnData.data
+                                })
+                            }
+                        }
+                    }
+                    
+                    filterSupportingDocuments(allSuppDocs)
+                }, function(err){
+                    $scope.searchInProgress = false
+                    $('.search-loading').hide();
+                })
+        }
+	}
+
+    function getContractDataByName(cname) {
+        var res = apiContracts.filter(contract => {
+            return contract.name === cname 
+        })
+        if (res.length > 0) {
+            return res[0]
+        }
+        return null
+    }
+
+    function filterSupportingDocuments(allSuppDocs) {
+        var exp = new RegExp(/asdmp/,'gi')
+        var contractsWithEIS = allSuppDocs.filter(contract => {
+            if (contract.supportingDocs && contract.supportingDocs.length > 0) {
+                var res = contract.supportingDocs.filter(doc => {
+                    return doc.match(exp)
+                })
+                return res.length > 0
+            }
+        })
+        var dataWithEIS = []
+        if (contractsWithEIS.length > 0) {
+            contractsWithEIS.forEach(contract => {
+                let cdata = getContractDataByName(contract.contract_name)
+                cdata.supporting_contracts_extra = contract.supportingDocs
+                dataWithEIS.push(cdata)
+            })
+        }
+
+        $scope.data.results =  _.orderBy(dataWithEIS, ['name'], ['asc'])
+        $scope.data.total = dataWithEIS.length
+        $scope.searchInProgress = false
+        $('.search-loading').hide();
+    }
+	
+}]);
+
+

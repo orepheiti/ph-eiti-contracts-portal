@@ -53,6 +53,11 @@ myApp.config(['$routeProvider','$locationProvider',
       controller: 'EISController'
     }).
 
+    when('/contracts/asdmp', {
+      templateUrl: '/partials/asdmp.html',
+      controller: 'ASDMPController'
+    }).
+
     when('/contracts', {
       templateUrl: '/partials/search.html',
       controller: 'SearchController'
