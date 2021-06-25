@@ -4,9 +4,21 @@ class StaticContractService {
         this.allStaticContracts = []
         this.allContracts = []
         this.newSetId = null
+        this.newSetIds = []
 
         this.getNewContractSet(contractDetailsArr)
     }
+
+    inArr(arr,needle) {
+		if (arr) {
+			for (var idx=0;idx<arr.length;idx++) {
+				if (arr[idx]==needle) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
     setAllContracts(data) {
         this.allContracts = data
@@ -87,6 +99,7 @@ class StaticContractService {
     
 
     getNewContractSet(contractDetailsArr) {
+        this.newSetIds = []
         /** Init details properties */
         this.contractSets.forEach((c,setIdx)=>{
             c.contractDetails = contractDetailsArr[setIdx]
@@ -99,8 +112,11 @@ class StaticContractService {
         const res = this.contractSets.filter(s => {
             return s.isNew
         })
-        if (res.length > 0 && res[0]) {
-            this.newSetId = res[0].setId
+        if (res.length > 0) {
+            this.newSetIds = res.map(s => {
+                return s.setId
+            })
+            // this.newSetId = res[0].setId
         }
         this.setStaticContracts()
     }
@@ -125,7 +141,8 @@ class StaticContractService {
                     newContract["id"] = `offline-contract-${setId}-${this.allStaticContracts.length}`
 
                     /** Set 'New' flag */
-                    if (setId === this.newSetId) {
+                    // if (setId === this.newSetId) {
+                    if (this.inArr(this.newSetIds,setId) === true) {
                         newContract["isNew"] = true
                     } else {
                         newContract["isNew"] = false

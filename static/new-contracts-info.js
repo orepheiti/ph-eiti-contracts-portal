@@ -7610,3 +7610,153 @@ const NEW_CONTRACTS_INFO_2020 = [
         "CONTRACT NO.": "Galoc Production SPC (Formerly Galoc Production Company WLL)"
     }*/    
 ]
+
+const NEW_CONTRACTS_INFO_2021 = [
+  {
+      "NAME": "Semirara Mining and Power Corporation",
+      "MAIN OR ASSOCIATED": "Main",
+      "DOCUMENT/FILE NAME": "",
+      "FILE NAME": "COC No. 5",
+      "CONTRACT NO.": "COC No. 5"
+  },
+  {
+    "NAME": "Adlaon Energy Development Corporation",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 9, AEDC",
+    "CONTRACT NO.": "COC No. 9, AEDC"
+  },
+  {
+    "NAME": "PNOC-Exploration Corporation",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 41",
+    "CONTRACT NO.": "COC No. 41"
+  },
+  {
+    "NAME": "Filipinas (Prefab) Systems, Inc.",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 68",
+    "CONTRACT NO.": "COC No. 68"
+  },
+  {
+    "NAME": "Filipinas (Prefab) Systems, Inc.",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 68",
+    "CONTRACT NO.": "COC No. 68"
+  },
+  {
+    "NAME": "A Blackstone Energy Corp.",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 93",
+    "CONTRACT NO.": "COC No. 93"
+  },
+  {
+    "NAME": "D. M. Wenceslao and Associates, Inc.",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 116",
+    "CONTRACT NO.": "COC No. 116"
+  },
+  {
+    "NAME": "PNOC-Exploration Corporation",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 122",
+    "CONTRACT NO.": "COC No. 122"
+  },
+  {
+    "NAME": "D. M. Wenceslao and Associates. Inc.",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 123",
+    "CONTRACT NO.": "COC No. 123"
+  },
+  {
+    "NAME": "Lima Coal Development Corporation",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 125",
+    "CONTRACT NO.": "COC No. 125"
+  },
+  {
+    "NAME": "Daguma Agro Minerals Inc.",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 126",
+    "CONTRACT NO.": "COC No. 126"
+  },
+  {
+    "NAME": "Samaju Corporation",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 128",
+    "CONTRACT NO.": "COC No. 128"
+  },
+  {
+    "NAME": "Samaju Corporation",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 129",
+    "CONTRACT NO.": "COC No. 129"
+  },
+  {
+    "NAME": "Sultan Energy Phil. Corp.",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 134",
+    "CONTRACT NO.": "COC No. 134"
+  },
+  {
+    "NAME": "Bonanza Energy Resources, Inc.",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 138",
+    "CONTRACT NO.": "COC No. 138"
+  },
+  {
+    "NAME": "Great Wall Mining and Power Corporation",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 145",
+    "CONTRACT NO.": "COC No. 145"
+  },
+  {
+    "NAME": "Abacus Coal Exploration and Development Corp",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 148",
+    "CONTRACT NO.": "COC No. 148"
+  },
+  {
+    "NAME": "Guidance Management Corp.",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 151",
+    "CONTRACT NO.": "COC No. 151"
+  },
+  {
+    "NAME": "Lima Coal Development Corporation",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 153",
+    "CONTRACT NO.": "COC No. 153"
+  },
+  {
+    "NAME": "Titan Exploration & Dev. Corp.",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 159 Titan",
+    "CONTRACT NO.": "COC No. 159 Titan"
+  },
+  {
+    "NAME": "BBB Mining and Energy Corp.",
+    "MAIN OR ASSOCIATED": "Main",
+    "DOCUMENT/FILE NAME": "",
+    "FILE NAME": "COC No. 173_ BBB",
+    "CONTRACT NO.": "COC No. 173_ BBB"
+  }
+]
