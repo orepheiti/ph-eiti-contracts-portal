@@ -43,7 +43,7 @@ myApp.config(['$routeProvider','$locationProvider',
       controller: 'DMPFController'
     }).
 
-    when('/mpsa-registry', {
+    when('/contracts-registry', {
       templateUrl: '/partials/summary-data.html',
       controller: 'SummaryDataController'
     }).
