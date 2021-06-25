@@ -38,7 +38,12 @@ myApp.config(['$routeProvider','$locationProvider',
       controller: 'SearchController'
     }).
 
-    when('/summary-data', {
+    when('/licenses/dmpf-registry', {
+      templateUrl: '/partials/licenses-dmpf.html',
+      controller: 'DMPFController'
+    }).
+
+    when('/mpsa-registry', {
       templateUrl: '/partials/summary-data.html',
       controller: 'SummaryDataController'
     }).

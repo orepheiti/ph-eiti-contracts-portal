@@ -1201,6 +1201,17 @@ myControllers.controller('SummaryDataController', [function () {
 	
 }]);
 
+myControllers.controller('DMPFController', [function () {
+    
+    /** Show search progress indicator */
+    $('.search-loading').show();
+
+    setTimeout(()=>{
+        $('.search-loading').hide();
+    }, 500)
+	
+}]);
+
 
 myControllers.controller('ASDMPController', ['$scope', '$http', '$routeParams', '$q','ContractsFactory','NewContractsFactory',
   function ($scope, $http, $routeParams, $q, ContractsFactory, NewContractsFactory) {
