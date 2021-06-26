@@ -91,8 +91,19 @@ class StaticContractService {
     }
 
     getYearSigned(signDate){
+        if (signDate && typeof(signDate)!=='string') {
+            return signDate
+        }
 		if (signDate) {
-			return signDate.split('/')[2];
+            var regExp = new RegExp('/','gi')
+            if (signDate.match(regExp)) {
+                var res = signDate.split('/')
+                if (res.length > 0) {
+                    return res[2]
+                }
+            } else {
+                return signDate
+            }
         }
         return null
     }

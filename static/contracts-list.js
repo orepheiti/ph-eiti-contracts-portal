@@ -178,7 +178,16 @@ var STATIC_CONTRACTS = [
             "COC No. 151",
             "COC No. 153",
             "COC No. 159 Titan",
-            "COC No. 173_ BBB"
+            "COC No. 173_ BBB",
+            "Annex B Dinagat Parcel 1 - UPCMP JOA",
+            "Annex C Dinagat Parcel 2B - UPCMC JOA",
+            "Annex D Malitbog - SGB 3A JOA",
+            "Annex E Opol Chromite - Filsystems JOA",
+            "Annex F Paracale Gold - Blackstone JOA",
+            "Annex G Pinamungahan - Century Peak JOA",
+            "Annex H PMDC 729 Victory Tunnel Project - PACOMINCO JOA",
+            "Annex I San Fernando - Mabuhay Filcement JOA",
+            "Annex J Upper-Ulip - Pacominco JOA"
         ],
         isNew: true,
         contractDetails: []
