@@ -2,7 +2,8 @@ var myControllers = angular.module('myControllers', ['ngAnimate']);
 
 const __SCS__ = new StaticContractService(STATIC_CONTRACTS, [
     NEW_CONTRACTS_INFO,
-    NEW_CONTRACTS_INFO_2020
+    NEW_CONTRACTS_INFO_2020,
+    NEW_CONTRACTS_INFO_2021
 ])
 
 var api = 'https://api.resourcecontracts.org/'; //'http://rc-api-stage.elasticbeanstalk.com/api/';
@@ -1191,6 +1192,17 @@ myControllers.controller('EISController', ['$scope', '$http', '$routeParams', '$
 
 
 myControllers.controller('SummaryDataController', [function () {
+    
+    /** Show search progress indicator */
+    $('.search-loading').show();
+
+    setTimeout(()=>{
+        $('.search-loading').hide();
+    }, 500)
+	
+}]);
+
+myControllers.controller('DMPFController', [function () {
     
     /** Show search progress indicator */
     $('.search-loading').show();

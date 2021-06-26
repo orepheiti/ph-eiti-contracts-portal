@@ -154,5 +154,42 @@ var STATIC_CONTRACTS = [
         ],
         isNew: true,
         contractDetails: []
+    },
+    {
+        setId: 2021,
+        subFolder: '2021',
+        contracts: [
+            "COC No. 5",
+            "COC No. 9, AEDC",
+            "COC No. 41",
+            "COC No. 68",
+            "COC No. 93",
+            "COC No. 116",
+            "COC No. 122",
+            "COC No. 123",
+            "COC No. 125",
+            "COC No. 126",
+            "COC No. 128",
+            "COC No. 129",
+            "COC No. 134",
+            "COC No. 138",
+            "COC No. 145",
+            "COC No. 148",
+            "COC No. 151",
+            "COC No. 153",
+            "COC No. 159 Titan",
+            "COC No. 173_ BBB",
+            "Annex B Dinagat Parcel 1 - UPCMP JOA",
+            "Annex C Dinagat Parcel 2B - UPCMC JOA",
+            "Annex D Malitbog - SGB 3A JOA",
+            "Annex E Opol Chromite - Filsystems JOA",
+            "Annex F Paracale Gold - Blackstone JOA",
+            "Annex G Pinamungahan - Century Peak JOA",
+            "Annex H PMDC 729 Victory Tunnel Project - PACOMINCO JOA",
+            "Annex I San Fernando - Mabuhay Filcement JOA",
+            "Annex J Upper-Ulip - Pacominco JOA"
+        ],
+        isNew: true,
+        contractDetails: []
     }
 ]
