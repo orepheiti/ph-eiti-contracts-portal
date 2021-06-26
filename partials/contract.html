@@ -10,12 +10,18 @@
                 </div>
 
                 <div class="panel-title">
-                    {{data.name || '-'}}<!-- {{data.contract_name || '-'}} -->
+                    {{data.name || '-'}}
+                    <!-- {{data.contract_name || '-'}} -->
+                    <span class="tag tag--new" ng-show="data.isNew">NEW</span>
                 </div>
             </div>
             <div class="action-links">
                 <ul>
-                    <li class="pull-left"><a target="_self" href="/contract-view.html?contractId={{data.id}}&contractTitle={{data.name}}&totalPages={{data.number_of_pages}}">View Document</a></li>
+                    <li class="pull-left" ng-show="isOcds"><a target="_self"
+                            href="/contract-view.html?contractId={{data.id}}&contractTitle={{data.name}}&totalPages={{data.number_of_pages}}">View
+                            Document</a></li>
+                    <li class="pull-left" ng-show="isOcds===false"><a target="_self" href="{{data.file[0].url}}">View
+                            Document</a></li>
                     <!-- <li class="pull-left"><a target="_self" href="/contract-view.html?contractId={{data.contract_id}}&contractTitle={{data.contract_name}}&totalPages={{data.total_pages}}">View Document</a></li> -->
                 </ul>
             </div>
@@ -29,7 +35,7 @@
 
                     <ul class="dropdown-menu" style="display: none;">
                         <li><a href="{{data.file[0].url}}" target="_blank">PDF</a></li>
-                        <li><a target="_blank" class="download-word">Word File</a></li>
+                        <li ng-if="data.word_file"><a target="_blank" class="download-word">Word File</a></li>
                     </ul>
                 </div>
             </div>
@@ -88,7 +94,8 @@
                             <label for="">Resource</label>
                             <span class="resource-list">
                                 <p ng-repeat="(i, v) in data.resource">
-                                    {{v}}<!-- {{v || '-'}} -->
+                                    {{v}}
+                                    <!-- {{v || '-'}} -->
                                 </p>
                             </span>
                         </li>
@@ -131,7 +138,8 @@
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Jurisdiction of Incorporation</label>
-                        <span data-ng-show="data.participation[0].company.identifier.creator.spatial==='PH'">Philippines</span>
+                        <span
+                            data-ng-show="data.participation[0].company.identifier.creator.spatial==='PH'">Philippines</span>
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Registration Agency</label>
@@ -153,7 +161,7 @@
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Corporate Grouping</label>
                         <!-- <span>{{data.company[0].parent_company || '-'}}</span> -->
-                        <span>{{data.participation[0].company.corporate_grouping || '-'}}</span> 
+                        <span>{{data.participation[0].company.corporate_grouping || '-'}}</span>
                     </li>
                 </ul>
                 <ul>
@@ -164,12 +172,14 @@
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Participation Share</label>
                         <!-- <span>{{(data.company[0].participation_share | percent) || '-'}}</span> -->
-                        <span>{{(data.participation[0].share | percent) || '-'}}</span>
+                        <span
+                            ng-if="data.participation[0].share!=null">{{(data.participation[0].share | percent) || '-'}}</span>
                     </li>
                     <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <label for="">Operator</label>
                         <!-- <span>{{(data.company[0].operator | trueFalse ) || '-'}}</span> -->
-                        <span>{{(data.participation[0].is_operator | trueFalse ) || '-'}}</span>
+                        <span
+                            ng-if="data.participation[0].is_operator!=null">{{(data.participation[0].is_operator | trueFalse ) || '-'}}</span>
                     </li>
                 </ul>
             </div>
@@ -185,16 +195,20 @@
                 <table class="table table-responsive table-contract table-associated-contract">
                     <tbody>
                         <!-- <tr ng-repeat="(i,v) in data.supporting_contracts" ng-show="v.status == 'published'"> -->
-                        <tr data-ng-if="data.associated.length > 0" ng-repeat="(i,v) in data.associated" ng-show="v.is_published===true">
+                        <tr data-ng-if="data.associated.length > 0" ng-repeat="(i,v) in data.associated"
+                            ng-show="v.is_published===true">
                             <td style="padding: 0.5em 48px 1em;">
                                 <!-- <a style="font-size: 14px !important;" href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.contract_name}}&contractParentId={{data.contract_id}}&totalPages={{v.total_pages}}" target="_self">{{v.contract_name || '-'}}</a> -->
-                                <a style="font-size: 14px !important;" href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.name}}&contractParentId={{data.id}}&totalPages={{v.total_pages}}" target="_self">{{v.name || '-'}}</a>
+                                <a style="font-size: 14px !important;"
+                                    href="/contract-view.html?contractId={{v.id}}&contractTitle={{v.name}}&contractParentId={{data.id}}&totalPages={{v.total_pages}}"
+                                    target="_self">{{v.name || '-'}}</a>
                             </td>
                         </tr>
-                        
+
                         <tr ng-repeat="(i,v) in data.supporting_contracts_extra">
-                            <td style="padding: 0.5em 48px 1em;">                            
-                                <a style="font-size: 14px !important;" href="/supporting-documents/{{data.name}}/{{v}}" target="_self">{{v}}</a>
+                            <td style="padding: 0.5em 48px 1em;">
+                                <a style="font-size: 14px !important;" href="/supporting-documents/{{data.name}}/{{v}}"
+                                    target="_self">{{v}}</a>
                             </td>
                         </tr>
 
