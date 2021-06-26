@@ -34,8 +34,33 @@ myApp.config(['$routeProvider','$locationProvider',
     }).
 
     when('/search', {
-      templateUrl: '/partials/search.html',
+      templateUrl: '/partials/search.html?v=2.0',
       controller: 'SearchController'
+    }).
+
+    when('/licenses/dmpf-registry', {
+      templateUrl: '/partials/licenses-dmpf.html',
+      controller: 'DMPFController'
+    }).
+
+    when('/contracts-registry', {
+      templateUrl: '/partials/summary-data.html',
+      controller: 'SummaryDataController'
+    }).
+
+    when('/contracts/mmt', {
+      templateUrl: '/partials/mmt.html',
+      controller: 'MMTController'
+    }).
+
+    when('/contracts/eis', {
+      templateUrl: '/partials/eis.html',
+      controller: 'EISController'
+    }).
+
+    when('/contracts/asdmp', {
+      templateUrl: '/partials/asdmp.html',
+      controller: 'ASDMPController'
     }).
 
     when('/contracts', {
@@ -74,8 +99,11 @@ myApp.filter('trueFalse', [ function($sce) {
     if (input == 1) {
       return 'Yes'
     }
-    else {
+    else if (input == 0) {
       return 'No'
+    }
+    else {
+      return "-"
     }
 
   }
