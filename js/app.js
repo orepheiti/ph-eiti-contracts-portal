@@ -261,7 +261,6 @@ Array.prototype.remove = function(from, to) {
 };
 
 function filterData(data) {
-
   var data = data;
 
   // Remove supporting documents
@@ -287,6 +286,10 @@ function filterData(data) {
   });
 
   remove(resource, 'Hydrocarbons');
+  remove(resource, 'Ananas comosus (Pineapple plant)')
+  remove(resource, 'Bananas')
+  remove(resource, 'Maize (Corn)')
+  remove(resource, 'Rice')
 
   data.resource = resource.sort();
 
